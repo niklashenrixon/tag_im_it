@@ -1,0 +1,126 @@
+respawn = "BASE";
+respawnDelay = 5;
+respawnDialog = 0;
+respawnButton = 0;
+
+onLoadName = "TAG I'M IT | MALDEN";
+onLoadMission = "Let the hunt begin!";
+onLoadIntro = "Mod by NIXON";
+onLoadIntroTime = False;
+onLoadMissionTime = False;
+
+author = "NIXON";
+
+overviewText = "Let the hunt begin!";
+overviewTextLocked = "TAG I'M IT | MALDEN";
+overviewPicture = "\tag_assets\images\logo_small_alpha.paa";
+
+loadScreen = "\tag_assets\images\logo_big_dark.paa";
+
+// User "class Header" for maximum player amount
+// Example:
+// class Header {
+//     gameType = DM;
+//     minPlayers = 1;
+//     maxPlayers = 16;
+// };
+
+class TagImItSettings {
+
+	class playerSettings {
+		minPlayersToStart  = 3;
+	};
+
+	class developmentSettings {
+		debugMode = 1; // 0: no debug. 1: normal debug. 2: deep debug
+	};
+};
+
+class Header {
+	gameType = DM;
+	minPlayers = 1;
+	maxPlayers = 32;
+};
+
+disabledAI = true;
+disableChannels[] = {{0, true, true},{1, true, true},{2, true, true},{3, false, true},{4, true, true},{5, true, true},{6, false, true}};
+enableItemsDropping = 0;
+enableDebugConsole = 1;
+onPauseScript = "";
+debriefing = 0;
+saving = 0;
+joinUnassigned = 1;
+corpseLimit = 100;
+corpseRemovalMinTime = 300;
+corpseRemovalMaxTime = 3600;
+allowFunctionsRecompile = 0;
+persistent = 1;
+aiKills = 0;
+diagRadio = 0;
+scriptedPlayer = 0;
+
+class RscTitles {
+  #include "\tag_assets\ui\defines.hpp"  
+};
+
+class CfgSounds {
+	sounds[]={};
+
+	class jaws1 {
+		name = "Jaws theme";
+		sound[] = {"@tag_assets\sound\jaws.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+
+	class siren1 {
+		name = "Supply drop siren";
+		sound[] = {"@tag_assets\sound\siren.ogg", 0.4, 1};
+		titles[] = {0,""};
+	};
+
+	class five1 {
+		name = "Five minute warning";
+		sound[] = {"@tag_assets\sound\five.ogg", 0.5, 1};
+		titles[] = {0,""};
+	};
+
+	class two1 {
+		name = "Two minute warning";
+		sound[] = {"@tag_assets\sound\two.ogg", 0.5, 1};
+		titles[] = {0,""};
+	};
+
+	class one1 {
+		name = "One minute warning";
+		sound[] = {"@tag_assets\sound\one.ogg", 0.5, 1};
+		titles[] = {0,""};
+	};
+
+	class thirty1 {
+		name = "30 sec warning";
+		sound[] = {"@tag_assets\sound\thirty.ogg", 0.5, 1};
+		titles[] = {0,""};
+	};
+
+	class hs1 {
+		name = "Headshot sound";
+		sound[] = {"@tag_assets\sound\hs.ogg", 0.5, 1};
+		titles[] = {0,""};
+	};
+
+	class winner1 {
+		name = "You are the winner";
+		sound[] = {"@tag_assets\sound\winner.ogg", 0.5, 1};
+		titles[] = {0,""};
+	};
+
+	class blank {
+		name = "No sound";
+		sound[] = {"@tag_assets\sound\blank.ogg", 1, 1};
+		titles[] = {0,""};
+	};
+};
+
+//#include "defines.hpp"
+//#include "RscTestControlTypes.hpp"
+//#include "RscTestControlStyles.hpp"
