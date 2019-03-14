@@ -43,7 +43,6 @@ class CfgMods {
 #include "\tag_client\configs\commands.hpp"
 
 // UI
-#include "\tag_client\ui\bisDefines.hpp"
 #include "\tag_client\ui\tagDefines.hpp"
 #include "\tag_client\ui\dialogs.hpp"
 #include "\tag_client\ui\onTheFlyDialogs.hpp"

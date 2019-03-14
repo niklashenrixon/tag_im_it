@@ -1,9 +1,9 @@
 class cfgWeapons {
 
 	class ItemCore;
-	class ItemInfo;
+	// class ItemInfo;
 	class UniformItem;
-	class HeadgearItem;
+	// class HeadgearItem;
 
 	class H_Cap_red;
 	class U_C_Poor_1;
@@ -209,6 +209,7 @@ class cfgWeapons {
 		hiddenSelectionsTextures[] = {"\tag_client\objects\headgear\taghelmet.paa"};
 		scope = 2;
 
+		/*
 		class ItemInfo : HeadgearItem {
 			mass = 1;
 			uniformModel = "\A3\Characters_F\BLUFOR\headgear_b_helmet_plain";
@@ -218,8 +219,8 @@ class cfgWeapons {
 			_generalMacro = "HeadgearItem";
 			allowedSlots[] = {901,605};
 			type = 605;
-			scope = 2;
 		};
+		*/
 	};
 
 	// NIXON CAP
@@ -232,7 +233,7 @@ class cfgWeapons {
 		hiddenSelections[] = {"camo"};
 		hiddenSelectionsTextures[] = {"\tag_client\objects\headgear\nixon_cap.paa"};  // CAP texture
 		scope = 2;
-
+		/*
 		class ItemInfo : ItemInfo {
 			mass = 4;
 			uniformModel = "\A3\Characters_F\common\capb.p3d";
@@ -240,8 +241,9 @@ class cfgWeapons {
 			modelSides[] = {6};
 			hiddenSelections[] = {"camo"};
 			author = "NIXON";
-			scope = 2;
 			_generalMacro = "HeadgearItem";
 		};
+		*/
 	};
+
 };

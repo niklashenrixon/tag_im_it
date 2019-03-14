@@ -1,3 +1,11 @@
+class RscText;
+class RscEdit;
+class IGUIBack;
+class RscButton;
+class RscPicture;
+class RscListBox;
+class RscStructuredText;
+
 /*
 *	CUSTOM PARENT CLASSES
 */
