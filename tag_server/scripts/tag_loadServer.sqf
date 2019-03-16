@@ -20,9 +20,6 @@
 *
 */ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Load Weather
-0 spawn tiig_fnc_dynWeather;
-
 // Compile server-side functions
 call compile preprocessFile "\tag_server\functions\tag_serverFunctions.sqf";
 

@@ -26,22 +26,20 @@ params ["_unit", "_causedBy", "_damage", "_instigator"];
 // Lägg till en statistik på hur mycket skada en person gör under varje runda
 // summera även det i leaderboard så man ser hur mycket skada personen har gett under hela sin livstid
 
-// Executed on killer pc
-if(player == _causedBy && player != _unit) then {
+// Execute this only if game has started
+if (tag_gameInProgress) then {
+
+	// 
+	if(player == _causedBy && player != _unit) then {
+
+	};
+
+	// Damage inflicted by yourself
+	if(player == _unit && player == _causedBy) then {
+
+	};
 
 };
-
-// Self damage
-if(player == _unit && player == _causedBy) then {
-
-};
-
-// Server execution
-if(isServer || isDedicated) then {
-
-};
-
-
 
 
 /*

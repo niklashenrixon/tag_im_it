@@ -102,7 +102,7 @@ _joinMessage = format ["Round starting with %1 players", tag_playerCount2];
 ["tagPlayerConnected", "onPlayerConnected"] call BIS_fnc_removeStackedEventHandler;
 
 /* Log new round */
-[["NEW_MATCH_STARTED: Round ID: %1 | Map: %2 | Nr of Players: %3", roundId, tag_worldName, tag_playerCount2], "DEBUG"] call tiig_fnc_log;
+[["NEW_MATCH_STARTED: Round ID: %1 | Map: %2 | Nr of Players: %3", tag_roundID, tag_worldName, tag_playerCount2], "DEBUG"] call tiig_fnc_log;
 
 /* Load watchdog script when round has started */
 waitUntil {

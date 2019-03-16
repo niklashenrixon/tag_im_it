@@ -45,7 +45,7 @@
 	_victimID = getPlayerUID _victim;
 	_killerID = getPlayerUID _killer;
 
-	[["EH_NAME UpdatePlayerRoundStat triggered by: %1 (%2) | Killer: %3 (%4) | Round ID: %5", name _victim, _victimID, name _killer, _killerID, roundId], "DEEPDEBUG"] call tiig_fnc_log;
+	[["EH_NAME UpdatePlayerRoundStat triggered by: %1 (%2) | Killer: %3 (%4) | Round ID: %5", name _victim, _victimID, name _killer, _killerID, tag_roundID], "DEEPDEBUG"] call tiig_fnc_log;
 
 	_victimWeapon = currentWeapon _victim;
 	_killerWeapon = currentWeapon _killer;
@@ -147,7 +147,7 @@
 		_victimLocationX,
 		_victimLocationY,
 		_victimLocationZ,
-		roundId,
+		tag_roundID,
 		_victimID
 	]; [_query, 1, true] call tiis_fnc_aSync;
 
@@ -172,7 +172,7 @@
 		_queryScore = format [
 			"UpdatePlayerRoundStatScore:%1:%2:%3",
 			hsScore,
-			roundId,
+			tag_roundID,
 			_killerID
 		]; [_queryScore, 1, true] call tiis_fnc_aSync;
 
@@ -197,7 +197,7 @@
 		_queryScore = format [
 			"UpdatePlayerRoundStatScore:%1:%2:%3",
 			killScore,
-			roundId,
+			tag_roundID,
 			_killerID
 		]; [_queryScore, 1, true] call tiis_fnc_aSync;
 
@@ -206,7 +206,7 @@
 	// Give the killer +1 kill
 	_query = format [
 		"UpdatePlayerRoundStat:%1:%2",
-		roundId,
+		tag_roundID,
 		_killerID
 	]; [_query, 1, true] call tiis_fnc_aSync;
 
@@ -233,7 +233,7 @@
 	_winner   = _this select 1 select 0;
 	_winnerID = _this select 1 select 1;
 
-	[["EH_NAME UpdatePlayerRoundStatWinner triggered by: %1 (%2) | Round ID: %3", name _winner, _winnerID, roundId], "DEEPDEBUG"] call tiig_fnc_log;
+	[["EH_NAME UpdatePlayerRoundStatWinner triggered by: %1 (%2) | Round ID: %3", name _winner, _winnerID, tag_roundID], "DEEPDEBUG"] call tiig_fnc_log;
 
 	_winnerShotsFired = _winner getVariable "tag_shotsFired";
 	_winnerShotsTaken = _winner getVariable "tag_shotsTaken";
@@ -265,7 +265,7 @@
 		_winnerShotsFired,
 		_winnerShotsTaken,
 		wScore,
-		roundId,
+		tag_roundID,
 		_winnerID
 	]; [_query, 1, true] call tiis_fnc_aSync;
 
@@ -294,7 +294,7 @@
 	_unit	= _this select 1 select 0;
 	_unitID = _this select 1 select 1;
 
-	[["EH_NAME UpdatePlayerDeathOnRespawn triggered by: %1 (%2) | Round ID: %3", name _unit, _unitID, roundId], "DEEPDEBUG"] call tiig_fnc_log;
+	[["EH_NAME UpdatePlayerDeathOnRespawn triggered by: %1 (%2) | Round ID: %3", name _unit, _unitID, tag_roundID], "DEEPDEBUG"] call tiig_fnc_log;
 
 	_shotsFired = _unit getVariable "tag_shotsFired";
 	_shotsTaken = _unit getVariable "tag_shotsTaken";
@@ -323,7 +323,7 @@
 		_lifeSpanAsIT,
 		_shotsFired,
 		_shotsTaken,
-		roundId,
+		tag_roundID,
 		_unitID
 	]; [_query, 1, true] call tiis_fnc_aSync;
 
@@ -341,7 +341,7 @@
 	_unit 	= _this select 1 select 0;
 	_unitID = _this select 1 select 1;
 	
-	[["EH_NAME UpdatePlayerAntiCamp triggered by: %1 (%2) | Round ID: %3", name _unit, _unitID, roundId], "DEEPDEBUG"] call tiig_fnc_log;
+	[["EH_NAME UpdatePlayerAntiCamp triggered by: %1 (%2) | Round ID: %3", name _unit, _unitID, tag_roundID], "DEEPDEBUG"] call tiig_fnc_log;
 
 	_query = format [
 		"UpdatePlayerStatAntiCamp:%1",
@@ -350,7 +350,7 @@
 
 	_query = format [
 		"UpdatePlayerRoundAntiCamp:%1:%2",
-		roundId,
+		tag_roundID,
 		_unitID
 	]; [_query, 1, true] call tiis_fnc_aSync;
 };
@@ -362,7 +362,7 @@
 	_unit 	= _this select 1 select 0;
 	_unitID = _this select 1 select 1;
 	
-	[["EH_NAME UpdatePlayerAntiCampDeath triggered by: %1 (%2) | Round ID: %3", name _unit, _unitID, roundId], "DEEPDEBUG"] call tiig_fnc_log;
+	[["EH_NAME UpdatePlayerAntiCampDeath triggered by: %1 (%2) | Round ID: %3", name _unit, _unitID, tag_roundID], "DEEPDEBUG"] call tiig_fnc_log;
 
 	_shotsFired = _unit getVariable "tag_shotsFired";
 	_shotsTaken = _unit getVariable "tag_shotsTaken";
@@ -388,7 +388,7 @@
 		_lifeSpanAsIT,
 		_shotsFired,
 		_shotsTaken,
-		roundId,
+		tag_roundID,
 		_unitID
 	]; [_query, 1, true] call tiis_fnc_aSync;
 
@@ -406,7 +406,7 @@
 	_unit	= _this select 1 select 0;
 	_unitID = _this select 1 select 1;
 
-	[["EH_NAME UpdatePlayerDeathOnDisconnect triggered by: %1 (%2) | Round ID: %3", name _unit, _unitID, roundId], "DEEPDEBUG"] call tiig_fnc_log;
+	[["EH_NAME UpdatePlayerDeathOnDisconnect triggered by: %1 (%2) | Round ID: %3", name _unit, _unitID, tag_roundID], "DEEPDEBUG"] call tiig_fnc_log;
 
 	/*
 	_shotsFired = _unit getVariable "tag_shotsFired";
@@ -428,7 +428,7 @@
 		"UpdatePlayerRoundStatDisconnected:%1:%2:%3:%4",
 		_lifeSpan,
 		_lifeSpanAsIT,
-		roundId,
+		tag_roundID,
 		_unitID
 	]; [_query, 1, true] call tiis_fnc_aSync;
 
@@ -448,7 +448,7 @@
 	_unit	= _this select 1 select 0;
 	_unitID	= _this select 1 select 1;
 
-	[["EH_NAME UpdatePlayerOnDraw triggered by: %1 (%2) | Round ID: %3", name _unit, _unitID, roundId], "DEEPDEBUG"] call tiig_fnc_log;
+	[["EH_NAME UpdatePlayerOnDraw triggered by: %1 (%2) | Round ID: %3", name _unit, _unitID, tag_roundID], "DEEPDEBUG"] call tiig_fnc_log;
 
 	_shotsFired = _unit getVariable "tag_shotsFired";
 	_shotsTaken = _unit getVariable "tag_shotsTaken";
@@ -474,7 +474,7 @@
 		_lifeSpanAsIT,
 		_shotsFired,
 		_shotsTaken,
-		roundId,
+		tag_roundID,
 		_unitID
 	]; [_query, 1, true] call tiis_fnc_aSync;
 

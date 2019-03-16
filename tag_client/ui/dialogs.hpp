@@ -428,7 +428,7 @@ class RscTitles {
 		onLoad = "uiNamespace setVariable ['TAG_U_CAMINFO_DISP', _this select 0];"; 
 		   
 		class Controls {
-			class TAG_U_CAMINFO_TEXT: RscText
+			class TAG_U_CAMINFO_TEXT: RscStructuredText
 			{
 				idc = IDC_TAG_U_CAMINFO_TEXT;
 				style = ST_LEFT + ST_MULTI;

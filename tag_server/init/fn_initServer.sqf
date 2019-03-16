@@ -42,4 +42,10 @@ missionNamespace setVariable ["tag_gameFinished",  false, true]; // True after u
 // Other
 missionNamespace setVariable ["tag_playGroundSettings", [[0, 0, 0], 100], true];
 
+// Start weather system
+0 spawn tiig_fnc_dynWeather;
+
+_roundId = [32] call tiis_fnc_generateRoundId;
+missionNamespace setVariable["tag_roundID", _roundId, TRUE];
+
 execVM "\tag_server\scripts\tag_loadServer.sqf";

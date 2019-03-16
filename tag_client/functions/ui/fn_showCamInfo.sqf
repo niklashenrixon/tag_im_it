@@ -4,11 +4,13 @@ disableSerialization;
 
 _disp = uiNamespace getVariable "TAG_U_CAMINFO_DISP";
 _txtInfo = _disp displayCtrl 8642;
-_txtInfo ctrlSetText "M to show map then leftclick to place camera.
-W/S to move forward and backwards
-A/D to move left and right
-Q/Z to move up and down
-*(NUM) to enable free look
-N to switch between nightvision/thermal/heat
-0-9 to change camera filter. Press § / ½ to reset filter
-B to view player names";
+
+_lotsOfText = "* <t color='#ff0000'>M</t> to show map then leftclick to place camera.<br/>
+* <t color='#ff0000'>W/S</t> to move forward and backwards<br/>
+* <t color='#ff0000'>A/D</t> to move left and right<br/>
+* <t color='#ff0000'>Q/Z</t> to move up and down<br/>
+* <t color='#ff0000'>*(NUM)</t> to enable free look<br/>
+* <t color='#ff0000'>N</t> to switch between nightvision/thermal/heat<br/>
+* <t color='#ff0000'>B</t> to view player names";
+
+_txtInfo ctrlSetStructuredText parseText format["<t size='0.7'>%1</t>", _lotsOfText];

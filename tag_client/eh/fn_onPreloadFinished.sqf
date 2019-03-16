@@ -108,10 +108,10 @@ tag_removeWeapons = [] spawn {
 tag_amIBanned = [player, (getPlayerUID player)];
 publicVariableServer "tag_amIBanned";
 
-// spawn camera when joining if VIP and round in progress
-if (tag_roundInProgress && (getPlayerUID player) in tag_cameraAccess) then {
+// spawn camera when joining if round in progress
+if (tag_roundInProgress) then {
 	player addWeapon "ItemGPS";
-	player addAction ["Switch to camera", { tag_inCam = [player] spawn tiic_fnc_cameraSystem; }];
+	player addAction ["Spectator camera", { tag_inCam = [player] spawn tiic_fnc_cameraSystem; }];
 	player addAction ["Show camera instructions", { [] call tag_fn_cameraHint; }];
 };
 

@@ -16,7 +16,7 @@
 *		[20] call tiis_fnc_generateRoundId;
 *
 *	Parameter(s):
-*		0 NUMBEr (Mandatory):
+*		0 NUMBER (Mandatory):
 *			Length of the round id that you want to be generated
 *
 *	Returns:
@@ -27,28 +27,29 @@
 params [["_length",0]];
 if (_length == 0) exitWith { ["tiis_fnc_generateRoundId: cannot be used without providing a number"] call tiig_fnc_log; };
 
-roundId	= [];
+_roundId	= [];
 _roundIdString = "";
+
+_letters = ['a','b','c','d','e','f','g','h','u','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+			'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+_numbers = ['0','1','2','3','4','5','6','7','8','9'];
 
 for "_i" from 1 to _length do {
 	
-	_letters = ['a','b','c','d','e','f','g','h','u','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-				'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-	_numbers = ['0','1','2','3','4','5','6','7','8','9'];
-
-	_letterRandom = _letters select floor random count _letters;
-	_numberRandom = _numbers select floor random count _numbers;
+	_letterRandom = selectRandom _letters;
+	_numberRandom = selectRandom _numbers;
 
 	_holder = [_letterRandom, _numberRandom];
-	_outputRandom = _holder select floor random count _holder;
+	_outputRandom = selectRandom _holder;
 
-	roundId pushBack _outputRandom;
+	_roundId pushBack _outputRandom;
 };
 
-_idCount = (count roundId) -1;
+_idCount = (count _roundId) -1;
 
 for "_x" from 0 to _idCount do {
-	_currentElement = roundId select _x;
+	_currentElement = _roundId select _x;
 	_roundIdString = _roundIdString + _currentElement;
 };
 

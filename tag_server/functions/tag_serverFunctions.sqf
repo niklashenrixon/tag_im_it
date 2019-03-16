@@ -20,39 +20,7 @@
 *
 */ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-*	@Name: tag_fn_distributeHits
-*	@Description: When called, shots taken is logged to statistics for each player
-*	@Version: 0.0.1
-*	@Usage: [_hitArray(array), _logMessage(string)] call tag_fn_distributeHits;
-*	@Return: nothing
-*/
-tag_fn_distributeHits = {
-	_hitArray	= _this select 0;
-	_logMessage = _this select 1;
 
-	for "_i" from 1 to ((count _hitArray) / 2) do {
-		_unitHitID = _hitArray select 0;
-		_hitArray deleteAt 0;
-		_hits = _hitArray select 0;
-		_hitArray deleteAt 0;
-
-		[[_logMessage + " Hits deploy | Hit/s: %1 | PUID: %2", _hits, _unitHitID], "DEBUG"] call tiig_fnc_log;
-
-		_query = format [
-			"UpdateTotalStatShotsHit:%1:%2",
-			_hits,
-			_unitHitID
-		]; [_query, 1, true] call tiis_fnc_aSync;
-
-		_query = format [
-			"UpdatePlayerRoundStatShotsHit:%1:%2:%3",
-			_hits,
-			roundId,
-			_unitHitID
-		]; [_query, 1, true] call tiis_fnc_aSync;
-	};
-};
 
 /*
 *	@Name: tag_fn_getObjectId

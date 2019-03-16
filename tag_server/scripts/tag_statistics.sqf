@@ -46,9 +46,6 @@ if (_initDB) then {
 		waitUntil { // Wait for round to start before setting variables
 			if (tag_gameInProgress) exitWith {
 
-				_tag_roundID = [32] call tiis_fnc_generatetag_roundID;
-				missionNamespace setVariable["tag_roundID", _roundId, TRUE];
-
 				waitUntil {	if (tag_allPlayersIsWest) exitWith { TRUE }; sleep 0.3; };
 
 				// Register all players that has entered the round

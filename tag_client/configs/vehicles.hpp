@@ -12,8 +12,8 @@ class CfgVehicles {
 		respawnWeapons[] = {Throw, Put};            // Which weapons the character respawns with.
 		Items[] = {};                               // Which items the character has.
 		RespawnItems[] = {};                        // Which items the character respawns with.
-		linkedItems[] = {ItemGPS};		            // Which items the character has.
-		respawnLinkedItems[] = {ItemGPS};		    // Which items the character respawns with.
+		linkedItems[] = {ItemGPS, ItemCompass};		            // Which items the character has.
+		respawnLinkedItems[] = {ItemGPS, ItemCompass};		    // Which items the character respawns with.
 		class EventHandlers { init = ""; };
 	};
 
@@ -33,8 +33,8 @@ class CfgVehicles {
 		respawnWeapons[] = {Throw, Put};              // Which weapons the character respawns with.
 		Items[] = {};                        		  // Which items the character has. (GÖR OM TILL EN EGEN KEPS)
 		RespawnItems[] = {NIXON_CAP};                 // Which items the character respawns with.
-		linkedItems[] = {NIXON_CAP, ItemGPS};		  // Which items the character has.
-		respawnLinkedItems[] = {NIXON_CAP, ItemGPS};  // Which items the character respawns with.
+		linkedItems[] = {NIXON_CAP, ItemGPS, ItemCompass};		  // Which items the character has.
+		respawnLinkedItems[] = {NIXON_CAP, ItemGPS, ItemCompass};  // Which items the character respawns with.
 		class EventHandlers { init = ""; };
 	};
 
