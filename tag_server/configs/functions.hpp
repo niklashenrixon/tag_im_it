@@ -10,15 +10,20 @@ class CfgFunctions {
 		};
 
 		class Database {
-			file="tag_server\functions";
+			file="tag_server\functions\db";
 			class aSync;
+			class distributeHits;
+			class strip;
 		};
 
 		class Utilities {
-			file="tag_server\functions";
+			file="tag_server\functions\util";
 			class generateRoundId;
 			class lootSystem;
 			class supplyDrop;
+			class getObjectId;
+			class messageSystem;
+			class getLootPos;
 		};
 
 		class Eventhandlers {
@@ -27,6 +32,7 @@ class CfgFunctions {
 			class onPlayerConnected;
 			class onSetBanned;
 			class onAddScore;
+			class onHandleDisconnect;
 		};
 	};
 };

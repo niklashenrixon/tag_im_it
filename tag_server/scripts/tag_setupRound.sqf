@@ -39,7 +39,7 @@ for "_i" from 1 to 50 do {
 };
 
 /* Choose one of the maps to start a game on */
-_rLocation = selectRandom _maps;
+_rLocation = floor random count _maps;
 tag_activeMap = _maps select _rLocation;
 
 _sirenTemp = _sirens select _rLocation;
@@ -94,7 +94,7 @@ _houseList = [_mapX, _mapY] nearObjects ["House", _markerSize];
 
 /* Get house ID from object and put in array */
 {
-	_qHouseID = [_x] call tag_fn_getObjectId;
+	_qHouseID = [_x] call tiis_fnc_getObjectId;
 
 	/* Get loot positions by querying database */
 	_query = format ["getLootPosID:%1", _qHouseID];

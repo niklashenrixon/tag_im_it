@@ -20,14 +20,10 @@
 *
 */ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Compile server-side functions
-call compile preprocessFile "\tag_server\functions\tag_serverFunctions.sqf";
-
 // Load statistics module
 call compile preprocessFileLineNumbers "\tag_server\scripts\tag_statistics.sqf";
 
-// Starts
-0 spawn tag_fn_messageSystem;
+
 
 // Fuck off fog
 0 setFog 0;
