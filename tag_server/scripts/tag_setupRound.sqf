@@ -39,7 +39,7 @@ for "_i" from 1 to 50 do {
 };
 
 /* Choose one of the maps to start a game on */
-_rLocation = floor random count _maps;
+_rLocation = selectRandom _maps;
 tag_activeMap = _maps select _rLocation;
 
 _sirenTemp = _sirens select _rLocation;
