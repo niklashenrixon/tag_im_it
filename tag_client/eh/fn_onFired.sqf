@@ -23,34 +23,10 @@ params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projecti
 
 [_unit] call tiig_fnc_shotMarker;
 
-/*
-if (tag_roundStarted && _weapon != "Put" && side _unit != civilian) then {
-
-	tag_preShotsFired = tag_preShotsFired + 1;
-
-	_weaponAttachments = _unit weaponAccessories currentWeapon _unit;
-	_weaponSilencer = _weaponAttachments select 0;
-
-	_playerCount = {side _x != civilian} count playableUnits;
-
-	if (_playerCount >= 3) then {
-		if ((side _unit) == east) then {
-			if (_weaponSilencer != "") then {
-				[_unit,120,90,60,30] call tag_fn_itMarker;
-			} else {
-				[_unit,60,45,30,15] call tag_fn_itMarker;
-			};
-		};
-	};
-
-	if (_playerCount <= 2) then {
-		if (_weaponSilencer != "") then {
-			[_unit,120,90,60,30] call tag_fn_itMarker;
-		} else {
-			[_unit,60,45,30,15] call tag_fn_itMarker;
-		};
-	};
+if (tag_gameInProgress && _weapon != "Put" && side _unit != civilian) then {
+	_sfired = (player getVariable "tag_unitShotsFired") + 1;
+	player setVariable ["tag_unitShotsFired", _sfired, true];
 };
-*/
+
 [">>>> EH TRIGGERED: onFired <<<<","DEEPDEBUG"] call tiig_fnc_log;
 [["_unit: %1 | _weapon: %2 | _muzzle: %3 | _mode: %4 | _ammo: %5 | _magazine: %6 | _projectile: %7 | _gunner: %8",_unit,_weapon,_muzzle,_mode,_ammo,_magazine,_projectile,_gunner],"DEEPDEBUG"] call tiig_fnc_log;

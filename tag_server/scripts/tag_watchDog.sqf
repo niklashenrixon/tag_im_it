@@ -97,6 +97,8 @@
 				tag_clientIsWinner = [];
 				_pcIdWinner publicVariableClient "tag_clientIsWinner";
 
+				[_winner] spawn tiis_fnc_reportStats;
+
 				tag_roundComplete = TRUE;
 				publicVariable "tag_roundComplete";
 

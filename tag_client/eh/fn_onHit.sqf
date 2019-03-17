@@ -29,43 +29,31 @@ params ["_unit", "_causedBy", "_damage", "_instigator"];
 // Execute this only if game has started
 if (tag_gameInProgress) then {
 
-	// 
-	if(player == _causedBy && player != _unit) then {
-
+	// Damage BY others
+	if(player == _unit && player != _causedBy) then {
+		_sTaken = (player getVariable "tag_unitShotsTaken") + 1;
+		player setVariable ["tag_unitShotsTaken", _sTaken, true];
+				//[["EVENT_HIT: %1 was hit by someone",name player],"DEEPDEBUG"] call tiig_fnc_log;
 	};
 
-	// Damage inflicted by yourself
+	// Damage yourself
 	if(player == _unit && player == _causedBy) then {
+		//[["EVENT_HIT: %1 inflicted selfdamage",name player],"DEEPDEBUG"] call tiig_fnc_log;
+	};
+
+	// Damage TO others
+	if(player != _unit && player == _causedBy) then {
+		_sHits = (player getVariable "tag_unitShotsHit") + 1;
+		player setVariable ["tag_unitShotsHit", _sHits, true];
+				//[["EVENT_HIT: %1 hit someone",name player],"DEEPDEBUG"] call tiig_fnc_log;
+	};
+
+	// Server
+	if(!hasInterface) then {
 
 	};
 
 };
 
-
-/*
-_causedByUID = getPlayerUID(_causedBy);
-
-if (tag_playersMoved) then {
-
-	if (getPlayerUID(player) != _causedByUID && side(player) != side(_causedBy)) then {
-
-		tag_preShotsTaken = tag_preShotsTaken + 1;
-
-		[["EVENT_HIT: SHOTS TAKEN | %1", tag_preShotsTaken],"DEEPDEBUG"] call tagglobal_fnc_log;
-		
-		if (_causedByUID in hitArray) then {
-			_hitSearch = (hitArray find _causedByUID) + 1;
-			hitArray set [_hitSearch, ((hitArray select _hitSearch) + 1)];
-			[["EVENT_HIT: ADD | %1", hitArray],"DEEPDEBUG"] call tagglobal_fnc_log;
-		} else {
-			hitArray = hitArray + [_causedByUID, 1];
-			[["EVENT_HIT: CREATE | %1", hitArray],"DEEPDEBUG"] call tagglobal_fnc_log;
-		};
-		
-		tag_eh_hitTriggered = time + 0.2;
-	};
-};
-*/
 [">>>> EH TRIGGERED: onHit <<<<","DEEPDEBUG"] call tiig_fnc_log;
 [["_unit: %1 | _causedBy: %2 | _damage: %3 | _instigator: %4",_unit,_causedBy,_damage,_instigator],"DEEPDEBUG"] call tiig_fnc_log;
-

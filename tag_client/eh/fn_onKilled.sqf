@@ -24,8 +24,13 @@ _killerId = getPlayerUID _killer;
 // Executed on killer pc
 if(player == _killer && player != _unit) then {
 
-	player setVariable ["tag_unitIsIT", true, true];
-	[player] joinSilent (createGroup east);
+	_unitIsIt = player getVariable "tag_unitIsIT";
+
+	// If killer is not IT, set killer to IT
+	if(!_unitIsIt) then {
+		player setVariable ["tag_unitIsIT", true, true];
+		[player] joinSilent (createGroup east);
+	};
 
 	/*
 	*	On-screen killfeed
@@ -33,9 +38,19 @@ if(player == _killer && player != _unit) then {
 	private ["_hs", "_dist", "_score"]; private _top = ""; private _mid = ""; private _bot = "";
 
 	// Killed by headshot
-	if ((_unit getHit "head") >= 1) then { _hs = TRUE; } else { _hs = FALSE; };
+	if ((_unit getHit "head") >= 1) then {
+		_hs = TRUE;
 
+		_uHS = (player getVariable "tag_unitHeadshots") + 1;
+		player setVariable ["tag_unitHeadshots", _uHS, true];
+
+	} else {
+		_hs = FALSE;
+	};
+
+	// Get distance to dead player
 	_dist = round(player distance _unit);
+
 	_top = format ["<t size='1.5'>ENEMY KILLED [<t color='#16fe00'>%1</t>] +100 points</t>", _unitName];
 	_score = 100;
 
@@ -54,9 +69,6 @@ if(player == _killer && player != _unit) then {
 // All player deaths (including suicide)
 if(player == _unit) then {
 
-	player setVariable ["tag_unitPlaying", false, true];
-	player setVariable ["tag_unitIsIT", false, true];
-
 	[player] joinSilent (createGroup resistance);
 
 	'dynamicBlur' ppEffectEnable true;
@@ -72,108 +84,40 @@ if(player == _unit) then {
 // All player deaths (not including suicide)
 if(player == _unit && player != _killer) then {
 
+	// Distance player was killed from
+	_killedDist = round(player distance _killer);
+	player setVariable ["tag_unitKilledDist", _killedDist, true];
+
+	// Weapon player was killed by
+	_gun = currentWeapon _killer;
+	_gDispName = getText (configfile >> "CfgWeapons" >> _gun >> "displayName");
+	player setVariable ["tag_unitKilledWeapon", _gDispName, true];
+
+	// Unit who killed player
+	player setVariable ["tag_unitKilledBy", _killerId, true];
 };
 
 // Suicide
 if(player == _unit && player == _killer) then {
-	// Sätt en variabel till true som servern sedan tittar på för att regga suicide
+	
+	// Trigger server EH 
 	tag_onSuicide = player;
 	publicVariableServer "tag_onSuicide";
+
+	// Player commited suicide
+	player setVariable ["tag_unitSuicide", 1, true];
 };
 
 // Server execution
 // Happens everytime someone dies
 if(isServer || isDedicated) then {
-	// Utvärdera player och hämta all data
-	// Samla in poäng från killfeed ovanför
-	// samla in andra statusar som suicide från ovanför tex
+
+	_unit setVariable ["tag_unitPlaying", false, true];
+	_unit setVariable ["tag_unitIsIT", false, true];
+
+	[_unit] spawn tiis_fnc_reportStats;
+
 };
-
-
-
-
-
-/*
-_killerUID = getPlayerUID(_killer);
-
-deleteVehicle tag_deathCircle; // Delete circle detection
-
-if (tag_roundInProgress) then {
-	// Player commited suicide
-	if (player == _killer) then {
-
-		player setVariable ["tag_projectile", projectile, true];
-		player setVariable ["tag_shotsFired", tag_preShotsFired, true];
-		player setVariable ["tag_shotsTaken", tag_preShotsTaken, true];
-		player setVariable ["tag_shotsHitArray", hitArray, true];
-
-	// Player got killed
-	} else {
-
-		_feedbackHS = 0;
-		_dist = 0;
-
-		_dist = player distance _killer;
-		player setVariable ["tag_killDist", _dist, true];
-
-		// Killed by headshot yes/no?
-		if ((player getHit "head") >= 1) then {
-			_feedbackHS = 1;
-			player setVariable ["tag_headshot", 1, true];
-		} else {
-			player setVariable ["tag_headshot", 0, true];
-		};
-
-		if (_killerUID in ownerArray) then {
-			_ownerIDSearch = (ownerArray find _killerUID) + 1;
-			_pcID = ownerArray select _ownerIDSearch;
-			_pName = name player;
-			tag_killFeedback = [_pName, projectile, _feedbackHS, _dist];
-			_pcID publicVariableClient "tag_killFeedback";
-		};
-
-		if (!(time <= tag_eh_hitTriggered)) then {
-			["EVENT_HIT_NOT_TRIGGERED Giving +1 for kill", "DEEPDEBUG"] call tagglobal_fnc_log;
-
-			tag_preShotsTaken = tag_preShotsTaken + 1;
-
-			if (_killerUID in hitArray) then {
-				_hitSearch = (hitArray find _killerUID) + 1;
-				hitArray set [_hitSearch, ((hitArray select _hitSearch) + 1)];
-				[["EVENT_KILLED: ADD HIT | %1", hitArray],"DEEPDEBUG"] call tagglobal_fnc_log;
-			} else {
-				hitArray = hitArray + [_killerUID, 1];
-				[["EVENT_KILLED: CREATE HIT | %1", hitArray],"DEEPDEBUG"] call tagglobal_fnc_log;
-			};
-		};
-
-		player setVariable ["tag_projectile", projectile, true];
-		player setVariable ["tag_shotsFired", tag_preShotsFired, true];
-		player setVariable ["tag_shotsTaken", tag_preShotsTaken, true];
-		player setVariable ["tag_shotsHitArray", hitArray, true];
-
-		death = [player, _killer]; 
-		publicVariableServer "death";
-	};
-
-	/*
-	*	If player is VIP or above give him camera
-	*
-	if ((getPlayerUID player) in tag_cameraAccess) then {
-		[] spawn {
-			sleep 0.2;
-			tag_inCam = [player] spawn TAG_fnc_cameraSystem;
-		};
-	};
-};
-
-/*
-*	Terminate Anti Camp System
-*/
-//deleteVehicle antiCampDetector;
-//terminate antiCampStop;
-//terminate antiCampMove;
-//terminate tag_antiCampSystem;
 
 [">>>> EH TRIGGERED: onKilled <<<<","DEEPDEBUG"] call tiig_fnc_log;
 [["_unit: %1 | _killer: %2 | _instigator: %3 | _useEffects: %4",_unit,_killer,_instigator,_useEffects],"DEEPDEBUG"] call tiig_fnc_log;

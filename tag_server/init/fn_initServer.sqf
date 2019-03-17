@@ -44,6 +44,8 @@ missionNamespace setVariable ["tag_gameEndgame",   false, true]; // True when ro
 missionNamespace setVariable ["tag_gameUnloading", false, true]; // True during unloading phase
 missionNamespace setVariable ["tag_gameFinished",  false, true]; // True after unloading is done
 
+missionNamespace setVariable ["tag_playerStats", [], true]; // True after unloading is done
+
 // Other
 missionNamespace setVariable ["tag_playGroundSettings", [[0, 0, 0], 100], true];
 

@@ -14,6 +14,7 @@ class CfgFunctions {
 			class aSync;
 			class distributeHits;
 			class strip;
+			class reportStats;
 		};
 
 		class Utilities {

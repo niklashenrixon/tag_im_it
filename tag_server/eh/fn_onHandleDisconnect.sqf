@@ -59,6 +59,9 @@ if (tag_roundInProgress) then {
 	
 	UpdatePlayerDeathOnDisconnect = [_unit, _uid];
 	publicVariableServer "UpdatePlayerDeathOnDisconnect";
+
+	// Player disconnected
+	player setVariable ["tag_unitDisconnected", 1, true];
 };
 
 terminate _thisScript;
