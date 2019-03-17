@@ -23,7 +23,7 @@
 if (hasInterface) exitWith {};
 
 // Improve server performance
-if (!getRemoteSensorsDisabled) then { disableRemoteSensors true;};
+if (!getRemoteSensorsDisabled) then { disableRemoteSensors true; };
 
 // Add mission eventhandlers
 addMissionEventHandler ["PlayerConnected", { _this spawn tiis_fnc_onPlayerConnected; }];
@@ -33,6 +33,8 @@ addMissionEventHandler ["HandleDisconnect", { _this spawn tiis_fnc_onHandleDisco
 "tag_checkVersion" addPublicVariableEventHandler { (_this select 1) spawn tiis_fnc_onCheckVersion; }; // Check connecting player version and kick if different
 "tag_setBanned" addPublicVariableEventHandler {	(_this select 1) call tiis_fnc_onSetBanned; }; // Set unit to banned
 "tag_addScore" addPublicVariableEventHandler { (_this select 1) call tiis_fnc_onAddScore; }; // Add score to unit
+"tag_onSuicide" addPublicVariableEventHandler { (_this select 1) spawn tiis_fnc_onSuicide; }; // Triggered if player commit suicide
+"tag_onDeath" addPublicVariableEventHandler { (_this select 1) spawn tiis_fnc_onDeath; }; // Triggered if player dies
 
 // Game states
 missionNamespace setVariable ["tag_gameReady",     false, true]; // True when server is ready to start a game. True until loading begins

@@ -39,7 +39,7 @@ addMissionEventHandler ["Ended",{ _this call tiic_fnc_onEnded; }];
 // Give player neccessary variables
 player setVariable ["tag_unitIdentity", [player, getPlayerUID player, netId player, clientOwner], true]; // Unit identity; usefull for server
 player setVariable ["tag_unitShotsFired", 0, true];         // How many bullets the unit has shot
-player setVariable ["tag_unitShotsTaken", 0, true];         // How many times the player has been hit by a shot
+player setVariable ["tag_unitShotsTaken", 0, true];         // How many times the player has been hit by a bullit
 player setVariable ["tag_unitTrail", [[0,0,0]], true];      // Array of tracking positions of player
 player setVariable ["tag_unitDistanceTraveled", 0, true];   // Number of meters that unit has traveled when in a round
 player setVariable ["tag_unitIsIT", false, true];           // Unit is IT

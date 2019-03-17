@@ -30,21 +30,21 @@ if(player == _killer && player != _unit) then {
 	/*
 	*	On-screen killfeed
 	*/
-		private ["_hs", "_dist", "_score"]; private _top = ""; private _mid = ""; private _bot = "";
+	private ["_hs", "_dist", "_score"]; private _top = ""; private _mid = ""; private _bot = "";
 
-		// Killed by headshot
-		if ((_unit getHit "head") >= 1) then { _hs = TRUE; } else { _hs = FALSE; };
+	// Killed by headshot
+	if ((_unit getHit "head") >= 1) then { _hs = TRUE; } else { _hs = FALSE; };
 
-		_dist = round(player distance _unit);
-		_top = format ["<t size='1.5'>ENEMY KILLED [<t color='#16fe00'>%1</t>] +100 points</t>", _unitName];
-		_score = 100;
+	_dist = round(player distance _unit);
+	_top = format ["<t size='1.5'>ENEMY KILLED [<t color='#16fe00'>%1</t>] +100 points</t>", _unitName];
+	_score = 100;
 
-		if (_hs) then { _mid = "<t size='1'>HEADSHOT BONUS +200 points</t>"; playSound "hs1"; _score = _score + 200; };
-		if (_dist >= TAG_DISTBONUS && !_hs) then { _mid = format ["<t size='1'>DISTANCE BONUS +%1 points</t>", _dist]; _score = _score + _dist; };
-		if (_dist >= TAG_DISTBONUS && _hs) then { _bot = format ["<t size='1'>DISTANCE BONUS +%1 points</t>", _dist]; _score = _score + _dist; };
+	if (_hs) then { _mid = "<t size='1'>HEADSHOT BONUS +200 points</t>"; playSound "hs1"; _score = _score + 200; };
+	if (_dist >= TAG_DISTBONUS && !_hs) then { _mid = format ["<t size='1'>DISTANCE BONUS +%1 points</t>", _dist]; _score = _score + _dist; };
+	if (_dist >= TAG_DISTBONUS && _hs) then { _bot = format ["<t size='1'>DISTANCE BONUS +%1 points</t>", _dist]; _score = _score + _dist; };
 
-		// Send to screen
-		[_top, _mid, _bot] call tiic_fnc_showKillfeed;
+	// Send to screen
+	[_top, _mid, _bot] call tiic_fnc_showKillfeed;
 
 	// Add score to player
 	tag_addScore = [player, _score];
@@ -71,15 +71,18 @@ if(player == _unit) then {
 
 // All player deaths (not including suicide)
 if(player == _unit && player != _killer) then {
+
 };
 
 // Suicide
 if(player == _unit && player == _killer) then {
 	// Sätt en variabel till true som servern sedan tittar på för att regga suicide
+	tag_onSuicide = player;
+	publicVariableServer "tag_onSuicide";
 };
 
 // Server execution
-// Happen everytime someone dies
+// Happens everytime someone dies
 if(isServer || isDedicated) then {
 	// Utvärdera player och hämta all data
 	// Samla in poäng från killfeed ovanför
@@ -103,9 +106,6 @@ if (tag_roundInProgress) then {
 		player setVariable ["tag_shotsFired", tag_preShotsFired, true];
 		player setVariable ["tag_shotsTaken", tag_preShotsTaken, true];
 		player setVariable ["tag_shotsHitArray", hitArray, true];
-
-		suicide = [player, (getPlayerUID player)];
-		publicVariableServer "suicide";
 
 	// Player got killed
 	} else {
