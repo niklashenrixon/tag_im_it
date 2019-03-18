@@ -26,7 +26,7 @@ class TAG_U_ESC_TITLE: RscText
 {
 	idc = IDC_TAG_U_ESC_TITLE;
 	style = ST_CENTER;
-	text = "MENU";
+	text = "";
 	sizeEx = "0.025 / (getResolution select 5)";
 	x = 0.729059 * safezoneW + safezoneX;
 	y = 0.0957367 * safezoneH + safezoneY;

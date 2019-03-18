@@ -471,7 +471,7 @@ class RscTitles {
 	*/
 	class TAG_U_KILLFEED {
 		idd = -1; 
-		duration = 2; 
+		duration = 3; 
 		fadeIn = 1; 
 		fadeOut = 1;
 		onLoad = "uiNamespace setVariable ['TAG_U_KILLFEED_DISP', _this select 0];"; 
@@ -481,27 +481,35 @@ class RscTitles {
 			{
 				idc = IDC_TAG_U_KILLFEED_ABOVE;
 				text = "ABOVE"; //--- ToDo: Localize;
-				x = 0.37666 * safezoneW + safezoneX;
+				// x = 0.37666 * safezoneW + safezoneX;
+				x = (safeZoneX + (safezoneW / 2)) - ((0.5 * safezoneW) / 2);
 				y = 0.688029 * safezoneH + safezoneY;
-				w = 0.246679 * safezoneW;
-				h = 0.0282044 * safezoneH;
+				// w = 0.246679 * safezoneW;
+				w = 0.5 * safezoneW;
+				// h = 0.0282044 * safezoneH;
+				h = 0.0302044 * safezoneH;
 			};
 			class TAG_U_KILLFEED_MAIN: RscStructuredText
 			{
 				idc = IDC_TAG_U_KILLFEED_MAIN;
 				text = "MAIN"; //--- ToDo: Localize;
-				x = 0.37666 * safezoneW + safezoneX;
-				y = 0.716234 * safezoneH + safezoneY;
-				w = 0.246679 * safezoneW;
+				// x = 0.37666 * safezoneW + safezoneX;
+				x = (safeZoneX + (safezoneW / 2)) - ((0.5 * safezoneW) / 2);
+				//y = 0.716234 * safezoneH + safezoneY;
+				y = 0.72 * safezoneH + safezoneY;
+				// w = 0.246679 * safezoneW;
+				w = 0.5 * safezoneW;
 				h = 0.0282044 * safezoneH;
 			};
 			class TAG_U_KILLFEED_UNDER: RscStructuredText
 			{
 				idc = IDC_TAG_U_KILLFEED_UNDER;
 				text = "UNDER"; //--- ToDo: Localize;
-				x = 0.37666 * safezoneW + safezoneX;
+				// x = 0.37666 * safezoneW + safezoneX;
+				x = (safeZoneX + (safezoneW / 2)) - ((0.5 * safezoneW) / 2);
 				y = 0.744438 * safezoneH + safezoneY;
-				w = 0.246679 * safezoneW;
+				// w = 0.246679 * safezoneW;
+				w = 0.5 * safezoneW;
 				h = 0.0282044 * safezoneH;
 			};
 		};

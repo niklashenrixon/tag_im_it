@@ -44,6 +44,7 @@ player setVariable ["tag_unitPlaying", false, true];        // Unit is in-game a
 player setVariable ["tag_unitVersionAllowed", false, true]; // Addon version is the same as server
 
 // Data for statistics
+player setVariable ["tag_unitScore", 0, true];              // How many point the player has
 player setVariable ["tag_unitShotsFired", 0, true];         // How many bullets the unit has shot
 player setVariable ["tag_unitShotsTaken", 0, true];         // How many times the player has been hit by a bullit
 player setVariable ["tag_unitShotsHit",   0, true];         // How many times the player has hit another player

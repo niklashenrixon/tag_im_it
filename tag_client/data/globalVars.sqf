@@ -14,10 +14,6 @@ tag_worldName 		 = worldName;
 
 tag_inCamera 		= false;
 tag_onFiringRange   = false;
-tag_preShotsFired   = 0;
-tag_preShotsHit     = 0;
-tag_preShotsTaken   = 0;
-hitArray 			= [];
 
 tag_roundInProgress	 = false;
 tag_roundStarted	 = false;

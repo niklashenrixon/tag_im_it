@@ -35,6 +35,7 @@ _reported = _unit getVariable "tag_unitStatsReported";
 if(!_reported) then {
 
 	// Write stats to db on killed / disconnect / game crash
+	_score   = _unit getVariable "tag_unitScore";
 	_taken   = _unit getVariable "tag_unitShotsTaken";
 	_hits    = _unit getVariable "tag_unitShotsHit";
 	_fired   = _unit getVariable "tag_unitShotsFired";
@@ -45,7 +46,10 @@ if(!_reported) then {
 	_suicide = _unit getVariable "tag_unitSuicide";
 	_disco   = _unit getVariable "tag_unitDisconnected";
 
-	[["_taken: %1 | _hits: %2 | _fired: %3 | _hs: %4 | _dist: %5 | _gun: %6 | _killer: %7 | _suicide: %8 | _disco: %9", _taken, _hits, _fired, _hs, _dist, _gun, _killer, _suicide, _disco],"DEEPDEBUG"] call tiig_fnc_log;
+	// _query = format ["UpdateScore:%1:%2:%3", _score, tag_roundID, getPlayerUID _unit];
+	// [_query, 1, true] call tiis_fnc_aSync;
+
+	[["_taken: %1 | _hits: %2 | _fired: %3 | _hs: %4 | _dist: %5 | _gun: %6 | _killer: %7 | _suicide: %8 | _disco: %9 | _score: %10", _taken, _hits, _fired, _hs, _dist, _gun, _killer, _suicide, _disco, _score],"DEEPDEBUG"] call tiig_fnc_log;
 
 	// Set reported TRUE on unit
 	_unit setVariable ["tag_unitStatsReported", true, true];

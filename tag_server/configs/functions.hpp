@@ -26,6 +26,7 @@ class CfgFunctions {
 			class messageSystem;
 			class getLootPos;
 			class itExists;
+			class itDisappeared;
 		};
 
 		class Eventhandlers {
@@ -33,10 +34,7 @@ class CfgFunctions {
 			class onCheckVersion;
 			class onPlayerConnected;
 			class onSetBanned;
-			class onAddScore;
 			class onHandleDisconnect;
-			class onSuicide;
-			class onDeath;
 		};
 	};
 };

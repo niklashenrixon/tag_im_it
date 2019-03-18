@@ -5,21 +5,19 @@
 #define redeemLimit   120	// Time until player has redeemed themself
 #define detectionRate 0.3	// Movement detection rate
 
-/*
-*	Kill feedback
-*/
-TAG_DISTBONUS = 100; // How many meters before giving distance bonus on kill
+// Kill feedback
+TAG_DISTBONUS = 50; // How many meters before giving distance bonus on kill
+TAG_DANGERSOUND = 50;  // How near the last 2 players have to be eachother for danger sound to start playing
 
-TAG_DANGERSOUND = 50; // How near the last 2 players have to be eachother for danger sound to start playing
+// Score
+TAG_SCORE_BASE = 100; // Base score for 1 kill
+TAG_SCORE_HS = 200; // Headshot score per headshot
 
 tag_inCamera 		= false;
 tag_onFiringRange   = false;
-tag_preShotsFired   = 0;
-tag_preShotsHit     = 0;
-tag_preShotsTaken   = 0;
-hitArray 			= [];
 
-tag_runningDist	     = 20;				// Number in meters from wish a player can run from the start position when game is NOT started (spawnLock)
+
+
 tag_secondSpawnLock	 = true;
 tag_deadSpawnLock	 = false;
 tag_roundInProgress	 = false;
