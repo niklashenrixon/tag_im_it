@@ -60,6 +60,11 @@ while {true} do {
 _startingdate = [1988, 3, 9, 12, round random 59];
 _startingweather = selectRandom ["CLEAR","CLOUDY","RAIN"];
 
+// Fuck off fog
+0 setFog 0;
+forceWeatherChange;
+999999 setFog 0;
+
 [["WEATHER: Date and time: %1 | Initial condition: %2", _startingdate, _startingweather], "DEBUG"] call tiig_fnc_log;
 
 /////////////////////////////////////////////////////////////////

@@ -46,7 +46,7 @@ if(_hitPoint == "HitLegs") then {
 	};
 };
 
-if (!tag_gameInProgress) then {
+if (!(player getVariable "tag_unitPlaying")) then {
 	_damage = damage(player);
 } else {
 	// If side of shooter is the same as yours and "shooter" is not you then set damage to nothing

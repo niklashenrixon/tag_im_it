@@ -59,7 +59,7 @@ _mapX = (_mapCenter select 0);
 _mapY = (_mapCenter select 1);
 
 /* Calculate the size of the playable area */
-_markerSize = 100 * (1 max (round (tag_playerCount2 / 5)));
+_markerSize = 100 * (1 max (round (tag_playerCountAll / 5)));
 
 missionNamespace setVariable ["tag_playGroundSettings", [[_mapX, _mapY, 0], _markerSize], TRUE];
 
@@ -120,9 +120,6 @@ _houseList = [_mapX, _mapY] nearObjects ["House", _markerSize];
 
 /* Spawn loot */
 [tag_lootPositions] call tiis_fnc_lootSystem;
-
-tag_ejectVehicle = TRUE;
-publicVariable "tag_ejectVehicle"; // Eject all players from Vehicle
 
 /* Start round */
 0 execVM "\tag_server\scripts\tag_startRound.sqf";

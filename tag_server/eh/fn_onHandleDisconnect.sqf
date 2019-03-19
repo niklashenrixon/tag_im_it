@@ -21,7 +21,7 @@
 
 params ["_unit", "_id", "_uid", "_name"];
 
-if (tag_roundInProgress) then {
+if (tag_gameInProgress) then {
 
 	// Player disconnected
 	_unit setVariable ["tag_unitDisconnected", 1, true];

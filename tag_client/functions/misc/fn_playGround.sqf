@@ -21,11 +21,12 @@
 *
 */ ///////////////////////////////////////////////////////////////////////////////////////
 
-waitUntil {	if (tag_gameInProgress && player getVariable "tag_unitPlaying") exitWith { TRUE }; };
+// True if server has chosen "map" and player is moved
+waitUntil {	if (player getVariable "tag_unitPlaying") exitWith { call tiig_fnc_deathCircle; TRUE }; };
+
+waitUntil {	if (tag_gameInProgress) exitWith { TRUE }; };
 
 ["Spawning player bounderies", "DEBUG"] call tiig_fnc_log;
-
-call tiig_fnc_deathCircle;
 
 _pos = tag_playGroundSettings select 0;
 _size = tag_playGroundSettings select 1;

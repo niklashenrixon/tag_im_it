@@ -6,7 +6,7 @@
 *	    \/_/   \/_/\/_/   \/_____/      \/_/   \/_/  \/_/      \/_/     \/_/ 
 *
 *	@Filename: fn_distributeHits.sqf
-*	@Location: {@mod\addons}\tag_server\functions\
+*	@Location: {@mod\addons}\tag_server\functions\db\
 *	@Author: Nixon {nixon@visualized.se}
 *
 *	Description:

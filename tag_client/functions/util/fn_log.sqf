@@ -16,22 +16,22 @@
 *         If global level is 3 (info) all your log messages will be shown
 *
 *	Example(s):
-*		"Error message" call tag_fn_log;
+*		"Error message" call tiig_fnc_log;
 *			OUTPUT: "- TAG IM IT [ERROR], T (13s) : Error message"
 *
-*		["Error message"] call tag_fn_log;
+*		["Error message"] call tiig_fnc_log;
 *			OUTPUT: "- TAG IM IT [ERROR], T (13s) : Error message"
 *
-*		["Error message", "ERROR"] call tag_fn_log;
+*		["Error message", "ERROR"] call tiig_fnc_log;
 *			OUTPUT: "- TAG IM IT [ERROR], T (14s) : Error message"
 *
-*		[["ERROR message with value %1", _value]] call tag_fn_log;
+*		[["ERROR message with value %1", _value]] call tiig_fnc_log;
 *			OUTPUT: "- TAG IM IT [ERROR], T (153s) : ERROR message with value _value"
 *
-*		[["INFO message with value %1", _value], "DEEPDEBUG"] call tag_fn_log;
+*		[["INFO message with value %1", _value], "DEEPDEBUG"] call tiig_fnc_log;
 *			OUTPUT: "- TAG IM IT [DEEPDEBUG], T (68s) : INFO message with value _value"
 *
-*		["Warning message", "DEBUG"] call tag_fn_log;
+*		["Warning message", "DEBUG"] call tiig_fnc_log;
 *			OUTPUT: "- TAG IM IT [DEBUG], T (14s) : Warning message"
 *
 *	Parameter(s):
@@ -79,8 +79,8 @@ if (tag_debugMode >= _debugLevel) then {
 		};
 
 		switch (toUpper(_opt2)) do {
-			case "HINT": { format _output remoteExec ["hint", -2]; };
-			case "CHAT": { format _output remoteExec ["systemChat", -2]; };
+			case "HINT": { diag_log format _output; format _output remoteExec ["hint", -2]; };
+			case "CHAT": { diag_log format _output; format _output remoteExec ["systemChat", -2]; };
 			case "RH": { diag_log format _output; format _output remoteExec ["hint", -2]; };
 			default { diag_log format _output; };
 		};
@@ -88,8 +88,8 @@ if (tag_debugMode >= _debugLevel) then {
 	} else { // Single message
 
 		switch (toUpper(_opt2)) do {
-			case "HINT": { _data remoteExec ["hint", -2]; };
-			case "CHAT": { _data remoteExec ["systemChat", -2]; };
+			case "HINT": { diag_log format ["- TAG IM IT [%1], T (%2s) : %3", toUpper(_opt1), diag_tickTime, _data]; _data remoteExec ["hint", -2]; };
+			case "CHAT": { diag_log format ["- TAG IM IT [%1], T (%2s) : %3", toUpper(_opt1), diag_tickTime, _data]; _data remoteExec ["systemChat", -2]; };
 			case "RH": { diag_log format ["- TAG IM IT [%1], T (%2s) : %3", toUpper(_opt1), diag_tickTime, _data]; _data remoteExec ["hint", -2]; };
 			default { diag_log format ["- TAG IM IT [%1], T (%2s) : %3", toUpper(_opt1), diag_tickTime, _data]; };
 		};

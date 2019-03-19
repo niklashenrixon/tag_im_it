@@ -26,20 +26,6 @@ _killerId = getPlayerUID _killer;
 */
 if(player == _killer && player != _unit) then {
 
-	_unitIsIt = player getVariable "tag_unitIsIT";
-
-	// If killer is not IT, set killer to IT
-	if(!_unitIsIt) then {
-		player setVariable ["tag_unitIsIT", true, true];
-		[player] joinSilent (createGroup east);
-
-		if (tag_playerCount >= 2) then {
-			["You're ""IT"" now, good luck!", 1, 0, 0.7, 5, 1337, "specific", player, "mp"] call tiig_fnc_messanger;
-			["There's a new ""IT""", 1, 0, 0.7, 5, 1337, "exclude", player, "mp"] call tiig_fnc_messanger;
-		};
-	};
-
-
 	// On-screen killfeed
 	private ["_hs", "_dist", "_score"]; private _top = ""; private _mid = ""; private _bot = "";
 
@@ -66,6 +52,21 @@ if(player == _killer && player != _unit) then {
 
 	// Send to screen
 	[_top, _mid, _bot] call tiic_fnc_showKillfeed;
+
+	// Check if player is IT
+	_unitIsIt = player getVariable "tag_unitIsIT";
+
+	// If killer is not IT, set killer to IT
+	if(!_unitIsIt) then {
+		player setVariable ["tag_unitIsIT", true, true];
+		missionNamespace setVariable ["tag_playerIt", player, true];
+		[player] joinSilent (createGroup east);
+
+		if (tag_playerCount >= 2) then {
+			["You're ""IT"" now, good luck!", 1, 0, 0.7, 5, 1337, "specific", player, "mp"] call tiig_fnc_messanger;
+			["There's a new ""IT""", 1, 0, 0.7, 5, 1337, "exclude", player, "mp"] call tiig_fnc_messanger;
+		};
+	};
 
 	// Add score to player (in-game)
 	player addScore _score;
@@ -141,7 +142,7 @@ if(isServer || isDedicated) then {
 	[_unit] spawn tiis_fnc_reportStats;
 
 	// If game is live and IT disappeared somehow
-	if(tag_roundInProgress && tag_playerCount >= 2) then {
+	if(tag_gameInProgress && tag_playerCount >= 2) then {
 		0 spawn {
 			sleep 2;
 

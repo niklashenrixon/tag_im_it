@@ -25,12 +25,11 @@ waitUntil { tag_gameInProgress };
 
 private ["_spec","_pL"];
 
-while{side player == civilian && tag_gameInProgress} do {
-	_spec = player getVariable "tag_unitSpectating";
-	if(!_spec) then {
-		_pL = {side _x != civilian} count playableUnits;
+while{!(player getVariable "tag_unitPlaying") && tag_gameInProgress} do {
+	if(!(player getVariable "tag_unitSpectating")) then {
+		_pL = {side _x != resistance} count playableUnits;
 		if (_pL >= 2) then {
-			["Round in progress. Players left in round: " + str(_pL), 1, 0, 0.7, 5, 1347, "any", nil, "local"] call tiig_fnc_messanger;
+			["Game in progress. Players left in round: " + str(_pL), 1, 0, 0.7, 5, 1347, "any", nil, "local"] call tiig_fnc_messanger;
 		};
 	};
 	sleep 15;

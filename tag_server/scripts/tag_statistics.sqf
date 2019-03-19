@@ -25,19 +25,7 @@
 *
 */ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-tag_roundComplete = false;
-
-/*
-*	Initialize database connection : parse settingsfile extdb2_ini.sqf
-*/
-_initDB = ["tag","SQL_CUSTOM","extdb"] call compile PreprocessFileLineNumbers "\tag_server\scripts\tag_extdb2.sqf";
-
-if (_initDB) then {
-
-	[["EXTDB2 [MySQL]: Initialization successful: %1", _initDB], "DEEPDEBUG"] call tiig_fnc_log;
-
-	tag_sqlLoaded = TRUE;
-	publicVariable "tag_sqlLoaded";
+if (tag_dbConnected) then {
 
 	/*
 	*	Log server stats
@@ -66,7 +54,7 @@ if (_initDB) then {
 					sleep 3.5;
 				} foreach playableUnits;
 
-				waitUntil { if (tag_roundStarted) exitWith { roundStart	= round(time); TRUE }; sleep 0.2; };
+				roundStart	= round(time);
 
 				TRUE
 			};
@@ -74,7 +62,7 @@ if (_initDB) then {
 		};
 
 		waitUntil { // Wait for round to finish before writing to DB
-			if (tag_roundComplete) exitWith {
+			if (tag_gameFinished) exitWith {
 				roundDuration = round(time - roundStart);
 
 				_query = format["InsertServerStats:%1:%2:%3", tag_roundID, roundDuration, tag_playerCount];
@@ -90,13 +78,6 @@ if (_initDB) then {
 	*/
 	#include "\tag_server\scripts\tag_statsEventHandlers.sqf"
 
-	/*
-	*	Load UID for camera access and admins
-	*/
-	#include "\tag_server\scripts\tag_getUIDS.sqf"
-
-} else {
-	[["EXTDB2 [MySQL]: Initialization failed: %1", _initDB]] call tiig_fnc_log;
 };
 
 ["tag_statistics.sqf loaded", "DEEPDEBUG"] call tiig_fnc_log;

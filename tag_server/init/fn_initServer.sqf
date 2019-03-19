@@ -25,9 +25,19 @@ if (hasInterface) exitWith {};
 // Improve server performance
 if (!getRemoteSensorsDisabled) then { disableRemoteSensors true; };
 
+// Initialize Database
+//_initDB = ["tag","SQL_CUSTOM","extdb"] call compile PreprocessFileLineNumbers "\tag_server\scripts\tag_extdb2.sqf";
+_initDB = ["tag", "SQL_CUSTOM"] call tiis_fnc_initDB;
+if (_initDB) then {
+	missionNamespace setVariable ["tag_dbConnected", true, true];
+} else {
+	missionNamespace setVariable ["tag_dbConnected", false, true];
+};
+
 // Add mission eventhandlers
 addMissionEventHandler ["PlayerConnected", { _this spawn tiis_fnc_onPlayerConnected; }];
 addMissionEventHandler ["HandleDisconnect", { _this call tiis_fnc_onHandleDisconnect; }];
+addMissionEventHandler ["EachFrame", { tag_playerCount = {side _x != civilian} count playableUnits; tag_playerCountAll = count playableUnits; }];
 
 // Add variable eventhandlers
 "tag_checkVersion" addPublicVariableEventHandler { (_this select 1) spawn tiis_fnc_onCheckVersion; }; // Check connecting player version and kick if different
@@ -41,14 +51,17 @@ missionNamespace setVariable ["tag_gameEndgame",   false, true]; // True when ro
 missionNamespace setVariable ["tag_gameUnloading", false, true]; // True during unloading phase
 missionNamespace setVariable ["tag_gameFinished",  false, true]; // True after unloading is done
 
-missionNamespace setVariable ["tag_playerStats", [], true]; // True after unloading is done
-
 // Other
 missionNamespace setVariable ["tag_playGroundSettings", [[0, 0, 0], 100], true];
+missionNamespace setVariable ["tag_playerIt", objNull, true];
+missionNamespace setVariable ["tag_firstIt", objNull, true];
 
 // Generate new id number for the round thats going to be played
 _roundId = [32] call tiis_fnc_generateRoundId;
 missionNamespace setVariable["tag_roundID", _roundId, TRUE];
+
+// Fetch alot of data from DB
+0 spawn tiis_fnc_getData;
 
 // Start weather system
 0 spawn tiig_fnc_dynWeather;
@@ -57,3 +70,6 @@ missionNamespace setVariable["tag_roundID", _roundId, TRUE];
 0 spawn tiis_fnc_messageSystem;
 
 execVM "\tag_server\scripts\tag_loadServer.sqf";
+
+// Load firing range
+0 spawn tiis_fnc_firingRange;

@@ -38,20 +38,21 @@ params ["_message","_size","_posX","_posY","_duration","_layer","_to","_unit","_
 _formatedMessage = format["<t size='%1'>%2</t>", _size, _message];
 
 switch (_net) do {
+
 	case "mp": {
 		switch (_to) do {
-			case "all": { [[_formatedMessage,_posX,_posY,_duration,0,0,_layer],"BIS_fnc_dynamicText", true, false, false] call BIS_fnc_MP };
-			case "noCiv": { { if (side _x != civilian) then { [[_formatedMessage,_posX,_posY,_duration,0,0,_layer],"BIS_fnc_dynamicText", _x, false,false] call BIS_fnc_MP; }; } forEach playableUnits; };
-			case "exclude": { { if (side _x != civilian) then { [[_formatedMessage,_posX,_posY,_duration,0,0,_layer],"BIS_fnc_dynamicText", _x, false,false] call BIS_fnc_MP; }; } forEach playableUnits - [_unit]; };
-			case "CivExclude": { { [[_formatedMessage,_posX,_posY,_duration,0,0,_layer],"BIS_fnc_dynamicText", _x, false,false] call BIS_fnc_MP; } forEach playableUnits - [_unit]; };
-			case "specific": { [[_formatedMessage,_posX,_posY,_duration,0,0,_layer],"BIS_fnc_dynamicText", _unit, false,false] call BIS_fnc_MP; };
+			case "all": { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] remoteExec ["BIS_fnc_dynamicText", -2]; };
+			case "noCiv": { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] remoteExec ["BIS_fnc_dynamicText", [west, east]]; };
+			case "exclude": { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] remoteExec ["BIS_fnc_dynamicText", (playableUnits - [_unit])]; };
+			case "specific": { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] remoteExec ["BIS_fnc_dynamicText", owner _unit]; };
 		};
 	};
+
 	case "local": {
-		switch (_to) do { 
-			case "any": { [_formatedMessage,_posX,_posY,_duration,0,0,_layer] spawn bis_fnc_dynamicText; };
-			case "civ": { if (side _unit == civilian) then { [_formatedMessage,_posX,_posY,_duration,0,0,_layer] spawn bis_fnc_dynamicText; }; };
-			case "noCiv": { if (side _unit != civilian) then { [_formatedMessage,_posX,_posY,_duration,0,0,_layer] spawn bis_fnc_dynamicText; }; };
+		switch (_to) do {
+			case "any": { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] spawn bis_fnc_dynamicText; };
+			case "civ": { if (side _unit == resistance) then { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] spawn bis_fnc_dynamicText; }; };
+			case "noCiv": { if (side _unit != resistance) then { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] spawn bis_fnc_dynamicText; }; };
 		};
 	};
 };

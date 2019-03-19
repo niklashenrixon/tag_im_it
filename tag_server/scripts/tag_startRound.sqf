@@ -20,46 +20,41 @@
 *
 */ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+tag_ejectVehicle = TRUE;
+publicVariable "tag_ejectVehicle"; // Eject all players from Vehicle
+
+{ [_x] spawn tiis_fnc_joinTheFight; } forEach playableUnits; // Move all players to playground
+
+// Make sure we have enough players on west
+waitUntil {
+	_numWestUnits = west countSide playableUnits;
+	if (_numWestUnits >= tag_minPlayersToStart) exitWith { tag_allPlayersIsWest = true; TRUE };
+
+	sleep 1;
+};
+
 _theOne = call tiig_fnc_selectRandom;
-[_theOne] joinSilent (createGroup east);
 
-_theOne setVariable ["tag_unitIsIT", true, true];
-
-tag_removeGear = true; publicVariable "tag_removeGear";
-
-{
-	if (side _x != civilian) then {
-		sleep 0.2;
-		[_x, "tag_startSpawn", (tag_playGroundSettings select 1)-30] call tiig_fnc_moveToMarker;
-		_x setVariable ["tag_unitPlaying", true, true];
+waitUntil {
+	_itIsReady = _theOne getVariable "tag_unitPlaying";
+	sleep 1;
+	if (_itIsReady) exitWith {
+		[_theOne] joinSilent (createGroup east);
+		_theOne setVariable ["tag_unitIsIT", true, true];
+		missionNamespace setVariable ["tag_playerIt", _theOne, true];
+		missionNamespace setVariable ["tag_firstIt", _theOne, true];
+		TRUE
 	};
-} forEach playableUnits;
+};
 
-/* Remove loot message */
+/* Remove "loading loot" message */
 ["", 1, 0, 0.8, 0.5, 1338, "noCiv", nil, "mp"] call tiig_fnc_messanger;
 
 tag_playersMoved = true; publicVariable "tag_playersMoved";
 
-tag_playerIt = _theOne;	publicVariable "tag_playerIt";
-tag_firstIT = _theOne; publicVariable "tag_firstIT";
-
 sleep 4;
 
-{
-	if (side _x != civilian) then {
-		if (_x distance (getMarkerPos "tag_startSpawn") > (tag_playGroundSettings select 1)+100) then {
-			[_x, "tag_startSpawn", (tag_playGroundSettings select 1)-30] call tiig_fnc_moveToMarker;
-			_x setVariable ["tag_unitPlaying", true, true];
-		};
-	};
-} forEach playableUnits;
-
-/* Remove loot message */
-["", 1, 0, 0.8, 0.5, 1338, "noCiv", nil, "mp"] call tiig_fnc_messanger;
-
-missionNamespace setVariable ["tag_gameInProgress", true, true];
-
-["Start looting! Someone will be tagged as IT in 10 seconds.",  1, 0, 0.7, 8, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
+["Start looting! Someone will be tagged as IT in 10 seconds.", 1, 0, 0.7, 8, 1337, "noCiv", nil, "mp"] call tiig_fnc_messanger;
 
 sleep 9;
 
@@ -69,13 +64,21 @@ _timesM = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17"
 
 {
 	_countMessage = _x;
-	["Round starts in " + _countMessage, 0.7, 0, 0.9, 2, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
+	["Round starts in " + _countMessage, 0.7, 0, 0.9, 2, 3010, "noCiv", nil, "mp"] call tiig_fnc_messanger;
 	sleep 1;
 } forEach _timesM;
 
-tag_roundStarted = true; publicVariable "tag_roundStarted";
 tag_ItTime = round(time); publicVariable "tag_ItTime";
 
 ["LET THE HUNT BEGIN!", 1, 0, 0.7, 5, 1337, "noCiv", nil, "mp"] call tiig_fnc_messanger;
+
+missionNamespace setVariable ["tag_gameLoading", false, true];
+missionNamespace setVariable ["tag_gameInProgress", true, true];
+
+// Load watchdog
+0 execVM "\tag_server\scripts\tag_watchDog.sqf";
+
+// Spawn hintsystem on IT
+0 execVM "\tag_server\scripts\tag_itHint.sqf";
 
 ["tag_startRound.sqf loaded", "DEEPDEBUG"] call tiig_fnc_log;

@@ -15,6 +15,8 @@ class CfgFunctions {
 			class distributeHits;
 			class strip;
 			class reportStats;
+			class getData;
+			class initDB;
 		};
 
 		class Utilities {
@@ -27,6 +29,12 @@ class CfgFunctions {
 			class getLootPos;
 			class itExists;
 			class itDisappeared;
+			class joinTheFight;
+		};
+
+		class Miscellaneous {
+			file="tag_server\functions\misc";
+			class firingRange;
 		};
 
 		class Eventhandlers {

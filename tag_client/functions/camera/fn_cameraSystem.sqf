@@ -11,6 +11,8 @@ TAG_SPEC_CAM_MAP = FALSE;
 TAG_SPEC_CAM_VISION = 0;
 TAG_SPEC_CAM_FOCUS = 0;
 
+player setVariable ["tag_unitSpectating", true ,true];
+
 0 spawn { sleep 5; player enableSimulation false; terminate _thisScript; };
 
 /*
@@ -22,7 +24,7 @@ tag_fn_camPlayJaws = {
 
 	0 spawn {
 		waitUntil {
-			if (!tag_roundInProgress) exitWith {
+			if (!tag_gameInProgress) exitWith {
 				playSound "blank";
 				TRUE
 			};
@@ -399,6 +401,7 @@ _map_mousebuttonclick = ((findDisplay 12) displayCtrl 51) ctrlAddEventhandler ["
 	TAG_SPEC_CAM_VISION = nil;
 	camDestroy _local;
 	systemChat ">>>> CAMERA: Disabling spectator system";
+	player setVariable ["tag_unitSpectating", false ,true];
 	TAG_SPEC_CAM_LASTPOS = _lastpos;
 	TAG_IN_CAM = FALSE;
 

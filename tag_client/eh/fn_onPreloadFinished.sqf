@@ -90,10 +90,11 @@ call tiig_fnc_loadUniform;
 //tag_antiCampSystem  = 0 spawn tag_fn_antiCampSystem;
 
 // Strip all weapons from player after player has been moved
-tag_removeWeapons = [] spawn {
-	while{!tag_playersMoved} do {
-		sleep 2;
-		if (tag_playersMoved) then {
+tag_removeWeapons = 0 spawn {
+	while{!(player getVariable "tag_unitPlaying")} do {
+		sleep 1;
+		if (player getVariable "tag_unitPlaying") then {
+			removeAllWeapons player;
 			terminate tag_removeWeapons;
 		};
 	};
@@ -102,17 +103,13 @@ tag_removeWeapons = [] spawn {
 // Load client eventhandlers
 #include "\tag_client\scripts\tag_clientEventhandlers.sqf"
 
-//tag_giveMeClothes = [player, (getPlayerUID player)];
-//publicVariableServer "tag_giveMeClothes";
-
 tag_amIBanned = [player, (getPlayerUID player)];
 publicVariableServer "tag_amIBanned";
 
 // spawn camera when joining if round in progress
-if (tag_roundInProgress) then {
-	player addWeapon "ItemGPS";
-	player addAction ["Spectator camera", { tag_inCam = [player] spawn tiic_fnc_cameraSystem; }];
-	player addAction ["Show camera instructions", { [] call tag_fn_cameraHint; }];
+if (tag_gameInProgress) then {
+	player addAction ["Spectator camera", { tag_inCam = [player] call tiic_fnc_cameraSystem; }];
+	player addAction ["Show camera instructions", { call tiic_fnc_showCamInfo; }];
 };
 
 [">>>> EH TRIGGERED: onPreloadFinished <<<<","DEEPDEBUG"] call tiig_fnc_log;

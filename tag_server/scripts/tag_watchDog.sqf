@@ -51,7 +51,7 @@
 			if (tag_playerCount == 2) exitWith {
 				["ENTERING MODE: 1 vs 1", "DEBUG"] call tiig_fnc_log;
 				tag_1v1 = true; publicVariable "tag_1v1";
-				[tag_m_OneVsOne, 1, 0, 0.7, 5, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
+				["1 vs 1", 1, 0, 0.7, 5, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
 
 				_HG = headgear tag_playerIt;
 				if(_HG != "") then { removeHeadgear tag_playerIt; };
@@ -73,7 +73,8 @@
 				tag_winnerFired = TRUE;
 				["ENTERING MODE: Winner", "DEBUG"] call tiig_fnc_log;
 
-				tag_roundInProgress = false; publicVariable "tag_roundInProgress";
+				missionNamespace setVariable ["tag_gameInProgress", false, true];
+				missionNamespace setVariable ["tag_gameFinished", true, true];
 				tag_roundStarted = false; publicVariable "tag_roundStarted";
 
 				_winnerObject = []; {
@@ -118,7 +119,8 @@
 			if (tag_playerCount == 0 && !tag_winnerFired) then {
 				["ENTERING MODE: No one alive", "DEBUG"] call tiig_fnc_log;
 
-				tag_roundInProgress = false; publicVariable "tag_roundInProgress";
+				missionNamespace setVariable ["tag_gameInProgress", false, true];
+				missionNamespace setVariable ["tag_gameFinished", true, true];
 				tag_roundStarted = false; publicVariable "tag_roundStarted";
 
 				[[0, 1.5, false, false], "BIS_fnc_cinemaBorder", true, false, true] call BIS_fnc_MP;
@@ -173,7 +175,8 @@
 			if (time >= tag_timeLimit5 && !tag_winnerFired) exitWith {
 				sleep 2;
 
-				tag_roundInProgress = false; publicVariable "tag_roundInProgress";
+				missionNamespace setVariable ["tag_gameInProgress", false, true];
+				missionNamespace setVariable ["tag_gameFinished", true, true];
 				tag_roundStarted = false; publicVariable "tag_roundStarted";
 
 				if(tag_playerCount == 2) then {
@@ -218,15 +221,12 @@
 			tag_supplyDrop addItemCargoGlobal ["FirstAidKit", 5];
 			tag_supplyDrop addItemCargoGlobal ["optic_DMS", 1];
 			tag_supplyDrop addItemCargoGlobal ["V_PlateCarrierH_CTRG", 1];
-			tag_supplyDrop addItemCargoGlobal ["kio_muzzle_sr25S", 1];
 			tag_supplyDrop addItemCargoGlobal ["hlc_muzzle_300blk_KAC", 1];
-
 			tag_supplyDrop addWeaponCargoGlobal ["srifle_GM6_F", 1];
 			tag_supplyDrop addWeaponCargoGlobal ["hlc_rifle_Bushmaster300", 1];
-			tag_supplyDrop addWeaponCargoGlobal ["kio_sr25", 1];
 			tag_supplyDrop addWeaponCargoGlobal ["hlc_rifle_vendimus", 1];
 
-			_weaponList =  ["srifle_GM6_F", "hlc_rifle_Bushmaster300", "hlc_rifle_vendimus", "kio_sr25"];
+			_weaponList =  ["srifle_GM6_F", "hlc_rifle_Bushmaster300", "hlc_rifle_vendimus"];
 			{
 			 	_weapon = _x;
 			 	_magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");

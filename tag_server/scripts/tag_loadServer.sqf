@@ -23,28 +23,8 @@
 // Load statistics module
 call compile preprocessFileLineNumbers "\tag_server\scripts\tag_statistics.sqf";
 
-
-
-// Fuck off fog
-0 setFog 0;
-forceWeatherChange;
-999999 setFog 0;
-
-// Load firing range
-0 execVM "\tag_server\scripts\tag_firingRange.sqf";
-
-// Load eventhandlers
-#include "\tag_server\scripts\tag_eventHandlers.sqf"
-
 // Load the round
 0 execVM "\tag_server\functions\tag_fn_loadMatch.sqf";
 
 // Index loot location on loaded map
 //["tag_indexLoot", FALSE] call tag_fn_getLootPos;
-
-// Start player count watchdog
-_watchdog = addMissionEventHandler ["EachFrame", {
-	tag_playerCount = {side _x != civilian} count playableUnits;
-}];
-
-["tag_loadServer.sqf loaded", "DEEPDEBUG"] call tiig_fnc_log;
