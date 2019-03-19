@@ -26,13 +26,9 @@ if (hasInterface) exitWith {};
 if (!getRemoteSensorsDisabled) then { disableRemoteSensors true; };
 
 // Initialize Database
-//_initDB = ["tag","SQL_CUSTOM","extdb"] call compile PreprocessFileLineNumbers "\tag_server\scripts\tag_extdb2.sqf";
+missionNamespace setVariable ["tag_dbConnected", false, true];
 _initDB = ["tag", "SQL_CUSTOM"] call tiis_fnc_initDB;
-if (_initDB) then {
-	missionNamespace setVariable ["tag_dbConnected", true, true];
-} else {
-	missionNamespace setVariable ["tag_dbConnected", false, true];
-};
+if (_initDB) then {	missionNamespace setVariable ["tag_dbConnected", true, true]; };
 
 // Add mission eventhandlers
 addMissionEventHandler ["PlayerConnected", { _this spawn tiis_fnc_onPlayerConnected; }];

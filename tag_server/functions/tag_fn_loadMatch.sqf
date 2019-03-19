@@ -60,7 +60,7 @@ tag_waitingForPlayers = 0 spawn {
 */
 waitUntil {
 
-	//[["Wait timer: %1", waitTimer], "DEEPDEBUG", "CHAT"] call tiig_fnc_log;
+	[["Wait timer: %1", waitTimer], "DEEPDEBUG", "ONLYCHAT"] call tiig_fnc_log;
 
 	if (tag_playerCountAll >= tag_minPlayersToStart && !tag_mCountReached) then { tag_mCountReached = TRUE; };
 	if (tag_playerCountAll >= tag_minPlayersToStart && tag_mCountReached)  then { waitTimer = waitTimer - 1; missionNamespace setVariable ["tag_gameLoading", true, true]; };

@@ -81,6 +81,7 @@ if (tag_debugMode >= _debugLevel) then {
 		switch (toUpper(_opt2)) do {
 			case "HINT": { diag_log format _output; format _output remoteExec ["hint", -2]; };
 			case "CHAT": { diag_log format _output; format _output remoteExec ["systemChat", -2]; };
+			case "ONLYCHAT": { format _output remoteExec ["systemChat", -2]; };
 			case "RH": { diag_log format _output; format _output remoteExec ["hint", -2]; };
 			default { diag_log format _output; };
 		};
@@ -90,6 +91,7 @@ if (tag_debugMode >= _debugLevel) then {
 		switch (toUpper(_opt2)) do {
 			case "HINT": { diag_log format ["- TAG IM IT [%1], T (%2s) : %3", toUpper(_opt1), diag_tickTime, _data]; _data remoteExec ["hint", -2]; };
 			case "CHAT": { diag_log format ["- TAG IM IT [%1], T (%2s) : %3", toUpper(_opt1), diag_tickTime, _data]; _data remoteExec ["systemChat", -2]; };
+			case "ONLYCHAT": { _data remoteExec ["systemChat", -2]; };
 			case "RH": { diag_log format ["- TAG IM IT [%1], T (%2s) : %3", toUpper(_opt1), diag_tickTime, _data]; _data remoteExec ["hint", -2]; };
 			default { diag_log format ["- TAG IM IT [%1], T (%2s) : %3", toUpper(_opt1), diag_tickTime, _data]; };
 		};
