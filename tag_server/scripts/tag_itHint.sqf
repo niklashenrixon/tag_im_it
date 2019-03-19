@@ -38,7 +38,7 @@ tag_firstHint = FALSE;
 
 			_itPos = getPos tag_playerIt;
 			playSound3D ["tag_client\sounds\whistle.ogg", tag_playerIt, false, _itPos, 15, 1, 300];
-			[tag_playerIt,30,30,30,30] call tiig_fnc_shotMarker;
+			[tag_playerIt, true] call tiig_fnc_shotMarker;
 			tag_firstHint = TRUE;
 		};
 
@@ -50,7 +50,7 @@ tag_firstHint = FALSE;
 				_itPos = getPos tag_playerIt;
 				tag_tLimit = time + (round(random 240)+90); // random number between 90 and 240
 				playSound3D ["tag_client\sounds\whistle.ogg", tag_playerIt, false, _itPos, 15, 1, 300];
-				[tag_playerIt,30,30,30,30] call tiig_fnc_shotMarker;
+				[tag_playerIt, true] call tiig_fnc_shotMarker;
 			};
 		};
 

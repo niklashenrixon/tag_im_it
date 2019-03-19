@@ -8,7 +8,7 @@ class EditorData
 	toggles=10;
 	class ItemIDProvider
 	{
-		nextID=544;
+		nextID=510;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={3148.689,227.40532,3395.3621};
-		dir[]={0.91966194,-0.31393206,0.23638713};
-		up[]={0.30408654,0.94942176,0.078162156};
-		aside[]={0.24897119,-1.4143006e-007,-0.96861488};
+		pos[]={2111.5432,32.450077,3468.1477};
+		dir[]={-0.9499836,-0.30991647,0.039096057};
+		up[]={-0.3096661,0.95075673,0.012743185};
+		aside[]={0.041119061,-7.716244e-008,0.99917722};
 	};
 };
 binarizationWanted=0;
@@ -31,14 +31,13 @@ addons[]=
 	"A3_Structures_F_Civ_InfoBoards",
 	"A3_Structures_F_Training",
 	"A3_Structures_F_Civ_Lamps",
-	"A3_Structures_F_Civ_Accessories",
-	"tag_client"
+	"A3_Structures_F_Civ_Accessories"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=5;
+		items=4;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -66,12 +65,6 @@ class AddonsMetaData
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
-		};
-		class Item4
-		{
-			className="tag_client";
-			name="Client";
-			author="NIXON";
 		};
 	};
 };
@@ -128,7 +121,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=352;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=6.1035156e-005;
 				};
 			};
@@ -159,7 +152,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=394;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=4.196167e-005;
 				};
 			};
@@ -190,7 +183,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=396;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 				};
 			};
 			class Attributes
@@ -219,7 +212,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=398;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=0.00071716309;
 				};
 			};
@@ -250,7 +243,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=400;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=3.8146973e-006;
 				};
 			};
@@ -281,7 +274,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=402;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=0.00017929077;
 				};
 			};
@@ -312,7 +305,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=404;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=7.6293945e-006;
 				};
 			};
@@ -343,7 +336,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=406;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 				};
 			};
 			class Attributes
@@ -372,7 +365,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=408;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=0.00021362305;
 				};
 			};
@@ -403,7 +396,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=410;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=-7.6293945e-006;
 				};
 			};
@@ -434,7 +427,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=412;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=0.0018615723;
 				};
 			};
@@ -465,7 +458,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=414;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 				};
 			};
 			class Attributes
@@ -494,7 +487,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=416;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=3.0517578e-005;
 				};
 			};
@@ -525,7 +518,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=418;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=1.9073486e-006;
 				};
 			};
@@ -556,7 +549,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=420;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 				};
 			};
 			class Attributes
@@ -585,7 +578,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=422;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=-7.6293945e-006;
 				};
 			};
@@ -616,7 +609,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setFlagTexture ""\tag_client\images\logo_dark_flag.paa"";";
+				init="this setFlagTexture ""\tag_assets\images\logo_dark_flag.paa"";";
 				disableSimulation=1;
 			};
 			id=451;
@@ -680,7 +673,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="\tag_client\images\SpawnWelcome.paa";
+							value="\tag_assets\images\SpawnWelcome.paa";
 						};
 					};
 				};
@@ -718,7 +711,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setFlagTexture ""\tag_client\images\logo_dark_flag.paa"";";
+				init="this setFlagTexture ""\tag_assets\images\logo_dark_flag.paa"";";
 				disableSimulation=1;
 			};
 			id=453;
@@ -833,7 +826,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=459;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=14.646446;
 				};
 			};
@@ -864,7 +857,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=461;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=4.8951473;
 				};
 			};
@@ -895,7 +888,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=463;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=139.53244;
 				};
 			};
@@ -926,7 +919,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=465;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=-27.718086;
 				};
 			};
@@ -957,7 +950,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=467;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=13.008059;
 				};
 			};
@@ -988,7 +981,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=469;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=-0.62585258;
 				};
 			};
@@ -1019,7 +1012,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=471;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=-147.63113;
 				};
 			};
@@ -1050,7 +1043,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=473;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=-19.618996;
 				};
 			};
@@ -1081,7 +1074,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=475;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=23.394516;
 				};
 			};
@@ -1112,7 +1105,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=477;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=53.887299;
 				};
 			};
@@ -1143,7 +1136,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=479;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=114.05298;
 				};
 			};
@@ -1174,7 +1167,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=481;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=61.176193;
 				};
 			};
@@ -1205,7 +1198,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=483;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=-128.70168;
 				};
 			};
@@ -1236,7 +1229,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=485;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=-66.386475;
 				};
 			};
@@ -1267,7 +1260,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=487;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=-109.20898;
 				};
 			};
@@ -1298,7 +1291,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=489;
-					type="TAG_C_DEFAULT";
+					type="C_man_w_worker_F";
 					atlOffset=-14.799591;
 				};
 			};
@@ -1324,7 +1317,7 @@ class Mission
 			};
 			id=490;
 			type="Land_Loudspeakers_F";
-			atlOffset=0.80854797;
+			atlOffset=37.013;
 			class CustomAttributes
 			{
 				class Attribute0

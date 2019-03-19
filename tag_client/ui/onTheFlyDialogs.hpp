@@ -46,7 +46,7 @@ class TAG_U_ESC_BTN1: RscButton
 class TAG_U_ESC_BTN2: RscButton
 {
 	idc = IDC_TAG_U_ESC_BTN2;
-	text = "VIEW SPECTATOR CONTROLS";
+	text = "SPECTATOR CAMERA";
 	x = 0.755489 * safezoneW + safezoneX;
 	y = 0.208554 * safezoneH + safezoneY;
 	w = 0.149769 * safezoneW;
@@ -55,7 +55,7 @@ class TAG_U_ESC_BTN2: RscButton
 class TAG_U_ESC_BTN3: RscButton
 {
 	idc = IDC_TAG_U_ESC_BTN3;
-	text = "VIEW RULES";
+	text = "VIEW SPECTATOR CONTROLS";
 	x = 0.755489 * safezoneW + safezoneX;
 	y = 0.24616 * safezoneH + safezoneY;
 	w = 0.149769 * safezoneW;
@@ -64,7 +64,7 @@ class TAG_U_ESC_BTN3: RscButton
 class TAG_U_ESC_BTN4: RscButton
 {
 	idc = IDC_TAG_U_ESC_BTN4;
-	text = "NOTHING YET";
+	text = "VIEW RULES";
 	x = 0.755489 * safezoneW + safezoneX;
 	y = 0.283766 * safezoneH + safezoneY;
 	w = 0.149769 * safezoneW;

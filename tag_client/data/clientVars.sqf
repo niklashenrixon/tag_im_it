@@ -9,10 +9,6 @@
 TAG_DISTBONUS = 50; // How many meters before giving distance bonus on kill
 TAG_DANGERSOUND = 50;  // How near the last 2 players have to be eachother for danger sound to start playing
 
-// Score
-TAG_SCORE_BASE = 100; // Base score for 1 kill
-TAG_SCORE_HS = 200; // Headshot score per headshot
-
 tag_inCamera 		= false;
 tag_onFiringRange   = false;
 

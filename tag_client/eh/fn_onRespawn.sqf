@@ -12,7 +12,7 @@
 
 params ["_unit", "_corpse"];
 
-[player] joinSilent (createGroup civilian);
+// [player] joinSilent (createGroup civilian);
 
 player enableStamina FALSE; // Remove fatigue / stamina
 enableRadio false; // Disable radio
@@ -32,8 +32,9 @@ call tiig_fnc_loadUniform;
 [player, "tag_lobby", 15] call tiig_fnc_moveToMarker;
 
 if (tag_gameInProgress) then {
-	player addAction ["Switch to camera", { tag_inCam = [player] spawn tiic_fnc_cameraSystem; }];
-	player addAction ["Show camera instructions", { [] call tag_fn_cameraHint; }];
+	player addAction ["Spectator camera", { tag_inCam = [player] spawn tiic_fnc_cameraSystem; }];
+	player addAction ["Show camera instructions", { call tiic_fnc_showCamInfo; }];
+	player addAction ["Hide camera instructions", { "RSC_TAG_CAMINFO" cutFadeOut 1; }];
 };
 
 [">>>> EH TRIGGERED: onRespawn <<<<","DEEPDEBUG"] call tiig_fnc_log;

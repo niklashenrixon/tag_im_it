@@ -22,7 +22,7 @@
 *
 */
 
-params ["_id", "_uid", "_name", "_jip", "_owner", "_banned", "_reason", "_unit"];
+params ["_id", "_uid", "_name", "_jip", "_owner", ["_banned",false], "_reason", "_unit"];
 
 // Do not run this code on server
 if (_owner == 2) exitWith {};
@@ -34,13 +34,18 @@ if (_owner == 2) exitWith {};
 _query = format ["getBanned:%1", _uid];
 _result = [_query, 2, true] call tiis_fnc_aSync;
 
-if (count _result >= 0) then {
+tag_unitBanned = false;
+
+if (count _result > 0) then {
 	_data = _result select 0;
 	_banned = parseNumber (_data select 0);
 	_reason = _data select 1;
 };
 
 if (_banned == 1) then {
+
+	tag_unitBanned = true;
+	_owner publicVariableClient "tag_unitBanned";
 
 	_clientMSG = [_uid, _name, _reason, _owner] spawn {
 		params ["_uid", "_name", "_reason", "_owner"];
@@ -62,9 +67,7 @@ if (_banned == 1) then {
 	terminate _clientMSG;
 	sleep 0.5;
 
-} else {
-	tag_unitBanned = false;
-	_owner publicVariableClient "tag_unitBanned";
 };
+_owner publicVariableClient "tag_unitBanned";
 
 terminate _thisScript;

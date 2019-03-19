@@ -31,7 +31,7 @@ _ehMPHIT		= player addMPEventHandler ["MPHit",        { _this call tiic_fnc_onHi
 _ehRESPAWN		= player addEventHandler   ["Respawn",      { _this call tiic_fnc_onRespawn; }];      // Player respawned due to death
 _ehFIRED		= player addEventHandler   ["Fired",        { _this call tiic_fnc_onFired; }];        // Player fired a weapon
 _ehHANDLEDAMAGE = player addEventHandler   ["HandleDamage", { _this call tiic_fnc_onHandleDamage; }]; // Player was damaged
-_ehHANDLEHEAL   = player addEventHandler   ["HandleHeal",   { _this call tiic_fnc_onHandleHeal; }];   // Player is using medical
+_ehHANDLEHEAL   = player addEventHandler   ["HandleHeal",   { _this spawn tiic_fnc_onHandleHeal; }];  // Player is using medical
 "tag_unitBanned" addPublicVariableEventHandler { tag_unitBanned = _this select 1; };
 addMissionEventHandler ["PreloadFinished", { 0 spawn tiic_fnc_onPreloadFinished; }];
 addMissionEventHandler ["Ended",{ _this call tiic_fnc_onEnded; }];
@@ -42,6 +42,7 @@ player setVariable ["tag_unitIsIT", false, true];           // Unit is IT
 player setVariable ["tag_unitSpectating", false, true];     // Unit is spectating a round
 player setVariable ["tag_unitPlaying", false, true];        // Unit is in-game and playing a round
 player setVariable ["tag_unitVersionAllowed", false, true]; // Addon version is the same as server
+player setVariable ["tag_unitDeathCircle", false, true];    // Is visible deathCircle spawned on unit?
 
 // Data for statistics
 player setVariable ["tag_unitScore", 0, true];              // How many point the player has

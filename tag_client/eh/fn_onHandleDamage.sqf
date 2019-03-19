@@ -46,6 +46,10 @@ if(_hitPoint == "HitLegs") then {
 	};
 };
 
+if(!tag_gameInProgress) then {
+	_damage = damage(player);
+};
+
 if (!(player getVariable "tag_unitPlaying")) then {
 	_damage = damage(player);
 } else {

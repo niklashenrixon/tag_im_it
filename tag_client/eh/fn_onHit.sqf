@@ -31,9 +31,11 @@ if (tag_gameInProgress) then {
 
 	// Damage BY others
 	if(player == _unit && player != _causedBy) then {
-		_sTaken = (player getVariable "tag_unitShotsTaken") + 1;
-		player setVariable ["tag_unitShotsTaken", _sTaken, true];
-				//[["EVENT_HIT: %1 was hit by someone",name player],"DEEPDEBUG"] call tiig_fnc_log;
+		if(side player != side _causedBy) then {
+			_sTaken = (player getVariable "tag_unitShotsTaken") + 1;
+			player setVariable ["tag_unitShotsTaken", _sTaken, true];
+					//[["EVENT_HIT: %1 was hit by someone",name player],"DEEPDEBUG"] call tiig_fnc_log;
+		};
 	};
 
 	// Damage yourself
@@ -43,9 +45,11 @@ if (tag_gameInProgress) then {
 
 	// Damage TO others
 	if(player != _unit && player == _causedBy) then {
-		_sHits = (player getVariable "tag_unitShotsHit") + 1;
-		player setVariable ["tag_unitShotsHit", _sHits, true];
-				//[["EVENT_HIT: %1 hit someone",name player],"DEEPDEBUG"] call tiig_fnc_log;
+		if(side player != side _unit) then {
+			_sHits = (player getVariable "tag_unitShotsHit") + 1;
+			player setVariable ["tag_unitShotsHit", _sHits, true];
+					//[["EVENT_HIT: %1 hit someone",name player],"DEEPDEBUG"] call tiig_fnc_log;
+		};
 	};
 
 	// Server

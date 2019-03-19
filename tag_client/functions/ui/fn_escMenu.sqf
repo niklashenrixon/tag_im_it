@@ -22,18 +22,18 @@
 		_ctrlBtn1 = _display ctrlCreate ["TAG_U_ESC_BTN1", 8648];
 		_ctrlBtn1 buttonSetAction "(findDisplay 49) closeDisplay 1; call tiic_fnc_changeUniform;";
 
-		// BUTTON 2 (VIEW SPECTATOR CONTROLS)
+		// BUTTON 2 (SPECTATOR CAMERA)
 		_ctrlBtn2 = _display ctrlCreate ["TAG_U_ESC_BTN2", 8649];
-		_ctrlBtn2 buttonSetAction "";
+		_ctrlBtn2 buttonSetAction "(findDisplay 49) closeDisplay 1; [player] call tiic_fnc_cameraSystem;";
 
-		// BUTTON 3 (VIEW RULES)
+		// BUTTON 3 (VIEW SPECTATOR CONTROLS)
 		_ctrlBtn3 = _display ctrlCreate ["TAG_U_ESC_BTN3", 8650];
-		_ctrlBtn3 buttonSetAction "";
+		_ctrlBtn3 buttonSetAction "(findDisplay 49) closeDisplay 1; call tiic_fnc_showCamInfo;";
 
-		// BUTTON 4 (DUNNO)
+		// BUTTON 4 (VIEW RULES)
 		_ctrlBtn4 = _display ctrlCreate ["TAG_U_ESC_BTN4", 8651];
 		_ctrlBtn4 buttonSetAction "(findDisplay 49) closeDisplay 1; call tiic_fnc_showHud;";
-		_ctrlBtn4 ctrlEnable FALSE;
+		//_ctrlBtn4 ctrlEnable FALSE;
 
 		// BUTTON 5 (ADMIN TOOLS)
 		_ctrlBtn5 = _display ctrlCreate ["TAG_U_ESC_BTN5", 8652];
@@ -41,8 +41,7 @@
 
 		// Disable button 5 if not logged in
 		_adminState = admin owner player;
-		//_adminState = call BIS_fnc_admin;
-		if (_adminState >= 1 || getPlayerUID(player) in tag_adminList) then { _ctrlBtn5 ctrlEnable TRUE; } else { _ctrlBtn5 ctrlEnable FALSE; };
+		if (_adminState >= 1 || (getPlayerUID(player) in tag_adminList)) then { _ctrlBtn5 ctrlEnable TRUE; } else { _ctrlBtn5 ctrlEnable FALSE; };
 
 		// VERSION
 		_ctrlVersion = _display ctrlCreate ["TAG_U_ESC_VERSION", 8655];

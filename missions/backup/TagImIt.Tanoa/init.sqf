@@ -9,6 +9,9 @@
 *	@Location: {missionFolder}\
 *	@Author: Nixon {nixon@visualized.se}
 *
+*	Description:
+*		Initialization of the mod
+*
 *	3rd party:
 *		@Files / Functions
 *			mapSwitchTextures.sqf
@@ -50,3 +53,61 @@ diag_log "                                                                      
 diag_log "                        --------------------  A Mod by NIXON  --------------------                       ";
 diag_log "                                                                                                         ";
 diag_log "/////////////////////////////////////////////////////////////////////////////////////////////////////////";
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+*
+*	GLOBAL CODE
+*	
+*/ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+tag_minPlayersToStart  = getNumber (missionConfigFile >> "TagImItSettings" >> "playerSettings" >> "minPlayersToStart");
+tag_debugMode 		   = getNumber (missionConfigFile >> "TagImItSettings" >> "developmentSettings" >> "debugMode");
+tag_maxPlayers 		   = getNumber (missionConfigFile >> "Header" >> "maxPlayers");
+
+tag_allPlayersIsWest = FALSE;
+tag_roundStarted	 = FALSE;
+tag_roundIsDraw		 = FALSE;
+alreadyFired		 = FALSE;
+tag_worldName 		 = worldName;
+
+// Set friendlys
+west setFriend [east, 0];
+west setFriend [west, 1];
+
+// Disable ability to save in-game
+enableSaving [FALSE, FALSE];
+
+// Compile global functions
+call compile preprocessFile "\tag_client\functions\tag_globalFunctions.sqf";
+
+// Compile game variables
+0 spawn { call compile preProcessFileLineNumbers "\tag_client\data\tag_variables.sqf" };
+
+// Load Weather
+0 execVM "\tag_client\functions\real_weather.sqf";
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+*
+*	SERVER SIDE CODE
+*	
+*/ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+if (isDedicated) then {
+
+	// Load client side
+	call compile preprocessFile "\tag_server\scripts\tag_loadServer.sqf";
+
+};
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+*
+*	CLIENT SIDE CODE
+*	
+*/ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+if (!isDedicated) then {
+
+	// Load client side
+	call compile preprocessFile "\tag_client\scripts\tag_loadClient.sqf";
+
+};

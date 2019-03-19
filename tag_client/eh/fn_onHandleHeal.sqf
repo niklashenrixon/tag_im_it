@@ -22,11 +22,11 @@
 params ["_unit","_healer","_isMedic"];
 
 // Give player 100% health when using first aid kits
-_damage = damage _unit;
-if (_unit == _healer) then {
-	waitUntil {damage _unit != _damage};
-	if (damage _unit < _damage) then {
-		_unit setDamage 0;
+_damage = damage player;
+if (player == _healer) then {
+	waitUntil {damage player != _damage};
+	if (damage player < _damage) then {
+		player setDamage 0;
 	};
 };
 

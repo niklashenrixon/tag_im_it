@@ -26,8 +26,10 @@ private ["_selectedPlayer","_allPlayers"];
 
 _allPlayers = []; {
 	if (!isNull _x) then {
-		if (((_x isKindOf "Man") && (str(side _x) != "CIV")) && (getPlayerUID _x != "")) then {
-			_allPlayers pushBack _x;
+		if (_x getVariable "tag_unitPlaying") then {
+			if (_x isKindOf "Man" && side _x != civilian && side _x != resistance && alive _x) then {
+				_allPlayers pushBack _x;
+			};
 		};
 	};
 } forEach playableUnits;

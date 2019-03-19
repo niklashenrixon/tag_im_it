@@ -33,7 +33,7 @@ if (_initDB) then {	missionNamespace setVariable ["tag_dbConnected", true, true]
 // Add mission eventhandlers
 addMissionEventHandler ["PlayerConnected", { _this spawn tiis_fnc_onPlayerConnected; }];
 addMissionEventHandler ["HandleDisconnect", { _this call tiis_fnc_onHandleDisconnect; }];
-addMissionEventHandler ["EachFrame", { tag_playerCount = {side _x != civilian} count playableUnits; tag_playerCountAll = count playableUnits; }];
+addMissionEventHandler ["EachFrame", { tag_playerCount = {side _x != resistance && side _x != civilian && alive _x} count playableUnits; tag_playerCountAll = count playableUnits; }];
 
 // Add variable eventhandlers
 "tag_checkVersion" addPublicVariableEventHandler { (_this select 1) spawn tiis_fnc_onCheckVersion; }; // Check connecting player version and kick if different
@@ -65,7 +65,14 @@ missionNamespace setVariable["tag_roundID", _roundId, TRUE];
 // Start message system
 0 spawn tiis_fnc_messageSystem;
 
-execVM "\tag_server\scripts\tag_loadServer.sqf";
+// Load statistics module
+call compile preprocessFileLineNumbers "\tag_server\scripts\tag_statistics.sqf";
+
+// Load the round
+execVM "\tag_server\scripts\tag_loadMatch.sqf";
+
+// Index loot location on loaded map
+//["tag_indexLoot", FALSE] call tag_fn_getLootPos;
 
 // Load firing range
 0 spawn tiis_fnc_firingRange;

@@ -53,23 +53,22 @@ if(player == _killer && player != _unit) then {
 	// Send to screen
 	[_top, _mid, _bot] call tiic_fnc_showKillfeed;
 
-	// Check if player is IT
-	_unitIsIt = player getVariable "tag_unitIsIT";
-
 	// If killer is not IT, set killer to IT
-	if(!_unitIsIt) then {
+	if(!(player getVariable "tag_unitIsIT")) then {
 		player setVariable ["tag_unitIsIT", true, true];
 		missionNamespace setVariable ["tag_playerIt", player, true];
 		[player] joinSilent (createGroup east);
 
-		if (tag_playerCount >= 2) then {
-			["You're ""IT"" now, good luck!", 1, 0, 0.7, 5, 1337, "specific", player, "mp"] call tiig_fnc_messanger;
-			["There's a new ""IT""", 1, 0, 0.7, 5, 1337, "exclude", player, "mp"] call tiig_fnc_messanger;
-		};
-	};
+		["<t color='#fc374a'>YOU'RE IT!</t>", 1.2, 0, 0.6, 5, 9027, 'any', nil, 'local'] call tiig_fnc_messanger;
 
-	// Add score to player (in-game)
-	player addScore _score;
+		/*
+		if (tag_playerCount >= 2) then { // Unit does not know "player count", thats server
+			
+			// ["You're ""IT"" now, good luck!", 1, 0, 0.7, 5, 1337, "specific", player, "mp"] call tiig_fnc_messanger;
+			//["There's a new ""IT""", 1, 0, 0.7, 5, 1337, "exclude", player, "mp"] call tiig_fnc_messanger;
+		};
+		*/
+	};
 
 	// Add score to player (statistics)
 	_uScore = (player getVariable "tag_unitScore") + _score;
@@ -82,6 +81,11 @@ if(player == _killer && player != _unit) then {
 if(player == _unit) then {
 
 	[player] joinSilent (createGroup resistance);
+
+	player setVariable ["tag_unitPlaying", false, true];
+	player setVariable ["tag_unitIsIT", false, true];
+
+	["Thank you for playing. Better luck next time!", 1, 0, 0.7, 5, 9028, 'any', nil, 'local'] call tiig_fnc_messanger;
 
 	// Remove player bounderies / blur effect / warning message
 	'dynamicBlur' ppEffectEnable true;
@@ -128,8 +132,6 @@ if(player == _unit && player == _killer) then {
 */
 if(isServer || isDedicated) then {
 
-	["Thank you for playing. Better luck next time!", 1, 0, 0.7, 5, 1337, "specific", _unit, "mp"] call tiig_fnc_messanger;
-
 	// Unit cant be IT and is not playing anymore
 	_unit setVariable ["tag_unitPlaying", false, true];
 	_unit setVariable ["tag_unitIsIT", false, true];
@@ -142,13 +144,13 @@ if(isServer || isDedicated) then {
 	[_unit] spawn tiis_fnc_reportStats;
 
 	// If game is live and IT disappeared somehow
-	if(tag_gameInProgress && tag_playerCount >= 2) then {
+	if(tag_gameInProgress || tag_gameLoading) then {
 		0 spawn {
-			sleep 2;
-
-			_itExists = call tiis_fnc_itExists;
-
-			if(!_itExists) then { 0 spawn tiis_fnc_itDisappeared; };
+			sleep 4;
+			if(tag_playerCount >= 2) then {
+				_itExists = call tiis_fnc_itExists;
+				if(!_itExists) then { 0 spawn tiis_fnc_itDisappeared; };
+			};
 			terminate _thisScript;
 		};
 	};

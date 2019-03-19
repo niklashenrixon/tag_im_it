@@ -110,6 +110,7 @@ publicVariableServer "tag_amIBanned";
 if (tag_gameInProgress) then {
 	player addAction ["Spectator camera", { tag_inCam = [player] call tiic_fnc_cameraSystem; }];
 	player addAction ["Show camera instructions", { call tiic_fnc_showCamInfo; }];
+	player addAction ["Hide camera instructions", { "RSC_TAG_CAMINFO" cutFadeOut 1; }];
 };
 
 [">>>> EH TRIGGERED: onPreloadFinished <<<<","DEEPDEBUG"] call tiig_fnc_log;

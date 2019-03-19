@@ -5,7 +5,7 @@
 *	   \ \_\  \ \_\ \_\  \ \_____\     \ \_\  \ \_\ \ \_\     \ \_\    \ \_\ 
 *	    \/_/   \/_/\/_/   \/_____/      \/_/   \/_/  \/_/      \/_/     \/_/ 
 *
-*	@Filename: tag_fn_loadMatch.sqf
+*	@Filename: tag_loadMatch.sqf
 *	@Location: {@mod\addons}\tag_server\functions\
 *	@Author: Nixon {nixon@visualized.se}
 *	@Version: 0.0.1

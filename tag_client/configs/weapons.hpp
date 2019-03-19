@@ -3,7 +3,7 @@ class cfgWeapons {
 	class ItemCore;
 	// class ItemInfo;
 	class UniformItem;
-	// class HeadgearItem;
+	class HeadgearItem;
 
 	class H_Cap_red;
 	class U_C_Poor_1;
@@ -199,9 +199,9 @@ class cfgWeapons {
 	};
 
  	// TAG HELMET
-	class TagHelmet : ItemCore {
+	class TAG_HELMET : ItemCore {
 		author = "NIXON";
-		weaponPoolAvailable = 1;
+		_generalMacro = "TAG_HELMET";
 		displayName = "Helmet for special people";
 		picture = "\tag_client\objects\ui\tag_helmet_ui.paa";
 		model = "\A3\Characters_F\BLUFOR\headgear_b_helmet_plain";
@@ -209,7 +209,6 @@ class cfgWeapons {
 		hiddenSelectionsTextures[] = {"\tag_client\objects\headgear\taghelmet.paa"};
 		scope = 2;
 
-		/*
 		class ItemInfo : HeadgearItem {
 			mass = 1;
 			uniformModel = "\A3\Characters_F\BLUFOR\headgear_b_helmet_plain";
@@ -220,7 +219,6 @@ class cfgWeapons {
 			allowedSlots[] = {901,605};
 			type = 605;
 		};
-		*/
 	};
 
 	// NIXON CAP
@@ -233,17 +231,6 @@ class cfgWeapons {
 		hiddenSelections[] = {"camo"};
 		hiddenSelectionsTextures[] = {"\tag_client\objects\headgear\nixon_cap.paa"};  // CAP texture
 		scope = 2;
-		/*
-		class ItemInfo : ItemInfo {
-			mass = 4;
-			uniformModel = "\A3\Characters_F\common\capb.p3d";
-			allowedSlots[] = {801,901,701,605};
-			modelSides[] = {6};
-			hiddenSelections[] = {"camo"};
-			author = "NIXON";
-			_generalMacro = "HeadgearItem";
-		};
-		*/
 	};
 
 };

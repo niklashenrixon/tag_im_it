@@ -21,9 +21,9 @@
 
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 
-[_unit] call tiig_fnc_shotMarker;
+[player] call tiig_fnc_shotMarker;
 
-if (tag_gameInProgress && _weapon != "Put" && side _unit != civilian) then {
+if (tag_gameInProgress && _weapon != "Put" && side player != civilian && side player != resistance) then {
 	_sfired = (player getVariable "tag_unitShotsFired") + 1;
 	player setVariable ["tag_unitShotsFired", _sfired, true];
 };

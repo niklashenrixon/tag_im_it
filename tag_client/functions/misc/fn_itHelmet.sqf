@@ -24,9 +24,8 @@
 
 while{alive player} do {
 	_hg = headgear player;
-	_unitIt = player getVariable "tag_unitIsIT";
 
-	if(_unitIt && tag_gameInProgress && (_hg != "TagHelmet")) then { player addHeadgear "TagHelmet"; };
-	if(!_unitIt && tag_gameInProgress && (_hg == "TagHelmet")) then { removeHeadgear player; };
+	if(player getVariable "tag_unitIsIT" && tag_gameInProgress && (_hg != "TAG_HELMET")) then { player addHeadgear "TAG_HELMET"; };
+	if(!(player getVariable "tag_unitIsIT") && tag_gameInProgress && (_hg == "TAG_HELMET")) then { removeHeadgear player; };
 	sleep 1;
 };

@@ -1,24 +1,22 @@
-skipLobby = 0;
-debriefing = 0;
 respawn = "BASE";
 respawnDelay = 5;
 respawnDialog = 0;
 respawnButton = 0;
 
 
-onLoadName = "TAG I'M IT | TANOA";
+onLoadName = "TAG I'M IT | ALTIS";
 onLoadMission = "Let the hunt begin!";
 onLoadIntro = "Mod by NIXON";
-onLoadIntroTime = 0;
-onLoadMissionTime = 0;
+onLoadIntroTime = False;
+onLoadMissionTime = False;
 
 author = "NIXON";
 
 overviewText = "Let the hunt begin!";
-overviewTextLocked = "TAG I'M IT | TANOA";
-overviewPicture = "\tag_client\images\logo_small_alpha.paa";
+overviewTextLocked = "TAG I'M IT | ALTIS";
+overviewPicture = "\tag_assets\images\logo_small_alpha.paa";
 
-loadScreen = "\tag_client\images\logo_big_dark.paa";
+loadScreen = "\tag_assets\images\logo_big_dark.paa";
 
 class Header {
 	gameType = DM;
@@ -26,90 +24,83 @@ class Header {
 	maxPlayers = 32;
 };
 
-class Debug {
-	debugmode = 2;	
-};
-
-scriptedPlayer = 1;
-disabledAI = 1;
-
-allowFunctionsRecompile = 0;
-allowFunctionsLog = 1;
-
-
+disabledAI = true;
 disableChannels[] = {{0, true, true},{1, true, true},{2, true, true},{3, false, true},{4, true, true},{5, true, true},{6, false, true}};
 enableItemsDropping = 0;
 enableDebugConsole = 1;
 onPauseScript = "";
+debriefing = 0;
 saving = 0;
 joinUnassigned = 1;
 corpseLimit = 100;
 corpseRemovalMinTime = 300;
 corpseRemovalMaxTime = 3600;
+allowFunctionsRecompile = 0;
 persistent = 1;
 aiKills = 0;
 diagRadio = 0;
+scriptedPlayer = 0;
 
 class CfgSounds {
 	sounds[]={};
 
 	class jaws1 {
 		name = "Jaws theme";
-		sound[] = {"@tag_client\sounds\jaws.ogg", 1, 1};
+		sound[] = {"@tag_assets\sound\jaws.ogg", 1, 1};
 		titles[] = {0,""};
 	};
 
 	class siren1 {
 		name = "Supply drop siren";
-		sound[] = {"@tag_client\sounds\siren.ogg", 0.4, 1};
+		sound[] = {"@tag_assets\sound\siren.ogg", 0.4, 1};
 		titles[] = {0,""};
 	};
 
 	class five1 {
 		name = "Five minute warning";
-		sound[] = {"@tag_client\sounds\five.ogg", 0.5, 1};
+		sound[] = {"@tag_assets\sound\five.ogg", 0.5, 1};
 		titles[] = {0,""};
 	};
 
 	class two1 {
 		name = "Two minute warning";
-		sound[] = {"@tag_client\sounds\two.ogg", 0.5, 1};
+		sound[] = {"@tag_assets\sound\two.ogg", 0.5, 1};
 		titles[] = {0,""};
 	};
 
 	class one1 {
 		name = "One minute warning";
-		sound[] = {"@tag_client\sounds\one.ogg", 0.5, 1};
+		sound[] = {"@tag_assets\sound\one.ogg", 0.5, 1};
 		titles[] = {0,""};
 	};
 
 	class thirty1 {
 		name = "30 sec warning";
-		sound[] = {"@tag_client\sounds\thirty.ogg", 0.5, 1};
+		sound[] = {"@tag_assets\sound\thirty.ogg", 0.5, 1};
 		titles[] = {0,""};
 	};
 
 	class hs1 {
 		name = "Headshot sound";
-		sound[] = {"@tag_client\sounds\hs.ogg", 0.5, 1};
+		sound[] = {"@tag_assets\sound\hs.ogg", 0.5, 1};
 		titles[] = {0,""};
 	};
 
 	class winner1 {
 		name = "You are the winner";
-		sound[] = {"@tag_client\sounds\winner.ogg", 0.5, 1};
+		sound[] = {"@tag_assets\sound\winner.ogg", 0.5, 1};
+		titles[] = {0,""};
+	};
+
+	class whistle1 {
+		name = "Whistle sound";
+		sound[] = {"@tag_assets\sound\whistle.ogg", 0.5, 1};
 		titles[] = {0,""};
 	};
 
 	class blank {
 		name = "No sound";
-		sound[] = {"@tag_client\sounds\blank.ogg", 1, 1};
-		titles[] = {0,""};
-	};
-	
-	class whistle1 {
-		name = "Whistle sound";
-		sound[] = {"@tag_client\sounds\whistle.ogg", 0.5, 1};
+		sound[] = {"@tag_assets\sound\blank.ogg", 1, 1};
 		titles[] = {0,""};
 	};
 };

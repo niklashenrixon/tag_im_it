@@ -45,6 +45,7 @@ switch (_net) do {
 			case "noCiv": { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] remoteExec ["BIS_fnc_dynamicText", [west, east]]; };
 			case "exclude": { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] remoteExec ["BIS_fnc_dynamicText", (playableUnits - [_unit])]; };
 			case "specific": { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] remoteExec ["BIS_fnc_dynamicText", owner _unit]; };
+			case "CivExlusive": { [_formatedMessage, _posX, _posY, _duration, 0, 0, _layer] remoteExec ["BIS_fnc_dynamicText", [resistance, civilian]]; };
 		};
 	};
 

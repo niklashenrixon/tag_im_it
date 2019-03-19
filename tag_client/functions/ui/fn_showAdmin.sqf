@@ -1,5 +1,8 @@
-_adminState = call BIS_fnc_admin;
-if (_adminState != 2) exitWith { systemChat ">>>> ADMIN TOOL: You are not an admin! Login to use this tool."; };
+_accessGranted = false;
+_adminState = admin owner player;
+if(_adminState >= 1) then { _accessGranted = true; };
+if(getPlayerUID(player) in tag_adminList) then { _accessGranted = true; };
+if (!_accessGranted) exitWith { systemChat ">>>> ADMIN TOOL: You are not an admin! I cannot allow this."; };
 
 disableSerialization;
 

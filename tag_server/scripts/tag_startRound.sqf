@@ -76,9 +76,9 @@ missionNamespace setVariable ["tag_gameLoading", false, true];
 missionNamespace setVariable ["tag_gameInProgress", true, true];
 
 // Load watchdog
-0 execVM "\tag_server\scripts\tag_watchDog.sqf";
+execVM "\tag_server\scripts\tag_watchDog.sqf";
 
 // Spawn hintsystem on IT
-0 execVM "\tag_server\scripts\tag_itHint.sqf";
+execVM "\tag_server\scripts\tag_itHint.sqf";
 
 ["tag_startRound.sqf loaded", "DEEPDEBUG"] call tiig_fnc_log;

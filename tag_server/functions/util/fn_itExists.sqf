@@ -28,9 +28,11 @@ params ["_itCount","_cnt"];
 _itCount = [];
 
 {
-	if(side _x != civilian) then {
-		if(_x getVariable "tag_unitIsIT") then {
-			_itCount pushBack _x;
+	if(side _x != civilian && side _x != resistance) then {
+		if(alive _x) then {
+			if(_x getVariable "tag_unitIsIT") then {
+				_itCount pushBack _x;
+			};
 		};
 	};
 } forEach playableUnits;

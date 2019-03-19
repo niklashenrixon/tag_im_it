@@ -49,6 +49,7 @@
 			tag_twoLeftFired = TRUE;
 
 			if (tag_playerCount == 2) exitWith {
+				missionNamespace setVariable ["tag_gameEndgame", true, true];
 				["ENTERING MODE: 1 vs 1", "DEBUG"] call tiig_fnc_log;
 				tag_1v1 = true; publicVariable "tag_1v1";
 				["1 vs 1", 1, 0, 0.7, 5, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
@@ -74,6 +75,7 @@
 				["ENTERING MODE: Winner", "DEBUG"] call tiig_fnc_log;
 
 				missionNamespace setVariable ["tag_gameInProgress", false, true];
+				missionNamespace setVariable ["tag_gameEndgame", false, true];
 				missionNamespace setVariable ["tag_gameFinished", true, true];
 				tag_roundStarted = false; publicVariable "tag_roundStarted";
 
@@ -87,8 +89,14 @@
 				[_winner] joinSilent (createGroup east);
 				_winnerName = name _winner;
 
-				[[0, 1.5, false, false], "BIS_fnc_cinemaBorder", _winner, false, true] call BIS_fnc_MP;
-				["And the winner is " + _winnerName, 1, 0, 0.7, 15, 1337, "CivExclude", _winner, "mp"] call tiig_fnc_messanger;
+				if(_winner == (missionNamespace getVariable "tag_firstIt")) then {
+					_winner setVariable ["tag_unitScore", TAG_SCORE_FIRST, true];
+				};
+
+				//[[0, 1.5, false, false], "BIS_fnc_cinemaBorder", _winner, false, true] call BIS_fnc_MP;
+				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", owner _winner];
+
+				["And the winner is " + _winnerName, 1, 0, 0.7, 15, 1337, "CivExlusive", _winner, "mp"] call tiig_fnc_messanger;
 				["Congratulations, you are the winner!", 1, 0, 0.7, 15, 1337, "specific", _winner, "mp"] call tiig_fnc_messanger;
 
 				/*
@@ -123,7 +131,8 @@
 				missionNamespace setVariable ["tag_gameFinished", true, true];
 				tag_roundStarted = false; publicVariable "tag_roundStarted";
 
-				[[0, 1.5, false, false], "BIS_fnc_cinemaBorder", true, false, true] call BIS_fnc_MP;
+				//[[0, 1.5, false, false], "BIS_fnc_cinemaBorder", true, false, true] call BIS_fnc_MP;
+				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", -2];
 				["No winner was declared", 1, 0, 0.7, 15, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
 
 				tag_roundComplete = TRUE;
@@ -185,7 +194,7 @@
 					publicVariable "tag_roundIsDraw";
 
 					{
-						if(side _x != civilian) then {
+						if(side _x != resistance) then {
 							_pcIdDraw = owner _x;
 							tag_reportDraw = [];
 							_pcIdDraw publicVariableClient "tag_reportDraw";
@@ -199,7 +208,8 @@
 				tag_roundComplete = TRUE;
 				publicVariable "tag_roundComplete";
 
-				[[0, 1.5, false, false], "BIS_fnc_cinemaBorder", true, false, true] call BIS_fnc_MP;
+				//[[0, 1.5, false, false], "BIS_fnc_cinemaBorder", true, false, true] call BIS_fnc_MP;
+				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", -2];
 				sleep 10;
 				["END1", TRUE, 5] spawn BIS_fnc_endMission;
 

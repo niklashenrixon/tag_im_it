@@ -6,7 +6,7 @@ respawnDialog = 0;
 respawnButton = 0;
 
 
-onLoadName = "TAG I'M IT | TANOA";
+onLoadName = "TAG I'M IT | STRATIS";
 onLoadMission = "Let the hunt begin!";
 onLoadIntro = "Mod by NIXON";
 onLoadIntroTime = 0;
@@ -15,7 +15,7 @@ onLoadMissionTime = 0;
 author = "NIXON";
 
 overviewText = "Let the hunt begin!";
-overviewTextLocked = "TAG I'M IT | TANOA";
+overviewTextLocked = "TAG I'M IT | STRATIS";
 overviewPicture = "\tag_client\images\logo_small_alpha.paa";
 
 loadScreen = "\tag_client\images\logo_big_dark.paa";

@@ -28,7 +28,7 @@ while {!isNull _disp} do {
 	_txtMODE ctrlSetText format["MODE: %1", _mode];
 	_txtRANGE ctrlSetText format["RANGE: %1m", _range];
 
-	if(player == tag_playerIt) then {
+	if(player getVariable "tag_unitIsIT") then {
 		itText = "YOU'RE IT!";
 		_txtIT ctrlSetTextColor [1, 0, 0, 1];
 		_picIT ctrlSetText "\tag_client\ui\images\it_symbol.paa";

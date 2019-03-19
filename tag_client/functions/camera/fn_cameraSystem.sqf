@@ -12,7 +12,9 @@ TAG_SPEC_CAM_VISION = 0;
 TAG_SPEC_CAM_FOCUS = 0;
 
 player setVariable ["tag_unitSpectating", true ,true];
+call tiig_fnc_deathCircle;
 
+// Freeze all motor functions ;)
 0 spawn { sleep 5; player enableSimulation false; terminate _thisScript; };
 
 /*
@@ -24,7 +26,7 @@ tag_fn_camPlayJaws = {
 
 	0 spawn {
 		waitUntil {
-			if (!tag_gameInProgress) exitWith {
+			if (!(player getVariable "tag_unitSpectating")) exitWith {
 				playSound "blank";
 				TRUE
 			};
@@ -33,7 +35,7 @@ tag_fn_camPlayJaws = {
 		terminate _thisScript;
 	};
 
-	while {tag_roundStarted && TAG_IN_CAM} do {
+	while {tag_gameInProgress && (player getVariable "tag_unitSpectating")} do {
 
 		{
 			if (side _x == west) then {
@@ -63,7 +65,7 @@ tag_fn_camPlayJaws = {
 
 0 spawn {
 	waitUntil {
-		if (({side _x != civilian} count playableUnits) == 2) exitWith {
+		if (({side _x != resistance && side _x != civilian} count playableUnits) == 2) exitWith {
 			0 spawn tag_fn_camPlayJaws;
 			TRUE
 		};
@@ -100,7 +102,7 @@ tag_fn_specCam = {
 			_color = [0, 0, 0, 1];
 
 			{
-				if (alive _x && side _x != civilian) then {
+				if (alive _x && side _x != resistance) then {
 
 					if (side _x == east) then {
 						_color = [0, 250, 0, 0.8];
@@ -124,7 +126,7 @@ tag_fn_specCam = {
 					unitNameLayer = unitNameLayer + 1;
 					unitNameLayer cutText ["","PLAIN"];
 
-					if (alive _x && side _x != civilian) then {
+					if (alive _x && side _x != resistance && side _x != civilian) then {
 
 						unitNameLayer cutRsc ["rscDynamicText", "PLAIN"];
 						_ctrl = ((uiNamespace getvariable "BIS_dynamicText") displayctrl 9999);
@@ -137,8 +139,8 @@ tag_fn_specCam = {
 						unitHealth = (100 - floor((damage _x) * 100));
 						_posU2 = [(getPosATL _x) select 0, (getPosATL _x) select 1, ((getPosATL _x) select 2) + (((boundingBox _x) select 1) select 2) + 1.8];
 						_pos2D = worldToScreen _posU2;
-						_pos = getPosATL _x;
-						_eyepos = ASLtoATL eyePos _x;
+						//_pos = getPosATL _x;
+						//_eyepos = ASLtoATL eyePos _x;
 
 						if (side _x == east) then {
 							unitName = name _x;
@@ -153,11 +155,13 @@ tag_fn_specCam = {
 							distToIT = round(tag_playerIt distance _x);
 						};
 
+						/*
 						if ((getTerrainHeightASL [_pos select 0,_pos select 1]) < 0) then {
 							_eyepos = eyePos _x;
 							_pos = getPosASL _x;
 						};
-					
+						*/
+
 						if (count _pos2D > 0 && !visibleMap) then {
 
 							_text = format ["<t size='0.35' font='PuristaSemiBold' color='%1'>%2 : %3 HP<br/>%4 : %5m from IT</t>", unitNameColor, unitName, unitHealth, unitWeaponName, distToIT];
@@ -292,7 +296,7 @@ _keyDown = (finddisplay 46) displayaddeventhandler ["keyDown",{
 		};
 	};
 
-	// 
+	/*
 	// F or User Action 17
 	if (_key == 33 || _key in (actionkeys 'User17')) then {
 		systemChat ">>>> CAMERA: FFFFFFFFFF";
@@ -310,7 +314,7 @@ _keyDown = (finddisplay 46) displayaddeventhandler ["keyDown",{
 
 		TAG_CAMERA_TARGET = screenToWorld[0.5,0.5];
 
-		{ if(alive _x && side _x != civilian) exitWith { TAG_CAMERA_TARGET = _x; };
+		{ if(alive _x && side _x != resistance) exitWith { TAG_CAMERA_TARGET = _x; };
 		} forEach (nearestObjects [TAG_CAMERA_TARGET,['Man'],15]);
 
 		if(!isNull TAG_CAMERA_TARGET) then {
@@ -328,6 +332,7 @@ _keyDown = (finddisplay 46) displayaddeventhandler ["keyDown",{
 			systemChat format [">>>> CAMERA: Tracking %1", _trackedName];
 		};		
 	};
+	*/
 
 	// Display name above players
 	// B or Use Action 20
@@ -401,10 +406,29 @@ _map_mousebuttonclick = ((findDisplay 12) displayCtrl 51) ctrlAddEventhandler ["
 	TAG_SPEC_CAM_VISION = nil;
 	camDestroy _local;
 	systemChat ">>>> CAMERA: Disabling spectator system";
+
+	// Unit no longer spectating
 	player setVariable ["tag_unitSpectating", false ,true];
+	
+	// Remove playername from screen
+	unitNameLayer = 1383;
+
+	for '_i' from 1 to 50 do {
+		unitNameLayer = unitNameLayer + 1;
+		unitNameLayer cutText["","PLAIN"];
+	};
+	["cameraSystem", "onEachFrame"] call BIS_fnc_removeStackedEventHandler;
+
+	// Disable camera info
+	"RSC_TAG_CAMINFO" cutFadeOut 1;
+
+	// Enable HUD
+	call tiic_fnc_showHud;
+
 	TAG_SPEC_CAM_LASTPOS = _lastpos;
 	TAG_IN_CAM = FALSE;
 
+	// Reset sound
 	playSound "blank";
 	
 	(findDisplay 46) displayRemoveEventhandler ["keydown",_keyDown];

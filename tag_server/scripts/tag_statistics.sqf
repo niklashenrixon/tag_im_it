@@ -77,7 +77,6 @@ if (tag_dbConnected) then {
 	*	Load statistics eventhandlers
 	*/
 	#include "\tag_server\scripts\tag_statsEventHandlers.sqf"
-
 };
 
 ["tag_statistics.sqf loaded", "DEEPDEBUG"] call tiig_fnc_log;
