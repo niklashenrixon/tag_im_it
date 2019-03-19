@@ -40,8 +40,9 @@
 		_ctrlBtn5 buttonSetAction "(findDisplay 49) closeDisplay 1; call tiic_fnc_showAdmin;";
 
 		// Disable button 5 if not logged in
-		_adminState = call BIS_fnc_admin;
-		if (_adminState == 2) then { _ctrlBtn5 ctrlEnable TRUE; } else { _ctrlBtn5 ctrlEnable FALSE; };
+		_adminState = admin owner player;
+		//_adminState = call BIS_fnc_admin;
+		if (_adminState >= 1 || getPlayerUID(player) in tag_adminList) then { _ctrlBtn5 ctrlEnable TRUE; } else { _ctrlBtn5 ctrlEnable FALSE; };
 
 		// VERSION
 		_ctrlVersion = _display ctrlCreate ["TAG_U_ESC_VERSION", 8655];

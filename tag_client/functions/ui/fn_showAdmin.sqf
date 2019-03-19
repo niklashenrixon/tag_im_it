@@ -29,6 +29,7 @@ _commands = [
 	"OFF: Monitor (server console)",
 	"WaitTimer = 1",
 	"MinPlayers = 1",
+	"Quickstart server",
 	"Spectator Camera",
 	"Spawn supply drop",
 	"GOD MODE"
@@ -88,8 +89,9 @@ _btnExecute ctrlAddEventHandler ["ButtonClick",{
 		case 6 : { _execOK = serverCommand "#monitords 0"; };
 		case 7 : { waitTimer = 3; publicVariableServer "waitTimer"; };
 		case 8 : { tag_minPlayersToStart = 1; publicVariableServer "tag_minPlayersToStart"; };
-		case 9 : { [player] call tiic_fnc_cameraSystem; };
-		case 10 : { 0 spawn tiis_fnc_supplyDrop; };
+		case 9 : { waitTimer = 3; publicVariableServer "waitTimer"; tag_minPlayersToStart = 1; publicVariableServer "tag_minPlayersToStart"; };
+		case 10 : { [player] call tiic_fnc_cameraSystem; };
+		case 11 : { 0 spawn tiis_fnc_supplyDrop; };
 		default { systemChat ">>>> ADMIN TOOL: Choose a command to execute first!"; };
 	};
 }];
