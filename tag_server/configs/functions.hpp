@@ -17,6 +17,8 @@ class CfgFunctions {
 			class reportStats;
 			class getData;
 			class initDB;
+			class insertServerStats;
+			class updateServerStats;
 		};
 
 		class Utilities {

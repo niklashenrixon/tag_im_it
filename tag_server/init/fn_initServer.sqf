@@ -26,9 +26,9 @@ if (hasInterface) exitWith {};
 if (!getRemoteSensorsDisabled) then { disableRemoteSensors true; };
 
 // Initialize Database
-missionNamespace setVariable ["tag_dbConnected", false, true];
+missionNamespace setVariable ["tag_dbConn", false, true];
 _initDB = ["tag", "SQL_CUSTOM"] call tiis_fnc_initDB;
-if (_initDB) then {	missionNamespace setVariable ["tag_dbConnected", true, true]; };
+if (_initDB) then {	missionNamespace setVariable ["tag_dbConn", true, true]; };
 
 // Add mission eventhandlers
 addMissionEventHandler ["PlayerConnected", { _this spawn tiis_fnc_onPlayerConnected; }];
@@ -51,10 +51,16 @@ missionNamespace setVariable ["tag_gameFinished",  false, true]; // True after u
 missionNamespace setVariable ["tag_playGroundSettings", [[0, 0, 0], 100], true];
 missionNamespace setVariable ["tag_playerIt", objNull, true];
 missionNamespace setVariable ["tag_firstIt", objNull, true];
+missionNamespace setVariable ["tag_playerList", [], true];
+
+missionNamespace setVariable ["tag_timeStarted", round(time), true];
+missionNamespace setVariable ["tag_timeRoundBegin", 0, true];
+missionNamespace setVariable ["tag_timeRoundEnd", 0, true];
+missionNamespace setVariable ["tag_timeRoundDuration", 0, true];
 
 // Generate new id number for the round thats going to be played
-_roundId = [32] call tiis_fnc_generateRoundId;
-missionNamespace setVariable["tag_roundID", _roundId, TRUE];
+_rID = [32] call tiis_fnc_generateRoundId;
+missionNamespace setVariable["tag_roundID", _rID, TRUE];
 
 // Fetch alot of data from DB
 0 spawn tiis_fnc_getData;
@@ -66,7 +72,7 @@ missionNamespace setVariable["tag_roundID", _roundId, TRUE];
 0 spawn tiis_fnc_messageSystem;
 
 // Load statistics module
-call compile preprocessFileLineNumbers "\tag_server\scripts\tag_statistics.sqf";
+// call compile preprocessFileLineNumbers "\tag_server\scripts\tag_statistics.sqf";
 
 // Load the round
 execVM "\tag_server\scripts\tag_loadMatch.sqf";

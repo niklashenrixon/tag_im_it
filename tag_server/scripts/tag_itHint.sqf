@@ -56,6 +56,8 @@ tag_firstHint = FALSE;
 
 		sleep 1;
 	};
+
+	if(tag_playerCount <= 1) exitWith { terminate _thisScript; };
 };
 
 ["tag_itHint.sqf loaded", "DEEPDEBUG"] call tiig_fnc_log;

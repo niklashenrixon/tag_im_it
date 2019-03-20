@@ -136,6 +136,11 @@ if(isServer || isDedicated) then {
 	_unit setVariable ["tag_unitPlaying", false, true];
 	_unit setVariable ["tag_unitIsIT", false, true];
 
+	// Delete dead unit from player list
+	_pList = missionNamespace getVariable "tag_playerList";;
+	_pList deleteAt (_pList find _unit);
+	missionNamespace setVariable ["tag_playerList", _pList, true];
+
 	// Delete shot marker
 	deleteMarker (_unitId + "_solid");
 	deleteMarker (_unitId + "_text");

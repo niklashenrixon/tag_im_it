@@ -25,11 +25,17 @@ publicVariable "tag_ejectVehicle"; // Eject all players from Vehicle
 
 { [_x] spawn tiis_fnc_joinTheFight; } forEach playableUnits; // Move all players to playground
 
-// Make sure we have enough players on west
+// Make sure we can continue
 waitUntil {
-	_numWestUnits = west countSide playableUnits;
-	if (_numWestUnits >= tag_minPlayersToStart) exitWith { tag_allPlayersIsWest = true; TRUE };
+	_jpc = count tag_playerList;
+	_pc = 0;
 
+	{   _j = _x getVariable "tag_unitPlaying";
+		if(_j) then { _pc = _pc + 1; };
+	} forEach tag_playerList;
+
+	if (_jpc == _pc && _pc == tag_minPlayersToStart) exitWith { tag_allPlayersIsWest = true; TRUE };
+	// Maybe some message like "Still waiting for players to join.."
 	sleep 1;
 };
 
@@ -54,11 +60,9 @@ tag_playersMoved = true; publicVariable "tag_playersMoved";
 
 sleep 4;
 
-["Start looting! Someone will be tagged as IT in 10 seconds.", 1, 0, 0.7, 8, 1337, "noCiv", nil, "mp"] call tiig_fnc_messanger;
+["Start looting! Someone will be tagged as IT in 30 seconds.", 1, 0, 0.7, 8, 1337, "noCiv", nil, "mp"] call tiig_fnc_messanger;
 
 sleep 9;
-
-["You are the chosen one",  1, 0, 0.7, 5, 1337, "specific", _theOne, "mp"] call tiig_fnc_messanger;
 
 _timesM = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1"];
 
@@ -70,10 +74,11 @@ _timesM = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17"
 
 tag_ItTime = round(time); publicVariable "tag_ItTime";
 
-["LET THE HUNT BEGIN!", 1, 0, 0.7, 5, 1337, "noCiv", nil, "mp"] call tiig_fnc_messanger;
-
 missionNamespace setVariable ["tag_gameLoading", false, true];
 missionNamespace setVariable ["tag_gameInProgress", true, true];
+
+["LET THE HUNT BEGIN!", 1.2, 0, 0.6, 5, 9027, "exclude", _theOne, "mp"] call tiig_fnc_messanger;
+["<t color='#fc374a'>YOU'RE IT!</t>", 1.2, 0, 0.6, 5, 9027, "specific", _theOne, "mp"] call tiig_fnc_messanger;
 
 // Load watchdog
 execVM "\tag_server\scripts\tag_watchDog.sqf";

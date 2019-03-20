@@ -43,6 +43,11 @@ waitUntil {
 // Give unit "playing" status
 _unit setVariable ["tag_unitPlaying", true, true];
 
+// Populate player list with this player
+_pList = missionNamespace getVariable "tag_playerList";
+_pList pushBack _unit;
+missionNamespace setVariable ["tag_playerList", _pList, true];
+
 [["%1 joined the fight", name _unit], "DEEPDEBUG", "CHAT"] call tiig_fnc_log;
 
 terminate _thisScript;

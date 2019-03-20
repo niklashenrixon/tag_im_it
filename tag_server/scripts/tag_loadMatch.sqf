@@ -65,7 +65,14 @@ waitUntil {
 	if (tag_playerCountAll >= tag_minPlayersToStart && !tag_mCountReached) then { tag_mCountReached = TRUE; };
 	if (tag_playerCountAll >= tag_minPlayersToStart && tag_mCountReached)  then { waitTimer = waitTimer - 1; missionNamespace setVariable ["tag_gameLoading", true, true]; };
 	if (tag_playerCountAll < tag_minPlayersToStart && tag_mCountReached)  then { tag_mCountReached = FALSE; waitTimer = waitTimerValue; missionNamespace setVariable ["tag_gameLoading", false, true]; };
-	if (tag_playerCountAll >= tag_minPlayersToStart && waitTimer <= 0 && tag_mCountReached) exitWith { tag_readyToPlay = TRUE; terminate tag_waitingForPlayers; TRUE };
+
+	if (tag_playerCountAll >= tag_minPlayersToStart && waitTimer <= 0 && tag_mCountReached) exitWith {
+		tag_readyToPlay = TRUE;
+		terminate tag_waitingForPlayers;
+		missionNamespace setVariable ["tag_timeRoundBegin", round(time), true];
+		[tag_roundID, tag_playerCountAll] call tiis_fnc_insertServerStats;
+		TRUE
+	};
 
 	sleep 1;
 };

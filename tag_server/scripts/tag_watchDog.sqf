@@ -77,6 +77,12 @@
 				missionNamespace setVariable ["tag_gameInProgress", false, true];
 				missionNamespace setVariable ["tag_gameEndgame", false, true];
 				missionNamespace setVariable ["tag_gameFinished", true, true];
+				
+				missionNamespace setVariable ["tag_timeRoundEnd", round(time), true];
+				missionNamespace setVariable ["tag_timeRoundDuration", round(tag_timeRoundEnd - tag_timeRoundBegin), true];
+
+				[tag_roundID, tag_timeRoundDuration] call tiis_fnc_updateServerStats;
+
 				tag_roundStarted = false; publicVariable "tag_roundStarted";
 
 				_winnerObject = []; {

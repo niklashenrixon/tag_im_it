@@ -22,7 +22,7 @@
 *
 */ ///////////////////////////////////////////////////////////////////////////////////////
 
-private ["_selectedPlayer","_allPlayers"];
+private ["_selectedPlayer", "_allPlayers"];
 
 _allPlayers = []; {
 	if (!isNull _x) then {
