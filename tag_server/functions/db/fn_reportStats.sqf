@@ -24,7 +24,7 @@
 *		
 */ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params [["_unit", objNull], ["_killer", objNull]];
+params [["_unit", objNull]];
 if (isNull _unit) exitWith { ["tiis_fnc_reportStats: cannot be used without providing unit object"] call tiig_fnc_log; };
 
 sleep 5; // Let server recieve data before continuing
