@@ -44,8 +44,8 @@ _playGround = missionNamespace getVariable "tag_playGroundSettings";
 _pos = _playGround select 0;
 _size = _playGround select 1;
 _randSupplyDropPos = [_size-75, _size-75, _pos select 0, _pos select 1] call tiig_fnc_rand2d;
-_position = _randSupplyDropPos findEmptyPosition [0, 25, "B_supplyCrate_F"];
-if(count _position == 0) then { _position = _randSupplyDropPos findEmptyPosition [0, 50, "B_supplyCrate_F"]; };
+_position = _randSupplyDropPos findEmptyPosition [0, 100, "B_supplyCrate_F"];
+if(count _position == 0) then { _position = _randSupplyDropPos findEmptyPosition [0, 200, "B_supplyCrate_F"]; };
 
 _dropX = (_position select 0);
 _dropY = (_position select 1);

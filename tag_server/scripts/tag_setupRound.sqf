@@ -52,14 +52,14 @@ _mPosX = _mPos select 0;
 _mPosY = _mPos select 1;
 _mkrX = getMarkerSize tag_activeMap select 0;
 _mkrY = getMarkerSize tag_activeMap select 1;
-_mapCenter = [_mkrY-30, _mkrX-30, _mPosX, _mPosY] call tiig_fnc_rand2d;
+_mapCenter = [_mkrY, _mkrX, _mPosX, _mPosY] call tiig_fnc_rand2d;
 
 /* X and Y of center in the chosen map */
 _mapX = (_mapCenter select 0);
 _mapY = (_mapCenter select 1);
 
 /* Calculate the size of the playable area */
-_markerSize = 100 * (1 max (round (tag_playerCountAll / 5)));
+_markerSize = 200 * (1 max (round(tag_playerCountAll / 2)));
 
 missionNamespace setVariable ["tag_playGroundSettings", [[_mapX, _mapY, 0], _markerSize], TRUE];
 
@@ -75,14 +75,14 @@ _pArea setMarkerSize [_markerSize, _markerSize];
 _lootArea = createMarker ["tag_lootArea",[_mapX, _mapY]];
 _lootArea setMarkerShape "ELLIPSE";
 _lootArea setMarkerType "ELLIPSE";
-_lootArea setMarkerSize [_markerSize+20, _markerSize+20];
+_lootArea setMarkerSize [_markerSize+100, _markerSize+100];
 _lootArea setMarkerAlpha 0;
 
 /* Spawn supply drop area */
 _dropArea = createMarker ["tag_supplyDrop",[_mapX, _mapY]];
 _dropArea setMarkerShape "ELLIPSE";
 _dropArea setMarkerType "ELLIPSE";
-_dropArea setMarkerSize [_markerSize-10, _markerSize-10];
+_dropArea setMarkerSize [_markerSize-100, _markerSize-100];
 _dropArea setMarkerAlpha 0;
 
 /* Spawn supply drop area */

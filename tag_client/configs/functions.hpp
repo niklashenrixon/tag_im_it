@@ -30,6 +30,7 @@ class CfgFunctions {
 			class loadUniform;
 			class playGround;
 			class soundDanger;
+			class removeWeapons;
 		};
 
 		class Init_Global {
@@ -74,6 +75,7 @@ class CfgFunctions {
 		class Eventhandlers {
 			file="tag_client\eh";
 			class onPreloadFinished;
+			class onEjectVehicle;
 			class onDisconnected;
 			class onHandleDamage;
 			class onHandleHeal;

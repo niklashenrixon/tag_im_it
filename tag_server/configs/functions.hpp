@@ -12,7 +12,6 @@ class CfgFunctions {
 		class Database {
 			file="tag_server\functions\db";
 			class aSync;
-			class distributeHits;
 			class strip;
 			class reportStats;
 			class getData;

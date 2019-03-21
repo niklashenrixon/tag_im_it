@@ -5,15 +5,15 @@
 *	   \ \_\  \ \_\ \_\  \ \_____\     \ \_\  \ \_\ \ \_\     \ \_\    \ \_\ 
 *	    \/_/   \/_/\/_/   \/_____/      \/_/   \/_/  \/_/      \/_/     \/_/ 
 *
-*	@Filename: fn_waitForRound.sqf
+*	@Filename: fn_removeWeapons.sqf
 *	@Location: {@mod\addons}\tag_client\functions\misc\
 *	@Author: Nixon {nixon@visualized.se}
 *
 *	Description:
-*		Players who join or is killed during a round will see this
+*		Strips all weapons from unit when unit is ready to play a round
 *
 *	Example(s):
-*		call tiig_fnc_waitForRound;
+*		0 spawn tiig_fnc_removeWeapons;
 *
 *	Parameter(s):
 *
@@ -21,16 +21,10 @@
 *
 */ ///////////////////////////////////////////////////////////////////////////////////////
 
-waitUntil { tag_gameInProgress };
-
-private ["_spec","_pL"];
-
-while{!(player getVariable "tag_unitPlaying") && tag_gameInProgress} do {
-	if(!(player getVariable "tag_unitSpectating")) then {
-		_pL = {side _x != resistance && side _x != civilian} count playableUnits;
-		if (_pL >= 2) then {
-			["Game in progress. Players left in round: " + str(_pL), 1, 0, 0.7, 5, 1347, "any", nil, "local"] call tiig_fnc_messanger;
-		};
+while{!(player getVariable "tag_unitPlaying")} do {
+	sleep 1;
+	if (player getVariable "tag_unitPlaying") then {
+		removeAllWeapons player;
+		terminate _thisScript;
 	};
-	sleep 15;
 };

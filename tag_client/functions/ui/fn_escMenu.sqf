@@ -25,10 +25,12 @@
 		// BUTTON 2 (SPECTATOR CAMERA)
 		_ctrlBtn2 = _display ctrlCreate ["TAG_U_ESC_BTN2", 8649];
 		_ctrlBtn2 buttonSetAction "(findDisplay 49) closeDisplay 1; [player] call tiic_fnc_cameraSystem;";
+		if (tag_gameInProgress) then { _ctrlBtn2 ctrlEnable TRUE; } else { _ctrlBtn2 ctrlEnable FALSE; };
 
 		// BUTTON 3 (VIEW SPECTATOR CONTROLS)
 		_ctrlBtn3 = _display ctrlCreate ["TAG_U_ESC_BTN3", 8650];
 		_ctrlBtn3 buttonSetAction "(findDisplay 49) closeDisplay 1; call tiic_fnc_showCamInfo;";
+		if (tag_gameInProgress) then { _ctrlBtn3 ctrlEnable TRUE; } else { _ctrlBtn3 ctrlEnable FALSE; };
 
 		// BUTTON 4 (VIEW RULES)
 		_ctrlBtn4 = _display ctrlCreate ["TAG_U_ESC_BTN4", 8651];

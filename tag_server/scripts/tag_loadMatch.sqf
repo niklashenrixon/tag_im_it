@@ -25,14 +25,13 @@
 waitTimer = waitTimerValue;
 
 tag_mCountReached = FALSE;
-tag_readyToPlay   = FALSE;
 
 /*
 *	Display waiting for players message
 */
 tag_waitingForPlayers = 0 spawn {
 	
-	while{!tag_readyToPlay} do {
+	while{true} do {
 
 		_waitingPlayer  = format ["%1 player online right now. A minimum of %2 needed.", str(tag_playerCountAll), str(tag_minPlayersToStart)];
 		_waitingPlayers = format ["%1 players online right now. A minimum of %2 needed.", str(tag_playerCountAll), str(tag_minPlayersToStart)];
@@ -66,8 +65,8 @@ waitUntil {
 	if (tag_playerCountAll >= tag_minPlayersToStart && tag_mCountReached)  then { waitTimer = waitTimer - 1; missionNamespace setVariable ["tag_gameLoading", true, true]; };
 	if (tag_playerCountAll < tag_minPlayersToStart && tag_mCountReached)  then { tag_mCountReached = FALSE; waitTimer = waitTimerValue; missionNamespace setVariable ["tag_gameLoading", false, true]; };
 
+	// Triggered when player count is reached and countdown has ended (Game starts now)
 	if (tag_playerCountAll >= tag_minPlayersToStart && waitTimer <= 0 && tag_mCountReached) exitWith {
-		tag_readyToPlay = TRUE;
 		terminate tag_waitingForPlayers;
 		missionNamespace setVariable ["tag_timeRoundBegin", round(time), true];
 		[tag_roundID, tag_playerCountAll] call tiis_fnc_insertServerStats;
@@ -82,7 +81,7 @@ _joinMessage = format ["Round starting with %1 players", tag_playerCountAll];
 [_joinMessage, 1, 0, 0.7, 5, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
 
 /* Load loot message */
-["Loading loot..", 1, 0, 0.8, 20, 1338, "all", nil, "mp"] call tiig_fnc_messanger;
+["Loading loot..", 1, 0, 0.8, 60, 1338, "all", nil, "mp"] call tiig_fnc_messanger;
 
 /* Start setting up for a round */
 0 execVM "\tag_server\scripts\tag_setupRound.sqf";

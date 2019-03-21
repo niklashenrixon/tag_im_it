@@ -15,13 +15,14 @@ waitUntil { alive player };
 waitUntil { time > 1 };
 waitUntil { isTouchingGround player };
 
+// Make unit join resistance
+[player] joinSilent (createGroup resistance);
+
 // Send client version to server for verification
 tag_checkVersion = [player, tag_clientVersion, tag_clientVersionString]; publicVariableServer "tag_checkVersion";
 
 // Wait for client version verification before continuing with loading
 waitUntil { (player getVariable ["tag_unitVersionAllowed", false]) && !tag_unitBanned };
-
-[player] joinSilent (createGroup resistance);
 
 // Remove blur effect from client after version verifications
 'dynamicBlur' ppEffectEnable true;
@@ -29,7 +30,8 @@ waitUntil { (player getVariable ["tag_unitVersionAllowed", false]) && !tag_unitB
 'dynamicBlur' ppEffectCommit 1;
 1 fadeSound 1;
 
-player enableStamina FALSE; // Remove fatigue / stamina
+player enableStamina false; // Remove stamina
+player enableFatigue false; // Remove fatigue
 enableRadio false; // Disable radio
 showSubtitles false; // Do not show any text translations from speech
 enableSentences false; // Nope
@@ -74,43 +76,13 @@ call tiig_fnc_loadUniform;
 // Wait until round starts then force player inside playground
 0 spawn tiig_fnc_playGround;
 
+// Strips all weapons from unit when unit is ready to play a round
+0 spawn tiig_fnc_removeWeapons;
+
 // Start danger song
 [TAG_DANGERSOUND] spawn tiig_fnc_soundDanger;
 
-
-/*
-*
-*
-*	LEGACY CODE TO BE CONVERTED
-*
-*
-*/
-
-// Enable anti-camping system
-//tag_antiCampSystem  = 0 spawn tag_fn_antiCampSystem;
-
-// Strip all weapons from player after player has been moved
-tag_removeWeapons = 0 spawn {
-	while{!(player getVariable "tag_unitPlaying")} do {
-		sleep 1;
-		if (player getVariable "tag_unitPlaying") then {
-			removeAllWeapons player;
-			terminate tag_removeWeapons;
-		};
-	};
-};
-
-// Load client eventhandlers
-#include "\tag_client\scripts\tag_clientEventhandlers.sqf"
-
-tag_amIBanned = [player, (getPlayerUID player)];
-publicVariableServer "tag_amIBanned";
-
-// spawn camera when joining if round in progress
-if (tag_gameInProgress) then {
-	player addAction ["Spectator camera", { tag_inCam = [player] call tiic_fnc_cameraSystem; }];
-	player addAction ["Show camera instructions", { call tiic_fnc_showCamInfo; }];
-	player addAction ["Hide camera instructions", { "RSC_TAG_CAMINFO" cutFadeOut 1; }];
-};
+// Add camera access when joining if game in progress
+if(tag_gameInProgress) then { player addAction ["Spectator camera", { [player] call tiic_fnc_cameraSystem; }]; };
 
 [">>>> EH TRIGGERED: onPreloadFinished <<<<","DEEPDEBUG"] call tiig_fnc_log;

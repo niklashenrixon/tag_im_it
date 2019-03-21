@@ -33,6 +33,7 @@ _ehFIRED		= player addEventHandler   ["Fired",        { _this call tiic_fnc_onFi
 _ehHANDLEDAMAGE = player addEventHandler   ["HandleDamage", { _this call tiic_fnc_onHandleDamage; }]; // Player was damaged
 _ehHANDLEHEAL   = player addEventHandler   ["HandleHeal",   { _this spawn tiic_fnc_onHandleHeal; }];  // Player is using medical
 "tag_unitBanned" addPublicVariableEventHandler { tag_unitBanned = _this select 1; };
+"tag_ejectVehicle" addPublicVariableEventHandler { call tiic_fnc_onEjectVehicle; };
 addMissionEventHandler ["PreloadFinished", { 0 spawn tiic_fnc_onPreloadFinished; }];
 addMissionEventHandler ["Ended",{ _this call tiic_fnc_onEnded; }];
 
@@ -48,8 +49,8 @@ player setVariable ["tag_unitDeathCircle", false, true];    // Is visible deathC
 player setVariable ["tag_unitScore", 0, true];              // How many point the player has
 player setVariable ["tag_unitShotsFired", 0, true];         // How many bullets the unit has shot
 player setVariable ["tag_unitShotsTaken", 0, true];         // How many times the player has been hit by a bullit
-player setVariable ["tag_unitShotsHit",   0, true];         // How many times the player has hit another player
-player setVariable ["tag_unitHeadshots",  0, true];         // How many times the player has killed someone by headshot
+player setVariable ["tag_unitShotsHit", 0, true];           // How many times the player has hit another player
+player setVariable ["tag_unitHeadshots", 0, true];          // How many times the player has killed someone by headshot
 player setVariable ["tag_unitKilledDist", 0, true];         // Distance in meters from you to the one who killed you
 player setVariable ["tag_unitKilledWeapon", "", true];      // Weapon that was used to kill player
 player setVariable ["tag_unitKilledBy", "", true];          // Unit who killed player

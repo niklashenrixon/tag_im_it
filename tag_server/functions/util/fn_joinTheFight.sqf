@@ -35,7 +35,7 @@ waitUntil {
 
 // Move unit to play area
 waitUntil {
-	[_unit, "tag_startSpawn", (tag_playGroundSettings select 1)-30] call tiig_fnc_moveToMarker;
+	[_unit, "tag_startSpawn", (tag_playGroundSettings select 1)-100] call tiig_fnc_moveToMarker;
 	sleep 0.5;
 	if (_unit distance (getMarkerPos "tag_startSpawn") < (tag_playGroundSettings select 1)+100) exitWith { TRUE };
 };
@@ -43,7 +43,7 @@ waitUntil {
 // Give unit "playing" status
 _unit setVariable ["tag_unitPlaying", true, true];
 
-// Populate player list with this player
+// Populate player list with this unit
 _pList = missionNamespace getVariable "tag_playerList";
 _pList pushBack _unit;
 missionNamespace setVariable ["tag_playerList", _pList, true];

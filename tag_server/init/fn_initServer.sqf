@@ -48,15 +48,16 @@ missionNamespace setVariable ["tag_gameUnloading", false, true]; // True during 
 missionNamespace setVariable ["tag_gameFinished",  false, true]; // True after unloading is done
 
 // Other
-missionNamespace setVariable ["tag_playGroundSettings", [[0, 0, 0], 100], true];
-missionNamespace setVariable ["tag_playerIt", objNull, true];
-missionNamespace setVariable ["tag_firstIt", objNull, true];
-missionNamespace setVariable ["tag_playerList", [], true];
+missionNamespace setVariable ["tag_playGroundSettings", [[0, 0, 0], 100], true]; // Containes size of play area
+missionNamespace setVariable ["tag_playerList", [], true];                       // A list of all units that is currently playing a round
+missionNamespace setVariable ["tag_playerIt", objNull, true];                    // Contains the current unit tagged as IT
+missionNamespace setVariable ["tag_firstIt", objNull, true];                     // The first unit to get chosen as IT
 
-missionNamespace setVariable ["tag_timeStarted", round(time), true];
-missionNamespace setVariable ["tag_timeRoundBegin", 0, true];
-missionNamespace setVariable ["tag_timeRoundEnd", 0, true];
-missionNamespace setVariable ["tag_timeRoundDuration", 0, true];
+// Time
+missionNamespace setVariable ["tag_timeStarted", round(time), true]; // Server start
+missionNamespace setVariable ["tag_timeRoundBegin", 0, true];        // Time in seconds when the round was started
+missionNamespace setVariable ["tag_timeRoundEnd", 0, true];          // Time in seconds when the round ended
+missionNamespace setVariable ["tag_timeRoundDuration", 0, true];     // Time in seconds duration of the round (tag_timeRoundEnd -tag_timeRoundBegin)
 
 // Generate new id number for the round thats going to be played
 _rID = [32] call tiis_fnc_generateRoundId;
