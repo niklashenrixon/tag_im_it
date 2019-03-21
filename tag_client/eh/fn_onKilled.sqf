@@ -133,17 +133,13 @@ if(player == _unit && player == _killer) then {
 */
 if(isServer || isDedicated) then {
 
+	_unit setVariable ["tag_unitLifespan", round(time - tag_timeRoundBegin), true];
+	_timeBeginIT = _unit getVariable "tag_unitTimeITBegin";
+	if(_unit getVariable "tag_unitIsIT") then { _unit setVariable ["tag_unitLifespanIT", round(time - _timeBeginIT), true]; };
+
 	// Unit cant be IT and is not playing anymore
 	_unit setVariable ["tag_unitPlaying", false, true];
 	_unit setVariable ["tag_unitIsIT", false, true];
-
-	// Set time things on unit
-	_timeBegin = _unit getVariable "tag_unitTimeBegin";
-	_timeBeginIT = _unit getVariable "tag_unitTimeITBegin";
-
-	_unit setVariable ["tag_unitTimeEnd", round(time), true];
-	_unit setVariable ["tag_unitLifespan", round(time - _timeBegin), true];
-	_unit setVariable ["tag_unitLifespanIT", round(time - _timeBeginIT), true];
 
 	// Delete dead unit from player list
 	_pList = missionNamespace getVariable "tag_playerList";;

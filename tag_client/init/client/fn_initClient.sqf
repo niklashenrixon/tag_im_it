@@ -57,12 +57,10 @@ player setVariable ["tag_unitKilledBy", "", true];          // Unit who killed p
 player setVariable ["tag_unitKilledByHS", 0, true];         // Unit was killed by headshot
 player setVariable ["tag_unitSuicide", 0, true];            // True if player died to suicide
 player setVariable ["tag_unitDisconnected", 0, true];       // True if player game crash or player disconnects
+player setVariable ["tag_unitLifespan", 0, true];           // How long the unit survived the round
+player setVariable ["tag_unitLifespanIT", 0, true];         // How long the unit survived the round as IT
 
-player setVariable ["tag_unitTimeBegin", 0, true];          // Unit who killed player
-player setVariable ["tag_unitTimeITBegin", 0, true];          // Unit who killed player
-player setVariable ["tag_unitTimeEnd", 0, true];          // Unit who killed player
-player setVariable ["tag_unitLifespan", 0, true];          // Unit who killed player
-player setVariable ["tag_unitLifespanIT", 0, true];          // Unit who killed player
+player setVariable ["tag_unitTimeITBegin", 0, true];        // Time in seconds when unit became IT
 
 player setVariable ["tag_unitStatsReported", false, true];  // True if all player stats have been reported
 

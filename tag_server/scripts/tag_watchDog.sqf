@@ -78,12 +78,9 @@
 				missionNamespace setVariable ["tag_gameEndgame", false, true];
 				missionNamespace setVariable ["tag_gameFinished", true, true];
 				
-				missionNamespace setVariable ["tag_timeRoundEnd", round(time), true];
-				missionNamespace setVariable ["tag_timeRoundDuration", round(tag_timeRoundEnd - tag_timeRoundBegin), true];
+				missionNamespace setVariable ["tag_timeRoundDuration", round(time - tag_timeRoundBegin), true];
 
 				[tag_roundID, tag_timeRoundDuration] call tiis_fnc_updateServerStats;
-
-				tag_roundStarted = false; publicVariable "tag_roundStarted";
 
 				_winnerObject = []; {
 					if (side _x == east || side _x == west) then {
@@ -99,23 +96,28 @@
 					_winner setVariable ["tag_unitScore", TAG_SCORE_FIRST, true];
 				};
 
-				//[[0, 1.5, false, false], "BIS_fnc_cinemaBorder", _winner, false, true] call BIS_fnc_MP;
 				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", owner _winner];
 
 				["And the winner is " + _winnerName, 1, 0, 0.7, 15, 1337, "CivExlusive", _winner, "mp"] call tiig_fnc_messanger;
 				["Congratulations, you are the winner!", 1, 0, 0.7, 15, 1337, "specific", _winner, "mp"] call tiig_fnc_messanger;
 
-				/*
-				*	Tell player he/she is winner
-				*/
-				_pcIdWinner = owner _winner;
-				tag_clientIsWinner = [];
-				_pcIdWinner publicVariableClient "tag_clientIsWinner";
+				_winner setVariable ["tag_unitLifespan", round(time - tag_timeRoundBegin), true];
+				if(_winner getVariable "tag_unitIsIT") then { _winner setVariable ["tag_unitLifespanIT", round(time - _timeBeginIT), true]; };
+
+				// Unit cant be IT and is not playing anymore
+				_winner setVariable ["tag_unitPlaying", false, true];
+				_winner setVariable ["tag_unitIsIT", false, true];
+
+				// Delete dead unit from player list
+				_pList = missionNamespace getVariable "tag_playerList";;
+				_pList deleteAt (_pList find _winner);
+				missionNamespace setVariable ["tag_playerList", _pList, true];
+
+				// Delete shot marker
+				deleteMarker (getPlayerUID(_winner) + "_solid");
+				deleteMarker (getPlayerUID(_winner) + "_text");
 
 				[_winner] spawn tiis_fnc_reportStats;
-
-				tag_roundComplete = TRUE;
-				publicVariable "tag_roundComplete";
 
 				sleep 10;
 				["END1", TRUE, 5] spawn BIS_fnc_endMission;
@@ -134,15 +136,11 @@
 				["ENTERING MODE: No one alive", "DEBUG"] call tiig_fnc_log;
 
 				missionNamespace setVariable ["tag_gameInProgress", false, true];
+				missionNamespace setVariable ["tag_gameEndgame", false, true];
 				missionNamespace setVariable ["tag_gameFinished", true, true];
-				tag_roundStarted = false; publicVariable "tag_roundStarted";
 
-				//[[0, 1.5, false, false], "BIS_fnc_cinemaBorder", true, false, true] call BIS_fnc_MP;
 				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", -2];
 				["No winner was declared", 1, 0, 0.7, 15, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
-
-				tag_roundComplete = TRUE;
-				publicVariable "tag_roundComplete";
 
 				sleep 10;
 				["END1", TRUE, 5] spawn BIS_fnc_endMission;
@@ -191,31 +189,37 @@
 				sleep 2;
 
 				missionNamespace setVariable ["tag_gameInProgress", false, true];
+				missionNamespace setVariable ["tag_gameEndgame", false, true];
 				missionNamespace setVariable ["tag_gameFinished", true, true];
-				tag_roundStarted = false; publicVariable "tag_roundStarted";
 
-				if(tag_playerCount == 2) then {
+				if(tag_playerCount >= 2) then {
 
-					tag_roundIsDraw = true;
-					publicVariable "tag_roundIsDraw";
+					{ if(side _x != resistance && side _x != civilian) then {
 
-					{
-						if(side _x != resistance) then {
-							_pcIdDraw = owner _x;
-							tag_reportDraw = [];
-							_pcIdDraw publicVariableClient "tag_reportDraw";
+							_x setVariable ["tag_unitLifespan", round(time - tag_timeRoundBegin), true];
+							if(_x getVariable "tag_unitIsIT") then { _x setVariable ["tag_unitLifespanIT", round(time - _timeBeginIT), true]; };
+
+							// Unit cant be IT and is not playing anymore
+							_x setVariable ["tag_unitPlaying", false, true];
+							_x setVariable ["tag_unitIsIT", false, true];
+
+							// Delete dead unit from player list
+							_pList = missionNamespace getVariable "tag_playerList";;
+							_pList deleteAt (_pList find _x);
+							missionNamespace setVariable ["tag_playerList", _pList, true];
+
+							// Delete shot marker
+							deleteMarker (getPlayerUID(_x) + "_solid");
+							deleteMarker (getPlayerUID(_x) + "_text");
+
+							[_x] spawn tiis_fnc_reportStats;
 						};
 						sleep 1.5;
 					} forEach playableUnits;
-
-					["Times up! It's a draw", 1, 0, 0.7, 15, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
 				};
 
-				tag_roundComplete = TRUE;
-				publicVariable "tag_roundComplete";
-
-				//[[0, 1.5, false, false], "BIS_fnc_cinemaBorder", true, false, true] call BIS_fnc_MP;
 				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", -2];
+				["Times up! It's a draw", 1, 0, 0.7, 15, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
 				sleep 10;
 				["END1", TRUE, 5] spawn BIS_fnc_endMission;
 
