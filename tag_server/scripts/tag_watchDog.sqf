@@ -102,6 +102,7 @@
 				["Congratulations, you are the winner!", 1, 0, 0.7, 15, 1337, "specific", _winner, "mp"] call tiig_fnc_messanger;
 
 				_winner setVariable ["tag_unitLifespan", round(time - tag_timeRoundBegin), true];
+				_timeBeginIT = _winner getVariable "tag_unitTimeITBegin";
 				if(_winner getVariable "tag_unitIsIT") then { _winner setVariable ["tag_unitLifespanIT", round(time - _timeBeginIT), true]; };
 
 				// Unit cant be IT and is not playing anymore
@@ -197,6 +198,7 @@
 					{ if(side _x != resistance && side _x != civilian) then {
 
 							_x setVariable ["tag_unitLifespan", round(time - tag_timeRoundBegin), true];
+							_timeBeginIT = _x getVariable "tag_unitTimeITBegin";
 							if(_x getVariable "tag_unitIsIT") then { _x setVariable ["tag_unitLifespanIT", round(time - _timeBeginIT), true]; };
 
 							// Unit cant be IT and is not playing anymore
