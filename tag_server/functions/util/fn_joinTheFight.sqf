@@ -43,6 +43,9 @@ waitUntil {
 // Give unit "playing" status
 _unit setVariable ["tag_unitPlaying", true, true];
 
+// Set unit start time
+_unit setVariable ["tag_unitTimeBegin", round(time), true];
+
 // Populate player list with this unit
 _pList = missionNamespace getVariable "tag_playerList";
 _pList pushBack _unit;

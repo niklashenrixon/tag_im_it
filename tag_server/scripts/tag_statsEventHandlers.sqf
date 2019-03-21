@@ -73,63 +73,6 @@
 		_headshot = 0;
 	};
 
-	switch (_projectile) do {
-		case "APERSTripMine_Wire_Ammo": { _killerWeapon = "APERSTripMine_Wire_Mag"; tag_humiliation = TRUE; };
-		case "M_Titan_AP":				{ _killerWeapon = "launch_B_Titan_short_F"; tag_humiliation = TRUE; };
-	};
-
-	// Weapon updates
-	switch (_killerWeapon) do {
-		case "hgun_Rook40_F":			{ _query = format["PlayerKill_hgun_Rook40_F:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "SMG_01_Holo_F":			{ _query = format["PlayerKill_SMG_01_Holo_F:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "arifle_MX_F":				{ _query = format["PlayerKill_arifle_MX_F:%1",			   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "arifle_Mk20_F":			{ _query = format["PlayerKill_arifle_Mk20_F:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "arifle_Katiba_F":			{ _query = format["PlayerKill_arifle_Katiba_F:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "kio_l85a2_ris":			{ _query = format["PlayerKill_kio_l85a2_ris:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_g3a3":			{ _query = format["PlayerKill_hlc_rifle_g3a3:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_g3ka4":			{ _query = format["PlayerKill_hlc_rifle_g3ka4:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_auga3":			{ _query = format["PlayerKill_hlc_rifle_auga3:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_RU5562":		{ _query = format["PlayerKill_hlc_rifle_RU5562:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_auga2para_b":	{ _query = format["PlayerKill_hlc_rifle_auga2para_b:%1",   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_Bushmaster300": { _query = format["PlayerKill_hlc_rifle_Bushmaster300:%1", _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_vendimus":		{ _query = format["PlayerKill_hlc_rifle_vendimus:%1",	   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "kio_sr25":				{ _query = format["PlayerKill_kio_sr25:%1",				   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_hk51":			{ _query = format["PlayerKill_hlc_rifle_hk51:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_hk53":			{ _query = format["PlayerKill_hlc_rifle_hk53:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_Colt727":		{ _query = format["PlayerKill_hlc_rifle_Colt727:%1",	   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_honeybadger":	{ _query = format["PlayerKill_hlc_rifle_honeybadger:%1",   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_bcmjack":		{ _query = format["PlayerKill_hlc_rifle_bcmjack:%1",	   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "kio_l85a2_pink":			{ _query = format["PlayerKill_kio_l85a2_pink:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_saiga12k":		{ _query = format["PlayerKill_hlc_rifle_saiga12k:%1",	   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_aek971":		{ _query = format["PlayerKill_hlc_rifle_aek971:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_ak74":			{ _query = format["PlayerKill_hlc_rifle_ak74:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_aks74":			{ _query = format["PlayerKill_hlc_rifle_aks74:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_aks74u":		{ _query = format["PlayerKill_hlc_rifle_aks74u:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_ak47":			{ _query = format["PlayerKill_hlc_rifle_ak47:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_akm":			{ _query = format["PlayerKill_hlc_rifle_akm:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_rpk":			{ _query = format["PlayerKill_hlc_rifle_rpk:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_ak12":			{ _query = format["PlayerKill_hlc_rifle_ak12:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_smg_mp5a4":			{ _query = format["PlayerKill_hlc_smg_mp5a4:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_smg_mp5n":			{ _query = format["PlayerKill_hlc_smg_mp5n:%1",			   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_smg_mp510":			{ _query = format["PlayerKill_hlc_smg_mp510:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_smg_mp5sd5":			{ _query = format["PlayerKill_hlc_smg_mp5sd5:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_smg_mp5sd6":			{ _query = format["PlayerKill_hlc_smg_mp5sd6:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36A1":			{ _query = format["PlayerKill_hlc_rifle_G36A1:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36KA1":		{ _query = format["PlayerKill_hlc_rifle_G36KA1:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36C":			{ _query = format["PlayerKill_hlc_rifle_G36C:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36E1":			{ _query = format["PlayerKill_hlc_rifle_G36E1:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36KE1":		{ _query = format["PlayerKill_hlc_rifle_G36KE1:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36V":			{ _query = format["PlayerKill_hlc_rifle_G36V:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36KV":			{ _query = format["PlayerKill_hlc_rifle_G36KV:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36CV":			{ _query = format["PlayerKill_hlc_rifle_G36CV:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36TAC":		{ _query = format["PlayerKill_hlc_rifle_G36TAC:%1",		   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36CTAC":		{ _query = format["PlayerKill_hlc_rifle_G36CTAC:%1",	   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36MLIC":		{ _query = format["PlayerKill_hlc_rifle_G36MLIC:%1",	   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		case "hlc_rifle_G36CMLIC":		{ _query = format["PlayerKill_hlc_rifle_G36CMLIC:%1",	   _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-		
-		case "APERSTripMine_Wire_Mag":	{ _query = format["PlayerKill_APERSTripMine_Wire_Mag:%1",  _killerID]; [_query, 1, true] call tiis_fnc_aSync; };
-	};
-
 	// Update victim's round stats
 	_query = format [
 		"UpdatePlayerRoundStatKilled:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16",

@@ -28,14 +28,6 @@
 
 if (tag_dbConn) then {
 
-	/*
-	*	Log server stats
-	*/
-	0 spawn {
-		waitUntil { // Wait for round to start before setting variables
-			if (tag_gameInProgress) exitWith {
-
-				waitUntil {	if (tag_allPlayersIsWest) exitWith { TRUE }; sleep 0.3; };
 
 				// Register all players that has entered the round
 				{
@@ -55,24 +47,7 @@ if (tag_dbConn) then {
 					sleep 3.5;
 				} foreach playableUnits;
 
-				roundStart	= round(time);
 
-				TRUE
-			};
-			sleep 2;
-		};
-
-		waitUntil { // Wait for round to finish before writing to DB
-			if (tag_gameFinished) exitWith {
-				roundDuration = round(time - roundStart);
-
-				_query = format["InsertServerStats:%1:%2:%3", tag_roundID, roundDuration, tag_playerCount];
-				[_query, 1, true] call tiis_fnc_aSync;
-				TRUE
-			};
-			sleep 2;
-		};
-	};
 
 	/*
 	*	Load statistics eventhandlers

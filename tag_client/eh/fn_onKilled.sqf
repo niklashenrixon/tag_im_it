@@ -36,6 +36,9 @@ if(player == _killer && player != _unit) then {
 		_uHS = (player getVariable "tag_unitHeadshots") + 1;
 		player setVariable ["tag_unitHeadshots", _uHS, true];
 
+		// Unit who was killed was so by headshot
+		_unit setVariable ["tag_unitKilledByHS", 1, true];
+
 	} else {
 		_hs = FALSE;
 	};
@@ -56,6 +59,7 @@ if(player == _killer && player != _unit) then {
 	// If killer is not IT, set killer to IT
 	if(!(player getVariable "tag_unitIsIT")) then {
 		player setVariable ["tag_unitIsIT", true, true];
+		player setVariable ["tag_unitTimeITBegin", round(time), true];
 		missionNamespace setVariable ["tag_playerIt", player, true];
 		[player] joinSilent (createGroup east);
 
@@ -81,9 +85,6 @@ if(player == _killer && player != _unit) then {
 if(player == _unit) then {
 
 	[player] joinSilent (createGroup resistance);
-
-	player setVariable ["tag_unitPlaying", false, true];
-	player setVariable ["tag_unitIsIT", false, true];
 
 	["Thank you for playing. Better luck next time!", 1, 0, 0.7, 5, 9028, 'any', nil, 'local'] call tiig_fnc_messanger;
 
@@ -135,6 +136,14 @@ if(isServer || isDedicated) then {
 	// Unit cant be IT and is not playing anymore
 	_unit setVariable ["tag_unitPlaying", false, true];
 	_unit setVariable ["tag_unitIsIT", false, true];
+
+	// Set time things on unit
+	_timeBegin = _unit getVariable "tag_unitTimeBegin";
+	_timeBeginIT = _unit getVariable "tag_unitTimeITBegin";
+
+	_unit setVariable ["tag_unitTimeEnd", round(time), true];
+	_unit setVariable ["tag_unitLifespan", round(time - _timeBegin), true];
+	_unit setVariable ["tag_unitLifespanIT", round(time - _timeBeginIT), true];
 
 	// Delete dead unit from player list
 	_pList = missionNamespace getVariable "tag_playerList";;
