@@ -75,6 +75,7 @@ class CfgFunctions {
 		class Eventhandlers {
 			file="tag_client\eh";
 			class onPreloadFinished;
+			class onUpdateCircle;
 			class onEjectVehicle;
 			class onDisconnected;
 			class onHandleDamage;

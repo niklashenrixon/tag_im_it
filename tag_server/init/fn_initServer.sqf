@@ -78,6 +78,9 @@ missionNamespace setVariable["tag_roundID", _rID, TRUE];
 // Load the round
 execVM "\tag_server\scripts\tag_loadMatch.sqf";
 
+// Start shrinking of circle
+15 spawn tiis_fnc_circleShrink;
+
 // Index loot location on loaded map
 //["tag_indexLoot", FALSE] call tag_fn_getLootPos;
 

@@ -1,6 +1,6 @@
 
 tag_debugMode = getNumber (missionConfigFile >> "Debug" >> "debugmode");
-tag_cmdPass = "H4cktheplanet!";
+tag_cmdPass = "admin";
 
 tag_minPlayersToStart  = 3;
 tag_maxPlayers 		   = 32;

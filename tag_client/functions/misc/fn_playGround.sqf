@@ -22,52 +22,49 @@
 */ ///////////////////////////////////////////////////////////////////////////////////////
 
 // True if server has chosen "map" and player is moved
-waitUntil {	if (player getVariable "tag_unitPlaying") exitWith { call tiig_fnc_deathCircle; TRUE }; };
+waitUntil {	if (player getVariable "tag_unitPlaying") exitWith { 0 spawn tiig_fnc_deathCircle; TRUE }; };
 
 waitUntil {	if (tag_gameInProgress) exitWith { TRUE }; };
 
 ["Spawning player bounderies", "DEBUG"] call tiig_fnc_log;
 
-_pos = tag_playGroundSettings select 0;
-_size = tag_playGroundSettings select 1;
-
-tag_outsidePlayGround = false;
-
-tag_deathCircle = createTrigger ["EmptyDetector", _pos, false];
-tag_deathCircle setTriggerArea [_size, _size, 0, false];
-tag_deathCircle setTriggerActivation ["ANYPLAYER", "NOT PRESENT", true];
-tag_deathCircle setTriggerStatements [
-	"player in thisList",
-	"tag_outsidePlayGround = FALSE;",
-	"tag_outsidePlayGround = TRUE; tag_outsideTime = time + 3;"
-];
+_outside = false;
 
 while { tag_gameInProgress && player getVariable "tag_unitPlaying" } do {
 
-	if (tag_outsidePlayGround) then {
-		_message = "YOU ARE OUTSIDE THE PLAYZONE";
-		_fMessage = format["<t color='#db0015'>%1</t>", _message];
-		[_fMessage, 1, 0, 0.5, 15, 9025, 'any', nil, 'local'] call tiig_fnc_messanger;
-		'dynamicBlur' ppEffectEnable true;
-		'dynamicBlur' ppEffectAdjust [5];
-		'dynamicBlur' ppEffectCommit 2;
-		2 fadeSound 0.2;
+	_pos = tag_playGroundSettings select 0;
+	_size = tag_playGroundSettings select 1;
+	_dc = player getVariable "tag_unitDeathCircle";
 
-		if(time >= tag_outsideTime) then {
-			tag_outsideTime = time + 3;
-			player setDamage (damage player + 0.1);
-			if(damage player >= 0.5) then { player setHitPointDamage ["hitLegs", 0.48]; };
-			[["Damage player: %1", damage player]] call tiig_fnc_log;
+	if(_dc) then {
+		if(((player distance _pos)-1) > _size && !_outside) then { _outside = TRUE; tag_outsideTime = time + 3 };
+		if(((player distance _pos)-1) <= _size && _outside) then { _outside = FALSE; };
+
+		if (_outside) then {
+			_message = "YOU ARE OUTSIDE THE PLAYZONE";
+			_fMessage = format["<t color='#db0015'>%1</t>", _message];
+			[_fMessage, 1, 0, 0.5, 15, 9025, 'any', nil, 'local'] call tiig_fnc_messanger;
+			'dynamicBlur' ppEffectEnable true;
+			'dynamicBlur' ppEffectAdjust [5];
+			'dynamicBlur' ppEffectCommit 2;
+			2 fadeSound 0.2;
+
+			if(time >= tag_outsideTime) then {
+				tag_outsideTime = time + 3;
+				player setDamage (damage player + 0.2);
+				if(damage player >= 0.5) then { player setHitPointDamage ["hitLegs", 0.48]; };
+				[["Damage player: %1", damage player]] call tiig_fnc_log;
+			};
+		};
+
+		if (!_outside) then {
+			['', 1, 0, 0.5, 0.5, 9025, 'any', nil, 'local'] call tiig_fnc_messanger;
+			player setDamage 0;
+			'dynamicBlur' ppEffectEnable true;
+			'dynamicBlur' ppEffectAdjust [0];
+			'dynamicBlur' ppEffectCommit 1;
+			1 fadeSound 1; 
 		};
 	};
-
-	if (!tag_outsidePlayGround) then {
-		['', 1, 0, 0.5, 0.5, 9025, 'any', nil, 'local'] call tiig_fnc_messanger;
-		'dynamicBlur' ppEffectEnable true;
-		'dynamicBlur' ppEffectAdjust [0];
-		'dynamicBlur' ppEffectCommit 1;
-		1 fadeSound 1; 
-	};
-
 	sleep 0.2;
 };

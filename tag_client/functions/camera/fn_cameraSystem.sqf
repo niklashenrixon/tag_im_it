@@ -12,7 +12,7 @@ TAG_SPEC_CAM_VISION = 0;
 TAG_SPEC_CAM_FOCUS = 0;
 
 player setVariable ["tag_unitSpectating", true ,true];
-call tiig_fnc_deathCircle;
+//0 spawn tiig_fnc_deathCircle;
 
 // Freeze all motor functions ;)
 0 spawn { sleep 5; player enableSimulation false; terminate _thisScript; };

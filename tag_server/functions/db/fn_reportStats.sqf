@@ -52,7 +52,7 @@ if(!_reported) then {
 	// _query = format ["UpdateScore:%1:%2:%3", _score, tag_roundID, getPlayerUID _unit];
 	// [_query, 1, true] call tiis_fnc_aSync;
 
-	//[["_taken: %1 | _hits: %2 | _fired: %3 | _hs: %4 | _dist: %5 | _gun: %6 | _killer: %7 | _suicide: %8 | _disco: %9 | _score: %10", _taken, _hits, _fired, _hs, _dist, _gun, _killer, _suicide, _disco, _score],"DEEPDEBUG"] call tiig_fnc_log;
+	[["_name: <%1> | _score: <%2> | _taken: <%3> | _hits: <%4> | _fired: <%5> | _hs: <%6> | _dist: <%7> | _gun: <%8> | _killer: <%9> | _killedbyhs: <%10> | _suicide: <%11> | _disco: <%12> | _lifespan: <%13> | _lifespanIT: <%14>", _name, _score, _taken, _hits, _fired, _hs, _dist, _gun, _killer, _killedbyhs, _suicide, _disco, _lifespan, _lifespanIT],"DEEPDEBUG"] call tiig_fnc_log;
 
 	// Set reported TRUE on unit
 	_unit setVariable ["tag_unitStatsReported", true, true];

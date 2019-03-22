@@ -64,14 +64,6 @@ if(player == _killer && player != _unit) then {
 		[player] joinSilent (createGroup east);
 
 		["<t color='#fc374a'>YOU'RE IT!</t>", 1.2, 0, 0.6, 5, 9027, 'any', nil, 'local'] call tiig_fnc_messanger;
-
-		/*
-		if (tag_playerCount >= 2) then { // Unit does not know "player count", thats server
-			
-			// ["You're ""IT"" now, good luck!", 1, 0, 0.7, 5, 1337, "specific", player, "mp"] call tiig_fnc_messanger;
-			//["There's a new ""IT""", 1, 0, 0.7, 5, 1337, "exclude", player, "mp"] call tiig_fnc_messanger;
-		};
-		*/
 	};
 
 	// Add score to player (statistics)

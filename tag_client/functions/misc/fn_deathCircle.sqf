@@ -2,11 +2,8 @@ private ["_pos1", "_rds", "_steps", "_radStep", "_pos2", "_wallA", "_wallB", "_r
 
 _spawned = player getVariable "tag_unitDeathCircle";
 if(!_spawned) then {
-	_retA = [];
-	_retB = [];
-	//_pos1 = param [0, getMarkerPos "tag_playArea", [[]]];
-	//_pos1 = getMarkerPos "tag_playArea";
-	//_rds = (getMarkerSize "tag_playArea") select 0;
+	tag_circleRetA = [];
+	tag_circleRetB = [];
 
 	_pos1 = tag_playGroundSettings select 0;
 	_rds = tag_playGroundSettings select 1;
@@ -23,17 +20,21 @@ if(!_spawned) then {
 		_wallA enableSimulation FALSE;
 		_wallA setPosATL _pos2;
 		_wallA setDir _i;
-		_retA = _retA + [_wallA];
+		tag_circleRetA = tag_circleRetA + [_wallA];
 
 		_wallB = "UserTexture10m_F" createVehicleLocal _pos2;
 		_wallB setObjectTexture [0,'#(argb,8,8,3)color(1,0,0,0.5)'];
 		_wallB enableSimulation FALSE;
 		_wallB setPosATL _pos2;
 		_wallB setDir (_i + 180);
-		_retB = _retB + [_wallB];
-		
+		tag_circleRetB = tag_circleRetB + [_wallB];
+
 		_i = _i + _radStep;
+
+		uiSleep 0.005;
 	};
-	
+
 	player setVariable ["tag_unitDeathCircle", true, true];
 };
+
+terminate _thisScript;

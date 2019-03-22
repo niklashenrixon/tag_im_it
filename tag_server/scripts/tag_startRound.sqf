@@ -34,7 +34,7 @@ waitUntil {
 		if(_j) then { _pc = _pc + 1; };
 	} forEach tag_playerList;
 
-	if (_jpc == _pc && _pc == tag_minPlayersToStart) exitWith {
+	if (_jpc == _pc && _pc >= tag_minPlayersToStart) exitWith {
 		// tag_allPlayersIsWest = true;
 		TRUE
 	};
@@ -48,10 +48,9 @@ waitUntil {
 	_itIsReady = _theOne getVariable "tag_unitPlaying";
 	sleep 1;
 	if (_itIsReady) exitWith {
-		[_theOne] joinSilent (createGroup east);
-		_theOne setVariable ["tag_unitIsIT", true, true];
 		missionNamespace setVariable ["tag_playerIt", _theOne, true];
 		missionNamespace setVariable ["tag_firstIt", _theOne, true];
+		_theOne setVariable ["tag_unitTimeITBegin", round(time), true];
 		TRUE
 	};
 };
@@ -79,6 +78,9 @@ tag_ItTime = round(time); publicVariable "tag_ItTime";
 
 missionNamespace setVariable ["tag_gameLoading", false, true];
 missionNamespace setVariable ["tag_gameInProgress", true, true];
+
+[_theOne] joinSilent (createGroup east);
+_theOne setVariable ["tag_unitIsIT", true, true];
 
 ["LET THE HUNT BEGIN!", 1.2, 0, 0.6, 5, 9027, "exclude", _theOne, "mp"] call tiig_fnc_messanger;
 ["<t color='#fc374a'>YOU'RE IT!</t>", 1.2, 0, 0.6, 5, 9027, "specific", _theOne, "mp"] call tiig_fnc_messanger;

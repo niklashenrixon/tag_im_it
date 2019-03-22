@@ -93,7 +93,10 @@
 				_winnerName = name _winner;
 
 				if(_winner == (missionNamespace getVariable "tag_firstIt")) then {
-					_winner setVariable ["tag_unitScore", TAG_SCORE_FIRST, true];
+
+					// Add score to player (statistics)
+					_uScore = (_winner getVariable "tag_unitScore") + TAG_SCORE_FIRST;
+					_winner setVariable ["tag_unitScore", _uScore, true];
 				};
 
 				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", owner _winner];

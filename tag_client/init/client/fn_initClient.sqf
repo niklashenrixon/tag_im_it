@@ -34,6 +34,7 @@ _ehHANDLEDAMAGE = player addEventHandler   ["HandleDamage", { _this call tiic_fn
 _ehHANDLEHEAL   = player addEventHandler   ["HandleHeal",   { _this spawn tiic_fnc_onHandleHeal; }];  // Player is using medical
 "tag_unitBanned" addPublicVariableEventHandler { tag_unitBanned = _this select 1; };
 "tag_ejectVehicle" addPublicVariableEventHandler { call tiic_fnc_onEjectVehicle; };
+"tag_updateCircle" addPublicVariableEventHandler { 0 spawn tiic_fnc_onUpdateCircle; };
 addMissionEventHandler ["PreloadFinished", { 0 spawn tiic_fnc_onPreloadFinished; }];
 addMissionEventHandler ["Ended",{ _this call tiic_fnc_onEnded; }];
 

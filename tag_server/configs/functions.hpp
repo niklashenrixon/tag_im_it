@@ -36,6 +36,7 @@ class CfgFunctions {
 		class Miscellaneous {
 			file="tag_server\functions\misc";
 			class firingRange;
+			class circleShrink;
 		};
 
 		class Eventhandlers {
