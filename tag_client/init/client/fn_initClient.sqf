@@ -60,11 +60,8 @@ player setVariable ["tag_unitSuicide", 0, true];            // True if player di
 player setVariable ["tag_unitDisconnected", 0, true];       // True if player game crash or player disconnects
 player setVariable ["tag_unitLifespan", 0, true];           // How long the unit survived the round
 player setVariable ["tag_unitLifespanIT", 0, true];         // How long the unit survived the round as IT
-
 player setVariable ["tag_unitTimeITBegin", 0, true];        // Time in seconds when unit became IT
-
 player setVariable ["tag_unitStatsReported", false, true];  // True if all player stats have been reported
-
 player setVariable ["tag_unitTrail", [[0,0,0]], true];      // Array of tracking positions of player
 player setVariable ["tag_unitDistanceTraveled", 0, true];   // Number of meters that unit has traveled when in a round
 

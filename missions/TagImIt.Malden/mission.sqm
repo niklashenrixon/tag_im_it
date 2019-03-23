@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={8131.8999,114.08323,9936.9893};
+		pos[]={8149.8687,142.80269,9899.3164};
 		dir[]={-0.073922373,-0.39547986,0.91550463};
 		up[]={-0.031830005,0.91847426,0.39420328};
 		aside[]={0.99676591,-8.4039129e-008,0.080483146};
@@ -37,7 +37,6 @@ addons[]=
 	"A3_Soft_F_Gamma_Hatchback_01",
 	"A3_Structures_F_Mil_BagBunker",
 	"A3_Structures_F_Civ_Accessories",
-	"A3_Characters_F",
 	"tag_client",
 	"A3_Structures_F_Mil_Barracks",
 	"A3_Structures_F_Mil_Cargo",
@@ -50,7 +49,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=11;
+		items=10;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -102,10 +101,9 @@ class AddonsMetaData
 		};
 		class Item7
 		{
-			className="A3_Characters_F";
-			name="Arma 3 Alpha - Characters and Clothing";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
+			className="tag_client";
+			name="Client";
+			author="NIXON";
 		};
 		class Item8
 		{
@@ -120,12 +118,6 @@ class AddonsMetaData
 			name="Arma 3 Alpha - Aircraft";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
-		};
-		class Item10
-		{
-			className="tag_client";
-			name="Client";
-			author="NIXON";
 		};
 	};
 };
@@ -2561,7 +2553,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6259.3018,60.342461,2823.2471};
+						position[]={6259.3018,60.342457,2823.2471};
 					};
 					side="Civilian";
 					flags=7;
@@ -2571,7 +2563,6 @@ class Mission
 					};
 					id=162;
 					type="TAG_C_DEFAULT";
-					atlOffset=3.8146973e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2620,7 +2611,6 @@ class Mission
 			{
 			};
 			id=161;
-			atlOffset=3.8146973e-006;
 		};
 		class Item65
 		{
@@ -2634,7 +2624,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7633.333,32.539204,3990.6995};
+						position[]={7633.333,32.526199,3990.6995};
 					};
 					side="Civilian";
 					flags=7;
@@ -2644,7 +2634,6 @@ class Mission
 					};
 					id=166;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.013004303;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2693,7 +2682,6 @@ class Mission
 			{
 			};
 			id=165;
-			atlOffset=0.013004303;
 		};
 		class Item66
 		{
@@ -2707,7 +2695,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2370.0762,194.29927,3742.793};
+						position[]={2370.0762,194.28008,3742.793};
 					};
 					side="Civilian";
 					flags=7;
@@ -2717,7 +2705,6 @@ class Mission
 					};
 					id=168;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.019195557;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2766,7 +2753,6 @@ class Mission
 			{
 			};
 			id=167;
-			atlOffset=0.019195557;
 		};
 		class Item67
 		{
@@ -2922,7 +2908,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6384.2627,207.9882,7089.5381};
+						position[]={6384.2627,208.11432,7089.5381};
 					};
 					side="Civilian";
 					flags=7;
@@ -2932,7 +2918,6 @@ class Mission
 					};
 					id=174;
 					type="TAG_C_DEFAULT";
-					atlOffset=-0.12611389;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2981,7 +2966,6 @@ class Mission
 			{
 			};
 			id=173;
-			atlOffset=-0.12611389;
 		};
 		class Item70
 		{
@@ -2995,7 +2979,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4038.6812,294.82715,7976.2832};
+						position[]={4038.6812,295.00711,7976.2832};
 					};
 					side="Civilian";
 					flags=7;
@@ -3005,7 +2989,6 @@ class Mission
 					};
 					id=176;
 					type="TAG_C_DEFAULT";
-					atlOffset=-0.17996216;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3054,7 +3037,6 @@ class Mission
 			{
 			};
 			id=175;
-			atlOffset=-0.17996216;
 		};
 		class Item71
 		{
@@ -3068,7 +3050,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5249.6108,244.24915,5335.1191};
+						position[]={5249.6108,244.26553,5335.1191};
 					};
 					side="Civilian";
 					flags=7;
@@ -3078,7 +3060,6 @@ class Mission
 					};
 					id=178;
 					type="TAG_C_DEFAULT";
-					atlOffset=-0.016387939;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3127,7 +3108,6 @@ class Mission
 			{
 			};
 			id=177;
-			atlOffset=-0.016387939;
 		};
 		class Item72
 		{
@@ -3212,7 +3192,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5116.1211,250.28806,9806.9814};
+						position[]={5116.1211,250.39037,9806.9814};
 					};
 					side="Civilian";
 					flags=7;
@@ -3222,7 +3202,6 @@ class Mission
 					};
 					id=182;
 					type="TAG_C_DEFAULT";
-					atlOffset=-0.10231018;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3271,7 +3250,6 @@ class Mission
 			{
 			};
 			id=181;
-			atlOffset=-0.10231018;
 		};
 		class Item74
 		{
@@ -3285,7 +3263,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6822.8662,78.688789,10607.911};
+						position[]={6822.8662,78.712608,10607.911};
 					};
 					side="Civilian";
 					flags=7;
@@ -3295,7 +3273,6 @@ class Mission
 					};
 					id=184;
 					type="TAG_C_DEFAULT";
-					atlOffset=-0.02381897;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3344,7 +3321,6 @@ class Mission
 			{
 			};
 			id=183;
-			atlOffset=-0.02381897;
 		};
 		class Item75
 		{
@@ -3358,7 +3334,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7852.6338,40.601158,8748.6084};
+						position[]={7852.6338,40.641994,8748.6084};
 					};
 					side="Civilian";
 					flags=7;
@@ -3368,7 +3344,6 @@ class Mission
 					};
 					id=186;
 					type="TAG_C_DEFAULT";
-					atlOffset=-0.040836334;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3417,7 +3392,6 @@ class Mission
 			{
 			};
 			id=185;
-			atlOffset=-0.040836334;
 		};
 		class Item76
 		{
@@ -3431,7 +3405,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7871.7031,202.60034,7242.0967};
+						position[]={7871.7031,202.58434,7242.0967};
 					};
 					side="Civilian";
 					flags=7;
@@ -3441,7 +3415,6 @@ class Mission
 					};
 					id=188;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.01600647;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3490,7 +3463,6 @@ class Mission
 			{
 			};
 			id=187;
-			atlOffset=0.01600647;
 		};
 		class Item77
 		{
@@ -3504,7 +3476,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4934.959,393.64352,6975.1201};
+						position[]={4934.959,393.68909,6975.1201};
 					};
 					side="Civilian";
 					flags=7;
@@ -3514,7 +3486,6 @@ class Mission
 					};
 					id=190;
 					type="TAG_C_DEFAULT";
-					atlOffset=-0.045562744;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3563,7 +3534,6 @@ class Mission
 			{
 			};
 			id=189;
-			atlOffset=-0.045562744;
 		};
 		class Item78
 		{
@@ -3577,7 +3547,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2670.0913,216.28073,4758.9077};
+						position[]={2670.0913,216.28064,4758.9077};
 					};
 					side="Civilian";
 					flags=7;
@@ -3587,7 +3557,6 @@ class Mission
 					};
 					id=192;
 					type="TAG_C_DEFAULT";
-					atlOffset=9.1552734e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3636,7 +3605,6 @@ class Mission
 			{
 			};
 			id=191;
-			atlOffset=9.1552734e-005;
 		};
 		class Item79
 		{
@@ -3650,7 +3618,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5821.7031,132.65576,4267.2119};
+						position[]={5821.7031,132.59181,4267.2119};
 					};
 					side="Civilian";
 					flags=7;
@@ -3660,7 +3628,6 @@ class Mission
 					};
 					id=194;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.063949585;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3709,7 +3676,6 @@ class Mission
 			{
 			};
 			id=193;
-			atlOffset=0.063949585;
 		};
 		class Item80
 		{
@@ -3755,12 +3721,12 @@ class Mission
 		class Item81
 		{
 			dataType="Marker";
-			position[]={6037.0933,0,8668.4727};
+			position[]={6037.0928,0,8668.4727};
 			name="tag_map1";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=50;
-			b=50;
+			a=1000;
+			b=1000;
 			id=212;
 			atlOffset=-125.12;
 		};
@@ -3771,8 +3737,8 @@ class Mission
 			name="tag_map3";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=50;
-			b=50;
+			a=1000;
+			b=1000;
 			id=213;
 			atlOffset=-167.57001;
 		};
@@ -3824,8 +3790,8 @@ class Mission
 			name="tag_map4";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=50;
-			b=50;
+			a=1000;
+			b=1000;
 			id=215;
 			atlOffset=-28.889999;
 		};
@@ -3873,13 +3839,14 @@ class Mission
 		class Item86
 		{
 			dataType="Marker";
-			position[]={8239.4209,21.691656,3191.3071};
+			position[]={8239.4209,21.691999,3191.3069};
 			name="tag_map5";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=50;
-			b=50;
+			a=1000;
+			b=1000;
 			id=217;
+			atlOffset=0.00033760071;
 		};
 		class Item87
 		{
@@ -3925,14 +3892,14 @@ class Mission
 		class Item88
 		{
 			dataType="Marker";
-			position[]={7811.0811,-10.168457,3240.635};
+			position[]={7811.0811,-10.168,3240.635};
 			name="tag_map6";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=50;
-			b=50;
+			a=1000;
+			b=1000;
 			id=219;
-			atlOffset=-16.870262;
+			atlOffset=-16.869804;
 		};
 		class Item89
 		{
@@ -3950,7 +3917,7 @@ class Mission
 			};
 			id=220;
 			type="Land_Loudspeakers_F";
-			atlOffset=0.92052078;
+			atlOffset=11.481;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3982,8 +3949,8 @@ class Mission
 			name="tag_map2";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=50;
-			b=50;
+			a=1000;
+			b=1000;
 			id=221;
 			atlOffset=-71.867027;
 		};
@@ -4012,7 +3979,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5367.7739,49.378574,2966.0903};
+						position[]={5367.7739,49.378571,2966.0903};
 					};
 					side="Civilian";
 					flags=7;
@@ -4022,7 +3989,6 @@ class Mission
 					};
 					id=224;
 					type="TAG_C_DEFAULT";
-					atlOffset=3.8146973e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4071,7 +4037,6 @@ class Mission
 			{
 			};
 			id=223;
-			atlOffset=3.8146973e-006;
 		};
 		class Item93
 		{
@@ -4085,7 +4050,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7107.3315,76.043404,3545.9106};
+						position[]={7107.3315,75.926674,3545.9106};
 					};
 					side="Civilian";
 					flags=7;
@@ -4095,7 +4060,6 @@ class Mission
 					};
 					id=226;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.11672974;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4144,7 +4108,6 @@ class Mission
 			{
 			};
 			id=225;
-			atlOffset=0.11672974;
 		};
 		class Item94
 		{
@@ -4158,7 +4121,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2238.8003,189.38913,2923.8074};
+						position[]={2238.8003,189.38908,2923.8074};
 					};
 					side="Civilian";
 					flags=7;
@@ -4168,7 +4131,6 @@ class Mission
 					};
 					id=228;
 					type="TAG_C_DEFAULT";
-					atlOffset=4.5776367e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4217,7 +4179,6 @@ class Mission
 			{
 			};
 			id=227;
-			atlOffset=4.5776367e-005;
 		};
 		class Item95
 		{
@@ -4231,7 +4192,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4027.5625,83.354828,2744.9805};
+						position[]={4027.5625,83.179443,2744.9805};
 					};
 					side="Civilian";
 					flags=7;
@@ -4241,7 +4202,6 @@ class Mission
 					};
 					id=230;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.17538452;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4290,7 +4250,6 @@ class Mission
 			{
 			};
 			id=229;
-			atlOffset=0.17538452;
 		};
 		class Item96
 		{
@@ -4304,17 +4263,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3512.6797,142.82721,5672.1904};
+						position[]={3512.6797,142.36484,5672.1904};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=232;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.46237183;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4363,7 +4321,6 @@ class Mission
 			{
 			};
 			id=231;
-			atlOffset=0.46237183;
 		};
 		class Item97
 		{
@@ -4519,7 +4476,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4723.6094,189.23947,4890.3301};
+						position[]={4723.6094,189.06227,4890.3301};
 					};
 					side="Civilian";
 					flags=7;
@@ -4529,7 +4486,6 @@ class Mission
 					};
 					id=238;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.17720032;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4578,7 +4534,6 @@ class Mission
 			{
 			};
 			id=237;
-			atlOffset=0.17720032;
 		};
 		class Item100
 		{
@@ -4592,17 +4547,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3646.1675,70.448868,4070.3291};
+						position[]={3646.1675,70.145897,4070.3291};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=240;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.30297089;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4651,7 +4605,6 @@ class Mission
 			{
 			};
 			id=239;
-			atlOffset=0.30297089;
 		};
 		class Item101
 		{
@@ -4665,7 +4618,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4590.1196,160.79779,9362.1924};
+						position[]={4590.1196,160.70201,9362.1924};
 					};
 					side="Civilian";
 					flags=7;
@@ -4675,7 +4628,6 @@ class Mission
 					};
 					id=242;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.095779419;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4724,7 +4676,6 @@ class Mission
 			{
 			};
 			id=241;
-			atlOffset=0.095779419;
 		};
 		class Item102
 		{
@@ -4738,7 +4689,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6296.8647,134.35963,10163.122};
+						position[]={6296.8647,134.18846,10163.122};
 					};
 					side="Civilian";
 					flags=7;
@@ -4748,7 +4699,6 @@ class Mission
 					};
 					id=244;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.1711731;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4797,7 +4747,6 @@ class Mission
 			{
 			};
 			id=243;
-			atlOffset=0.1711731;
 		};
 		class Item103
 		{
@@ -4811,7 +4760,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7326.6323,154.64267,8303.8193};
+						position[]={7326.6323,154.56883,8303.8193};
 					};
 					side="Civilian";
 					flags=7;
@@ -4821,7 +4770,6 @@ class Mission
 					};
 					id=246;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.07383728;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4870,7 +4818,6 @@ class Mission
 			{
 			};
 			id=245;
-			atlOffset=0.07383728;
 		};
 		class Item104
 		{
@@ -4884,7 +4831,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7345.7017,86.19503,6797.3071};
+						position[]={7345.7017,86.065498,6797.3071};
 					};
 					side="Civilian";
 					flags=7;
@@ -4894,7 +4841,6 @@ class Mission
 					};
 					id=248;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.12953186;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4943,7 +4889,6 @@ class Mission
 			{
 			};
 			id=247;
-			atlOffset=0.12953186;
 		};
 		class Item105
 		{
@@ -4957,17 +4902,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2560.1545,156.63416,6018.9536};
+						position[]={2560.1545,156.33176,6018.9536};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=250;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.30239868;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5016,7 +4960,6 @@ class Mission
 			{
 			};
 			id=249;
-			atlOffset=0.30239868;
 		};
 		class Item106
 		{
@@ -5030,17 +4973,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1939.4219,94.635597,4852.1904};
+						position[]={1939.4219,94.334503,4852.1904};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=252;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.30109406;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5089,7 +5031,6 @@ class Mission
 			{
 			};
 			id=251;
-			atlOffset=0.30109406;
 		};
 		class Item107
 		{
@@ -5103,17 +5044,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5295.7017,66.426605,3822.4229};
+						position[]={5295.7017,66.081726,3822.4229};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=254;
 					type="TAG_C_DEFAULT";
-					atlOffset=0.34487915;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5162,7 +5102,6 @@ class Mission
 			{
 			};
 			id=253;
-			atlOffset=0.34487915;
 		};
 		class Item108
 		{
@@ -5171,8 +5110,8 @@ class Mission
 			name="tag_map7";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=50;
-			b=50;
+			a=1000;
+			b=1000;
 			id=255;
 			atlOffset=-21.564999;
 		};
@@ -5363,26 +5302,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				nAttributes=2;
+				nAttributes=1;
 			};
 		};
 		class Item118
@@ -5422,26 +5342,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				nAttributes=2;
+				nAttributes=1;
 			};
 		};
 		class Item119
@@ -5464,25 +5365,6 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute1
-				{
 					property="ammoBox";
 					expression="[_this,_value] call bis_fnc_initAmmoBox;";
 					class Value
@@ -5500,7 +5382,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				nAttributes=1;
 			};
 		};
 		class Item120
@@ -5523,25 +5405,6 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute1
-				{
 					property="ammoBox";
 					expression="[_this,_value] call bis_fnc_initAmmoBox;";
 					class Value
@@ -5559,7 +5422,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				nAttributes=1;
 			};
 		};
 		class Item121
@@ -5582,25 +5445,6 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute1
-				{
 					property="ammoBox";
 					expression="[_this,_value] call bis_fnc_initAmmoBox;";
 					class Value
@@ -5618,7 +5462,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				nAttributes=1;
 			};
 		};
 		class Item122
@@ -5641,25 +5485,6 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute1
-				{
 					property="ammoBox";
 					expression="[_this,_value] call bis_fnc_initAmmoBox;";
 					class Value
@@ -5677,7 +5502,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				nAttributes=1;
 			};
 		};
 		class Item123
@@ -5700,86 +5525,6 @@ class Mission
 			};
 			id=272;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item124
 		{
@@ -5801,86 +5546,6 @@ class Mission
 			};
 			id=275;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item125
 		{
@@ -5902,86 +5567,6 @@ class Mission
 			};
 			id=276;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item126
 		{
@@ -6003,86 +5588,6 @@ class Mission
 			};
 			id=277;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item127
 		{
@@ -6104,86 +5609,6 @@ class Mission
 			};
 			id=278;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item128
 		{
@@ -6205,86 +5630,6 @@ class Mission
 			};
 			id=279;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item129
 		{
@@ -6306,86 +5651,6 @@ class Mission
 			};
 			id=280;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item130
 		{
@@ -6407,86 +5672,6 @@ class Mission
 			};
 			id=281;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item131
 		{
@@ -6509,86 +5694,6 @@ class Mission
 			id=282;
 			type="C_Heli_Light_01_civil_F";
 			atlOffset=1.9073486e-006;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item132
 		{
@@ -6610,86 +5715,6 @@ class Mission
 			};
 			id=283;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item133
 		{
@@ -6711,86 +5736,6 @@ class Mission
 			};
 			id=284;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 		class Item134
 		{
@@ -6812,86 +5757,6 @@ class Mission
 			};
 			id=287;
 			type="C_Heli_Light_01_civil_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="Enh_setMass";
-					expression="if (!is3DEN) then {_this setMass ((getMass _this) * _value)}";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="Enh_featureType";
-					expression="_this setFeatureType parseNumber (_value)";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="0";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="Enh_weaponRecoil";
-					expression="	_this setVariable ['Enh_weaponRecoil',_value];	_this setUnitRecoilCoefficient _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setUnitRecoilCoefficient ((_this select 0) getVariable 'Enh_weaponRecoil')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="Enh_weaponSway";
-					expression="	_this setVariable ['Enh_weaponSway',_value];	_this setCustomAimCoef _value;	_this addEventHandler	[		'Respawn',		{			(_this select 0) setCustomAimCoef ((_this select 0) getVariable 'Enh_weaponSway')		}	]";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"SCALAR"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				nAttributes=4;
-			};
 		};
 	};
 };

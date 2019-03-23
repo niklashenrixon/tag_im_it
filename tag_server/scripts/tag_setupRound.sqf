@@ -59,7 +59,7 @@ _mapX = (_mapCenter select 0);
 _mapY = (_mapCenter select 1);
 
 /* Calculate the size of the playable area */
-_markerSize = 200 * (1 max (round(tag_playerCountAll / 2)));
+_markerSize = 100 * (1 max (round(tag_playerCountAll / 3.1)));
 
 missionNamespace setVariable ["tag_playGroundSettings", [[_mapX, _mapY, 0], _markerSize], TRUE];
 

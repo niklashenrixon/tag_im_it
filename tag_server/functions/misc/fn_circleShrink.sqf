@@ -13,7 +13,7 @@
 *		Shrink circle periodically
 *
 *	Example(s):
-*		0 spawn tiis_fnc_circleShrink;
+*		[_interval, _shrink, _smallest] spawn tiis_fnc_circleShrink;
 *
 *	Parameter(s):
 *
@@ -21,7 +21,7 @@
 *		
 */ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params [["_interval", 30], "_size"];
+params [["_interval", 30], ["_shrink", 10], ["_smallest", 40], "_size"];
 
 tag_updateCircle = true;
 
@@ -35,9 +35,9 @@ waitUntil {
 	_size = tag_playGroundSettings select 1;
 
 	if(!tag_gameInProgress) exitWith { TRUE }; // Stop updating when game ends
-	if(_size <= 40) exitWith { [["SIZE OF PLAYAREA WAS UPDATED for the last time: size: %1", _size]] call tiig_fnc_log; TRUE }; // Stop updating when we reach this size
+	if(_size <= _smallest) exitWith { [["Shrinking circle: size: <%1>", _size]] call tiig_fnc_log; TRUE }; // Stop updating when we reach this size
 
-	_size = _size - 10;
+	_size = _size - _shrink;
 
 	missionNamespace setVariable ["tag_playGroundSettings", [_pos, _size], true];
 
@@ -52,7 +52,7 @@ waitUntil {
 
 	"tag_playArea" setMarkerSize [_size, _size];
 
-	[["SIZE OF PLAYAREA WAS UPDATED: size: %1", _size]] call tiig_fnc_log;
+	[["Shrinking circle: size: <%1>", _size]] call tiig_fnc_log;
 
 	sleep _interval;
 };

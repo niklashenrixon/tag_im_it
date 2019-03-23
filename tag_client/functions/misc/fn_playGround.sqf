@@ -37,7 +37,7 @@ while { tag_gameInProgress && player getVariable "tag_unitPlaying" } do {
 	_dc = player getVariable "tag_unitDeathCircle";
 
 	if(_dc) then {
-		if(((player distance _pos)-1) > _size && !_outside) then { _outside = TRUE; tag_outsideTime = time + 3 };
+		if(((player distance _pos)-1) > _size && !_outside) then { _outside = TRUE; _outsideTime = time + 3 };
 		if(((player distance _pos)-1) <= _size && _outside) then { _outside = FALSE; };
 
 		if (_outside) then {
@@ -49,8 +49,8 @@ while { tag_gameInProgress && player getVariable "tag_unitPlaying" } do {
 			'dynamicBlur' ppEffectCommit 2;
 			2 fadeSound 0.2;
 
-			if(time >= tag_outsideTime) then {
-				tag_outsideTime = time + 3;
+			if(time >= _outsideTime) then {
+				_outsideTime = time + 3;
 				player setDamage (damage player + 0.2);
 				if(damage player >= 0.5) then { player setHitPointDamage ["hitLegs", 0.48]; };
 				[["Damage player: %1", damage player]] call tiig_fnc_log;
