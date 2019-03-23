@@ -66,6 +66,29 @@ if(player == _killer && player != _unit) then {
 		["<t color='#fc374a'>YOU'RE IT!</t>", 1.2, 0, 0.6, 5, 9027, 'any', nil, 'local'] call tiig_fnc_messanger;
 	};
 
+	// Update longest Kill / HS if it was longer
+	_longHS   = player getVariable "tag_unitLongHS";
+	_longKill = player getVariable "tag_unitLongKill";
+
+	_gun = currentWeapon player;
+	_gDispName = getText (configfile >> "CfgWeapons" >> _gun >> "displayName");
+
+	if(_hs) then {
+		if(_dist > _longHS) then {
+			player setVariable ["tag_unitLongHS", _dist, true];
+			player setVariable ["tag_unitLongHSGun", _gDispName, true];
+		};
+	} else {
+		if(_dist > _longKill) then {
+			player setVariable ["tag_unitLongKill", _dist, true];
+			player setVariable ["tag_unitLongKillGun", _gDispName, true];
+		};
+	};
+
+	// Update kills
+	_kills = player getVariable "tag_unitKills";
+	player setVariable ["tag_unitKills", _kills+1, true];
+
 	// Add score to player (statistics)
 	_uScore = (player getVariable "tag_unitScore") + _score;
 	player setVariable ["tag_unitScore", _uScore, true];
@@ -132,6 +155,7 @@ if(isServer || isDedicated) then {
 	// Unit cant be IT and is not playing anymore
 	_unit setVariable ["tag_unitPlaying", false, true];
 	_unit setVariable ["tag_unitIsIT", false, true];
+	_unit setVariable ["tag_unitDeath", 1, true];
 
 	// Delete dead unit from player list
 	_pList = missionNamespace getVariable "tag_playerList";;

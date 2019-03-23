@@ -92,6 +92,8 @@
 				[_winner] joinSilent (createGroup east);
 				_winnerName = name _winner;
 
+				_winner setVariable ["tag_unitWin", 1, true];
+
 				// Add score to winner if unit was the first IT
 				if(_winner == (missionNamespace getVariable "tag_firstIt")) then {
 					_uScore = (_winner getVariable "tag_unitScore") + TAG_SCORE_FIRST;

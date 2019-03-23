@@ -47,10 +47,17 @@ player setVariable ["tag_unitVersionAllowed", false, true]; // Addon version is 
 player setVariable ["tag_unitDeathCircle", false, true];    // Is visible deathCircle spawned on unit?
 
 // Data for statistics
+player setVariable ["tag_unitKills", 0, true];              // How many killed player got
+player setVariable ["tag_unitDeath", 0, true];              // If unit dies set to 1
+player setVariable ["tag_unitWin", 0, true];                // Set to 1 if unit is winner
 player setVariable ["tag_unitScore", 0, true];              // How many point the player has
 player setVariable ["tag_unitShotsFired", 0, true];         // How many bullets the unit has shot
 player setVariable ["tag_unitShotsTaken", 0, true];         // How many times the player has been hit by a bullit
 player setVariable ["tag_unitShotsHit", 0, true];           // How many times the player has hit another player
+player setVariable ["tag_unitLongHS", 0, true];             // How many times the player has hit another player
+player setVariable ["tag_unitLongHSGun", "", true];         // How many times the player has hit another player
+player setVariable ["tag_unitLongKill", 0, true];           // How many times the player has hit another player
+player setVariable ["tag_unitLongKillGun", "", true];       // How many times the player has hit another player
 player setVariable ["tag_unitHeadshots", 0, true];          // How many times the player has killed someone by headshot
 player setVariable ["tag_unitKilledDist", 0, true];         // Distance in meters from you to the one who killed you
 player setVariable ["tag_unitKilledWeapon", "", true];      // Weapon that was used to kill player
