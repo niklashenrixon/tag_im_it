@@ -8,8 +8,6 @@
 *		none
 */
 
-player setVariable ["tag_unitDeathCircle", false, true];
-
 { deleteVehicle _x; } forEach tag_circleRetA;
 { deleteVehicle _x; } forEach tag_circleRetB;
 

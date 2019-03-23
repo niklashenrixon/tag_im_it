@@ -41,8 +41,7 @@ if (tag_dbConn) then {
 						_query = format["InsertPlayerStat:%1:%2", _pUID, _pName];
 						[_query, 1, true] call tiis_fnc_aSync;
 
-						_query = format["InsertProfileData:%1:%2", _pUID, _pName];
-						[_query, 1, true] call tiis_fnc_aSync;
+
 					};
 					sleep 3.5;
 				} foreach playableUnits;

@@ -35,7 +35,7 @@ params ["_u","_m","_s", "_safePos", "_sP"];
 _mP = getMarkerPos _m;
 _sP = [_s, _s, _mP # 0, _mP # 1] call tiig_fnc_rand2d;
 
-_safePos = _sP findEmptyPosition [0, 100, "B_CargoNet_01_ammo_F"];
-if (count _safePos == 0) then { _safePos = _sP findEmptyPosition [0, 200, "B_CargoNet_01_ammo_F"]; };
+_safePos = _sP findEmptyPosition [0, _s, "B_CargoNet_01_ammo_F"];
+if (count _safePos == 0) then { _safePos = _sP findEmptyPosition [0, TAG_CIRCLE_MIN, "B_CargoNet_01_ammo_F"]; };
 _u setPos _safePos;
 _sP

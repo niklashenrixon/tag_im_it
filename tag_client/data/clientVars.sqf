@@ -9,6 +9,7 @@
 TAG_DISTBONUS = 50; // How many meters before giving distance bonus on kill
 TAG_DANGERSOUND = 50;  // How near the last 2 players have to be eachother for danger sound to start playing
 
+/*
 tag_inCamera 		= false;
 tag_onFiringRange   = false;
 
@@ -17,6 +18,7 @@ tag_lastTwo 	     = false;
 tag_playersMoved 	 = false;
 tag_inCamera		 = false;
 tag_1v1				 = false;
+*/
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -20,15 +20,15 @@
 *
 */ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* Variable declaration */ 
+// Variable declaration
 _maps = [];
 _sirens = [];
 _houseIdArray = [];
 tag_lootPositions = [];
 
-/* Loop through possible "maps" and add it to list */
+// Loop through possible "maps" and add it to list
 for "_i" from 1 to 50 do {
-	_map   = format ["tag_map%1", _i];
+	_map   = format ["tag_area%1", _i];
 	_siren = format ["tag_siren%1", _i];
 
 	if (getMarkerType _map != "" && getMarkerType _map == "ELLIPSE") then {
@@ -38,32 +38,32 @@ for "_i" from 1 to 50 do {
 	};
 };
 
-/* Choose one of the maps to start a game on */
+// Choose one of the maps to start a game on
 _rLocation = floor random count _maps;
-tag_activeMap = _maps select _rLocation;
+tag_activeArea = _maps select _rLocation;
 
 _sirenTemp = _sirens select _rLocation;
 _objSiren = call compile _sirenTemp;
 tag_activeSiren = getPosASL _objSiren;
 
-/* Randomize a position inside chosen map as center of game */
-_mPos = getMarkerPos tag_activeMap;
+// Randomize a position inside chosen map as center of game
+_mPos = getMarkerPos tag_activeArea;
 _mPosX = _mPos select 0;
 _mPosY = _mPos select 1;
-_mkrX = getMarkerSize tag_activeMap select 0;
-_mkrY = getMarkerSize tag_activeMap select 1;
+_mkrX = getMarkerSize tag_activeArea select 0;
+_mkrY = getMarkerSize tag_activeArea select 1;
 _mapCenter = [_mkrY, _mkrX, _mPosX, _mPosY] call tiig_fnc_rand2d;
 
-/* X and Y of center in the chosen map */
+// X and Y of center in the chosen map
 _mapX = (_mapCenter select 0);
 _mapY = (_mapCenter select 1);
 
-/* Calculate the size of the playable area */
-_markerSize = 100 * (1 max (round(tag_playerCountAll / 3.1)));
+// Calculate the size of the playable area
+_markerSize = TAG_CIRCLE_MIN * (1 max (round(tag_playerCountAll / 3.1)));
 
 missionNamespace setVariable ["tag_playGroundSettings", [[_mapX, _mapY, 0], _markerSize], TRUE];
 
-/* Spawn visible play area on map */
+// Spawn visible play area on map
 _pArea = createMarker ["tag_playArea",[_mapX, _mapY]];
 _pArea setMarkerShape "ELLIPSE";
 _pArea setMarkerType "ELLIPSE";
@@ -71,32 +71,34 @@ _pArea setMarkerBrush "Border";
 _pArea setMarkerColor "ColorRed";
 _pArea setMarkerSize [_markerSize, _markerSize];
 
-/* Spawn loot area */
+// Spawn loot area
 _lootArea = createMarker ["tag_lootArea",[_mapX, _mapY]];
 _lootArea setMarkerShape "ELLIPSE";
 _lootArea setMarkerType "ELLIPSE";
 _lootArea setMarkerSize [_markerSize+100, _markerSize+100];
 _lootArea setMarkerAlpha 0;
 
-/* Spawn supply drop area */
+// Spawn supply drop area
 _dropArea = createMarker ["tag_supplyDrop",[_mapX, _mapY]];
 _dropArea setMarkerShape "ELLIPSE";
 _dropArea setMarkerType "ELLIPSE";
-_dropArea setMarkerSize [_markerSize-100, _markerSize-100];
+_dropArea setMarkerSize [_markerSize, _markerSize];
 _dropArea setMarkerAlpha 0;
 
-/* Spawn supply drop area */
+// Set start position where players are spawned
 _startSpawn = createMarker ["tag_startSpawn",[_mapX, _mapY]];
 _startSpawn setMarkerType "Empty";
 
-/* Build list of houses that are inside playArea */
+// Insert some statistics to server
+[tag_roundID, tag_playerCountAll, tag_worldName, tag_activeArea] call tiis_fnc_insertServerStats;
+
+// Build list of houses that are inside playArea
 _houseList = [_mapX, _mapY] nearObjects ["House", _markerSize];
 
-/* Get house ID from object and put in array */
-{
-	_qHouseID = [_x] call tiis_fnc_getObjectId;
+// Get house ID from object and put in array
+{   _qHouseID = [_x] call tiis_fnc_getObjectId;
 
-	/* Get loot positions by querying database */
+	// Get loot positions by querying database
 	_query = format ["getLootPosID:%1", _qHouseID];
 	_result = [_query, 2, true] call tiis_fnc_aSync;
 
@@ -115,13 +117,12 @@ _houseList = [_mapX, _mapY] nearObjects ["House", _markerSize];
 
 		} forEach _result select 0;
 	};
-	
 } foreach _houseList;
 
-/* Spawn loot */
+// Spawn loot
 [tag_lootPositions] call tiis_fnc_lootSystem;
 
-/* Start round */
+// Start round
 0 execVM "\tag_server\scripts\tag_startRound.sqf";
 
 ["tag_setupRound.sqf loaded", "DEEPDEBUG"] call tiig_fnc_log;

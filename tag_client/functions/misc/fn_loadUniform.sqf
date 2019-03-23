@@ -31,7 +31,9 @@ if (isNil "TAG_SETTINGS") then {
 	// Set NIXON special
 	if(_uniform == "TAG_U_NIXON") then {
 		if((getPlayerUID player) == "76561198002908182") then {
-			player setIdentity "NIXON";
+
+			[player, "NIXON"] remoteExec ["setIdentity", 0, player];
+			[player, "NixonHead_01"] remoteExec ["setFace", 0, player];
 			lockIdentity player;
 			player addHeadgear "NIXON_CAP";
 		};

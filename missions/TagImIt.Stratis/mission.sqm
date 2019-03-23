@@ -3587,7 +3587,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={2959.447,0.60900003,5978.7598};
-			name="tag_map2";
+			name="tag_area2";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -3640,7 +3640,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={2174.9919,0,5697.2739};
-			name="tag_map1";
+			name="tag_area1";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;

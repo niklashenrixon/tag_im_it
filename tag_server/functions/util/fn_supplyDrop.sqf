@@ -35,7 +35,6 @@ setWind [0, 0, TRUE];
 0 setWindDir 0;
 0 setWindForce 0;
 0 setWindStr 0;
-//forceWeatherChange;
 
 sleep 15;
 
@@ -43,21 +42,19 @@ sleep 15;
 _playGround = missionNamespace getVariable "tag_playGroundSettings";
 _pos = _playGround select 0;
 _size = _playGround select 1;
-_randSupplyDropPos = [_size-75, _size-75, _pos select 0, _pos select 1] call tiig_fnc_rand2d;
-_position = _randSupplyDropPos findEmptyPosition [0, 100, "B_supplyCrate_F"];
-if(count _position == 0) then { _position = _randSupplyDropPos findEmptyPosition [0, 200, "B_supplyCrate_F"]; };
+_randSupplyDropPos = [round(_size/3), round(_size/3), _pos select 0, _pos select 1] call tiig_fnc_rand2d;
+_position = _randSupplyDropPos findEmptyPosition [0, round(_size/3), "B_supplyCrate_F"];
+if(count _position == 0) then { _position = _randSupplyDropPos findEmptyPosition [0, TAG_CIRCLE_MIN, "B_supplyCrate_F"]; };
 
 _dropX = (_position select 0);
 _dropY = (_position select 1);
 
 playSound3D ["tag_client\sounds\siren.ogg", nil, false, tag_activeSiren, 3, 1, 2000];
 
-[["SUPPLYDROP: Spawned"], "DEBUG"] call tiig_fnc_log;
-
 // Create drop with parachute
 _parachute = createVehicle ["B_Parachute_02_F", [0,0,0], [], 0, "FLY"];
 _parachute setDir random 360;
-_parachute setPos [_dropX, _dropY, 150];
+_parachute setPos [_dropX, _dropY, 100];
 
 tag_supplyDrop = createVehicle ["B_supplyCrate_F", [0,0,140], [], 0, "FLY"];
 tag_supplyDrop attachTo [_parachute, [0,0,0]]; 
@@ -66,17 +63,18 @@ _smoke1 = createvehicle ["SmokeShellRed_Infinite", [0,0,0], [], 0, "FLY"];
 _smoke1 setPos (getPos _parachute);
 _smoke1 attachTo [_parachute, [0,0,0]];
 
+[["SUPPLYDROP: Spawned"], "DEBUG"] call tiig_fnc_log;
+
 // Land safely
 tag_supplyDrop allowDamage false;
 tag_supplyDrop call tiig_fnc_emptyCargo;
 waitUntil { getPos tag_supplyDrop select 2 < 0.5 };
 detach tag_supplyDrop;
 tag_supplyDrop setVelocity [0,0,0];
-sleep 0.3;
+sleep 1;
 tag_supplyDrop allowDamage true;
 
 // Reset wind to previous
 setWind [_windArray select 0, _windArray select 1, FALSE];
-//forceWeatherChange;
 
 terminate _thisScript;

@@ -35,7 +35,7 @@ waitUntil {
 
 // Move unit to play area
 waitUntil {
-	[_unit, "tag_startSpawn", (tag_playGroundSettings select 1)-100] call tiig_fnc_moveToMarker;
+	[_unit, "tag_startSpawn", (tag_playGroundSettings select 1)-10] call tiig_fnc_moveToMarker;
 	sleep 0.5;
 	if (_unit distance (getMarkerPos "tag_startSpawn") < (tag_playGroundSettings select 1)+100) exitWith { TRUE };
 };

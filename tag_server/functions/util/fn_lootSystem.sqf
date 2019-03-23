@@ -76,7 +76,7 @@ for "_i" from 0 to (count _lootPositions)-1 do {
 
 			while {!_itemSpawned} do {
 
-				_selectedType = tag_lootTypeRatio call BIS_fnc_selectRandomWeighted;
+				_selectedType = selectRandomWeighted tag_lootTypeRatio;
 
 				_lootType = "NULL";
 
@@ -87,10 +87,10 @@ for "_i" from 0 to (count _lootPositions)-1 do {
 					_lootType = 0;
 					_typeCount0 = _typeCount0 + 1;
 
-					_loot = tag_lootWeapons call BIS_fnc_selectRandomWeighted;
+					_loot = selectRandomWeighted tag_lootWeapons;
 
 					_magazines = getArray (configFile / "CfgWeapons" / _loot / "magazines");
-					_magazineClass = _magazines call bis_fnc_selectRandom;
+					_magazineClass = selectRandom _magazines;
 
 					_holder addWeaponCargoGlobal [_loot, 1];
 					_holder addMagazineCargoGlobal [_magazineClass, 2];
@@ -105,10 +105,10 @@ for "_i" from 0 to (count _lootPositions)-1 do {
 					_lootType = 1;
 					_typeCount1 = _typeCount1 + 1;
 
-					_weapon = tag_lootWeapons call BIS_fnc_selectRandomWeighted;
+					_weapon = selectRandomWeighted tag_lootWeapons;
 
 					_loot = getArray (configFile / "CfgWeapons" / _weapon / "magazines");
-					_magazineClass = _loot call bis_fnc_selectRandom;
+					_magazineClass = selectRandom _loot;
 
 					_holder addMagazineCargoGlobal [_magazineClass, 2];
 
@@ -122,7 +122,7 @@ for "_i" from 0 to (count _lootPositions)-1 do {
 					_lootType = 2;
 					_typeCount2 = _typeCount2 + 1;
 
-					_loot = tag_lootAttachment call BIS_fnc_selectRandomWeighted;
+					_loot = selectRandomWeighted tag_lootAttachment;
 					_holder addItemCargoGlobal [_loot, 1];
 
 					[["LOOT_SPAWNING_ITEM [ATTACHMENT]: %1", _loot], "DEEPDEBUG"] call tiig_fnc_log;
@@ -135,7 +135,7 @@ for "_i" from 0 to (count _lootPositions)-1 do {
 					_lootType = 3;
 					_typeCount3 = _typeCount3 + 1;
 					
-					_loot = tag_lootMedical call BIS_fnc_selectRandomWeighted;
+					_loot = selectRandomWeighted tag_lootMedical;
 					_holder addItemCargoGlobal [_loot, 1];
 
 					[["LOOT_SPAWNING_ITEM [MEDICAL]: %1", _loot], "DEEPDEBUG"] call tiig_fnc_log;
@@ -148,7 +148,7 @@ for "_i" from 0 to (count _lootPositions)-1 do {
 					_lootType = 4;
 					_typeCount4 = _typeCount4 + 1;
 					
-					_loot = tag_lootGadget call BIS_fnc_selectRandomWeighted;
+					_loot = selectRandomWeighted tag_lootGadget;
 					_holder addItemCargoGlobal [_loot, 1];
 
 					[["LOOT_SPAWNING_ITEM [GADGET]: %1", _loot], "DEEPDEBUG"] call tiig_fnc_log;
@@ -161,7 +161,7 @@ for "_i" from 0 to (count _lootPositions)-1 do {
 					_lootType = 5;
 					_typeCount5 = _typeCount5 + 1;
 					
-					_loot = tag_lootClothes call BIS_fnc_selectRandomWeighted;
+					_loot = selectRandomWeighted tag_lootClothes;
 					_holder addItemCargoGlobal [_loot, 1];
 
 					[["LOOT_SPAWNING_ITEM [CLOTHES]: %1", _loot], "DEEPDEBUG"] call tiig_fnc_log;
@@ -174,7 +174,7 @@ for "_i" from 0 to (count _lootPositions)-1 do {
 					_lootType = 6;
 					_typeCount6 = _typeCount6 + 1;
 					
-					_loot = tag_lootArmor call BIS_fnc_selectRandomWeighted;
+					_loot = selectRandomWeighted tag_lootArmor;
 					_holder addItemCargoGlobal [_loot, 1];
 
 					[["LOOT_SPAWNING_ITEM [ARMOR]: %1", _loot], "DEEPDEBUG"] call tiig_fnc_log;

@@ -31,7 +31,7 @@ if(!_spawned) then {
 
 		_i = _i + _radStep;
 
-		uiSleep 0.005;
+		//uiSleep 0.005;
 	};
 
 	player setVariable ["tag_unitDeathCircle", true, true];

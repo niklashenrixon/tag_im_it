@@ -79,9 +79,9 @@
 				missionNamespace setVariable ["tag_gameFinished", true, true];
 				
 				missionNamespace setVariable ["tag_timeRoundDuration", round(time - tag_timeRoundBegin), true];
+				[tag_roundID, round(time - tag_timeRoundBegin)] call tiis_fnc_updateServerStats;
 
-				[tag_roundID, tag_timeRoundDuration] call tiis_fnc_updateServerStats;
-
+				// Get the winner
 				_winnerObject = []; {
 					if (side _x == east || side _x == west) then {
 						_winnerObject pushBack _x;
@@ -92,16 +92,15 @@
 				[_winner] joinSilent (createGroup east);
 				_winnerName = name _winner;
 
+				// Add score to winner if unit was the first IT
 				if(_winner == (missionNamespace getVariable "tag_firstIt")) then {
-
-					// Add score to player (statistics)
 					_uScore = (_winner getVariable "tag_unitScore") + TAG_SCORE_FIRST;
 					_winner setVariable ["tag_unitScore", _uScore, true];
 				};
 
 				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", owner _winner];
 
-				["And the winner is " + _winnerName, 1, 0, 0.7, 15, 1337, "CivExlusive", _winner, "mp"] call tiig_fnc_messanger;
+				["And the winner is " + _winnerName, 1, 0, 0.5, 15, 1337, "CivExlusive", _winner, "mp"] call tiig_fnc_messanger;
 				["Congratulations, you are the winner!", 1, 0, 0.7, 15, 1337, "specific", _winner, "mp"] call tiig_fnc_messanger;
 
 				_winner setVariable ["tag_unitLifespan", round(time - tag_timeRoundBegin), true];
@@ -142,6 +141,9 @@
 				missionNamespace setVariable ["tag_gameInProgress", false, true];
 				missionNamespace setVariable ["tag_gameEndgame", false, true];
 				missionNamespace setVariable ["tag_gameFinished", true, true];
+
+				missionNamespace setVariable ["tag_timeRoundDuration", round(time - tag_timeRoundBegin), true];
+				[tag_roundID, round(time - tag_timeRoundBegin)] call tiis_fnc_updateServerStats;
 
 				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", -2];
 				["No winner was declared", 1, 0, 0.7, 15, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
@@ -196,9 +198,12 @@
 				missionNamespace setVariable ["tag_gameEndgame", false, true];
 				missionNamespace setVariable ["tag_gameFinished", true, true];
 
+				missionNamespace setVariable ["tag_timeRoundDuration", round(time - tag_timeRoundBegin), true];
+				[tag_roundID, round(time - tag_timeRoundBegin)] call tiis_fnc_updateServerStats;
+
 				if(tag_playerCount >= 2) then {
 
-					{ if(side _x != resistance && side _x != civilian) then {
+					{ if(_x getVariable "tag_unitPlaying") then {
 
 							_x setVariable ["tag_unitLifespan", round(time - tag_timeRoundBegin), true];
 							_timeBeginIT = _x getVariable "tag_unitTimeITBegin";
@@ -242,7 +247,6 @@
 			// TEMP spawning of loot in supply drop
 			waitUntil {!isNil "tag_supplyDrop"};
 
-			tag_supplyDrop addItemCargoGlobal ["Medikit", 2];
 			tag_supplyDrop addItemCargoGlobal ["FirstAidKit", 5];
 			tag_supplyDrop addItemCargoGlobal ["optic_DMS", 1];
 			tag_supplyDrop addItemCargoGlobal ["V_PlateCarrierH_CTRG", 1];
@@ -255,7 +259,7 @@
 			{
 			 	_weapon = _x;
 			 	_magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");
-				_magazineClass = _magazines call bis_fnc_selectRandom;
+				_magazineClass = selectRandom _magazines;
 
 				tag_supplyDrop addMagazineCargoGlobal [_magazineClass, 2];
 

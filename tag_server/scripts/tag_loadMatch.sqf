@@ -26,9 +26,7 @@ waitTimer = waitTimerValue;
 
 tag_mCountReached = FALSE;
 
-/*
-*	Display waiting for players message
-*/
+// Display waiting for players message
 tag_waitingForPlayers = 0 spawn {
 	
 	while{true} do {
@@ -69,27 +67,21 @@ waitUntil {
 	if (tag_playerCountAll >= tag_minPlayersToStart && waitTimer <= 0 && tag_mCountReached) exitWith {
 		terminate tag_waitingForPlayers;
 		missionNamespace setVariable ["tag_timeRoundBegin", round(time), true];
-		[tag_roundID, tag_playerCountAll] call tiis_fnc_insertServerStats;
 		TRUE
 	};
 
 	sleep 1;
 };
 
-/* Load map */
+// Load map
 _joinMessage = format ["Round starting with %1 players", tag_playerCountAll];
 [_joinMessage, 1, 0, 0.7, 5, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
 
-/* Load loot message */
+// Load loot message
 ["Loading loot..", 1, 0, 0.8, 60, 1338, "all", nil, "mp"] call tiig_fnc_messanger;
 
-/* Start setting up for a round */
+// Start setting up for a round
 0 execVM "\tag_server\scripts\tag_setupRound.sqf";
 
-/* Remove eventhandler that adds waiting time to countdown */
-["tagPlayerConnected", "onPlayerConnected"] call BIS_fnc_removeStackedEventHandler;
-
-/* Log new round */
+// Log new round
 [["NEW_MATCH_STARTED: Round ID: %1 | Map: %2 | Nr of Players: %3", tag_roundID, tag_worldName, tag_playerCountAll], "DEBUG"] call tiig_fnc_log;
-
-["tag_fn_loadMatch loaded", "DEEPDEBUG"] call tiig_fnc_log;

@@ -1291,7 +1291,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8390.5273,19.43,10281.616};
-			name="tag_map1";
+			name="tag_area1";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -1302,7 +1302,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8847.2412,19.368,10176.778};
-			name="tag_map2";
+			name="tag_area2";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -1396,7 +1396,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={5744.6611,6.8909998,11105.753};
-			name="tag_map3";
+			name="tag_area3";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -1449,7 +1449,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={5690.8921,7.8520002,10019.335};
-			name="tag_map4";
+			name="tag_area4";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -1502,7 +1502,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={5911.5249,61.632,10455.413};
-			name="tag_map5";
+			name="tag_area5";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -1555,7 +1555,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={1836.5909,6.5359998,12003.238};
-			name="tag_map6";
+			name="tag_area6";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -1608,7 +1608,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9622.4678,9.6389999,13416.036};
-			name="tag_map7";
+			name="tag_area7";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -1661,7 +1661,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={12771.678,2.6500001,7441.1792};
-			name="tag_map8";
+			name="tag_area8";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -1714,7 +1714,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={11633.326,3.0599999,2721.283};
-			name="tag_map9";
+			name="tag_area9";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -1766,7 +1766,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={5483.9028,3.155,4082.511};
-			name="tag_map10";
+			name="tag_area10";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -1819,7 +1819,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={7285.0864,2.7,7899.4512};
-			name="tag_map11";
+			name="tag_area11";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;

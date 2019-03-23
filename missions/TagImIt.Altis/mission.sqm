@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={23201.41,74.240936,19263.031};
+		pos[]={23160.727,101.55677,19299.414};
 		dir[]={0.57275891,-0.5060482,-0.64506614};
 		up[]={0.33608848,0.86230749,-0.37851971};
 		aside[]={-0.7478587,-2.8519135e-006,-0.66401362};
@@ -5308,11 +5308,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9105.3965,0,11968.477};
-			name="tag_map1";
+			name="tag_area1";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2273;
 			atlOffset=-19.642025;
 		};
@@ -6014,11 +6014,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={3634.0701,0,12859.347};
-			name="tag_map2";
+			name="tag_area2";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2444;
 			atlOffset=-15.229806;
 		};
@@ -6026,11 +6026,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={3821.875,0,13630.203};
-			name="tag_map3";
+			name="tag_area3";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2445;
 			atlOffset=-15.041924;
 		};
@@ -6038,11 +6038,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={16364.436,0.454,17220.838};
-			name="tag_map4";
+			name="tag_area4";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2446;
 			atlOffset=-22.604944;
 		};
@@ -6050,11 +6050,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={20958.793,0,16962.781};
-			name="tag_map5";
+			name="tag_area5";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2447;
 			atlOffset=-42.51915;
 		};
@@ -6062,11 +6062,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={16847.305,-0.46000001,12683.634};
-			name="tag_map6";
+			name="tag_area6";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2448;
 			atlOffset=-23.787632;
 		};
@@ -6074,23 +6074,23 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={12502.761,2.5680001,14354.596};
-			name="tag_map7";
+			name="tag_area7";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2449;
 			atlOffset=-9.950634;
 		};
 		class Item326
 		{
 			dataType="Marker";
-			position[]={14004.934,-0.44499993,18692.352};
-			name="tag_map8";
+			position[]={14004.934,-0.44499999,18692.352};
+			name="tag_area8";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2450;
 			atlOffset=-26.489058;
 		};
@@ -6098,11 +6098,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={18124.324,0.57499999,15237.78};
-			name="tag_map9";
+			name="tag_area9";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2451;
 			atlOffset=-23.849857;
 		};
@@ -6110,11 +6110,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={18795.461,0,16623.625};
-			name="tag_map10";
+			name="tag_area10";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2452;
 			atlOffset=-32.21418;
 		};
@@ -6122,11 +6122,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={25672.625,0,21351.236};
-			name="tag_map11";
+			name="tag_area11";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2453;
 			atlOffset=-20.475023;
 		};
@@ -6134,11 +6134,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={20248.061,0,11687.384};
-			name="tag_map12";
+			name="tag_area12";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2454;
 			atlOffset=-51.797798;
 		};
@@ -6146,25 +6146,25 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8635.1885,0,18266.098};
-			name="tag_map13";
+			name="tag_area13";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2455;
 			atlOffset=-181.72774;
 		};
 		class Item332
 		{
 			dataType="Marker";
-			position[]={5014.5996,1.3308105,11307.172};
-			name="tag_map14";
+			position[]={5014.6001,1.331,11307.172};
+			name="tag_area14";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2456;
-			atlOffset=-52.664982;
+			atlOffset=-52.664803;
 		};
 		class Item333
 		{
@@ -6519,7 +6519,7 @@ class Mission
 			};
 			id=2465;
 			type="Land_Loudspeakers_F";
-			atlOffset=9.5509987;
+			atlOffset=0.52118301;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -7116,11 +7116,11 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={3721.688,0,13264.096};
-			name="tag_map15";
+			name="tag_area15";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=2483;
 			atlOffset=-10.152725;
 		};
@@ -7391,12 +7391,14 @@ class Mission
 					};
 					id=2500;
 					type="TAG_C_DEFAULT";
+					atlOffset=-9.5367432e-007;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=2499;
+			atlOffset=-9.5367432e-007;
 		};
 		class Item367
 		{

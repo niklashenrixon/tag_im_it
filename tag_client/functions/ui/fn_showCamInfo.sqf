@@ -10,8 +10,9 @@ _lotsOfText = "* <t color='#ff0000'>M</t> to show map then leftclick to place ca
 * <t color='#ff0000'>W/S</t> to move forward and backwards<br/>
 * <t color='#ff0000'>A/D</t> to move left and right<br/>
 * <t color='#ff0000'>Q/Z</t> to move up and down<br/>
-* <t color='#ff0000'>*(NUM)</t> to enable free look<br/>
-* <t color='#ff0000'>N</t> to switch between nightvision/thermal/heat<br/>
-* <t color='#ff0000'>scroll(MIDDLE MOUSE BUTTON)</t> to change focus";
+* <t color='#ff0000'>N</t> to switch between nightvision / thermal / heat<br/>
+* <t color='#ff0000'>SHIFT (HOLD)</t> turbo speed while moving around<br/>
+* <t color='#ff0000'>* (NUM)</t> to enable free look<br/>
+* <t color='#ff0000'>SCROLL (MIDDLE MOUSE BUTTON)</t> to change focus";
 
 _txtInfo ctrlSetStructuredText parseText format["<t size='0.7'>%1</t>", _lotsOfText];

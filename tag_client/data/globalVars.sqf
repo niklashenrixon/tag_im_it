@@ -10,12 +10,16 @@ TAG_SCORE_BASE = 100;  // Base score for 1 kill
 TAG_SCORE_HS = 200;    // Headshot score per headshot
 TAG_SCORE_FIRST = 500; // Score if players won and was the first IT
 
+TAG_CIRCLE_MIN = 100;  // Minimum size of circle
+
+/*
 tag_allPlayersIsWest = FALSE;
 tag_roundStarted	 = FALSE;
 tag_roundIsDraw		 = FALSE;
 alreadyFired		 = FALSE;
+*/
 tag_worldName 		 = worldName;
-
+/*
 tag_inCamera 		= false;
 tag_onFiringRange   = false;
 
@@ -23,7 +27,7 @@ tag_lastTwo 	     = false;
 tag_playersMoved 	 = false;
 tag_inCamera		 = false;
 tag_1v1				 = false;
-
+*/
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	MESSAGES

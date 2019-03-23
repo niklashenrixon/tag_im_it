@@ -3722,7 +3722,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={6037.0928,0,8668.4727};
-			name="tag_map1";
+			name="tag_area1";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -3734,7 +3734,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={7266.0039,0,7974.605};
-			name="tag_map3";
+			name="tag_area3";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -3787,7 +3787,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8177.3418,0,10100.616};
-			name="tag_map4";
+			name="tag_area4";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -3840,7 +3840,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={8239.4209,21.691999,3191.3069};
-			name="tag_map5";
+			name="tag_area5";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -3893,7 +3893,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={7811.0811,-10.168,3240.635};
-			name="tag_map6";
+			name="tag_area6";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -3946,7 +3946,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={7114.5562,0,6108.8149};
-			name="tag_map2";
+			name="tag_area2";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;
@@ -5107,7 +5107,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9742.2734,17.325001,3917.4871};
-			name="tag_map7";
+			name="tag_area7";
 			markerType="ELLIPSE";
 			type="ellipse";
 			a=1000;

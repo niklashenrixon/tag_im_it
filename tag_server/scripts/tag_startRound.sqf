@@ -34,10 +34,7 @@ waitUntil {
 		if(_j) then { _pc = _pc + 1; };
 	} forEach tag_playerList;
 
-	if (_jpc == _pc && _pc >= tag_minPlayersToStart) exitWith {
-		// tag_allPlayersIsWest = true;
-		TRUE
-	};
+	if (_jpc == _pc && _pc >= tag_minPlayersToStart) exitWith { TRUE };
 	// Maybe some message like "Still waiting for players to join.."
 	sleep 1;
 };
@@ -55,10 +52,8 @@ waitUntil {
 	};
 };
 
-/* Remove "loading loot" message */
+// Remove "loading loot" message
 ["", 1, 0, 0.8, 0.5, 1338, "noCiv", nil, "mp"] call tiig_fnc_messanger;
-
-// tag_playersMoved = true; publicVariable "tag_playersMoved";
 
 sleep 4;
 

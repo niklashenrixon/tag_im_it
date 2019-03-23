@@ -77,7 +77,7 @@ if(tag_dbConn) then {
 				_lootItem		  = _x select 0;
 				_lootType		  = _x select 1;
 				_lootQuantity	  = parseNumber(_x select 2);
-				_lootAvailability = parseNumber(_x select 3);
+				_lootAvailability = parseNumber(_x select 3) / 100;
 
 				if (_lootAvailability > 0.0) then {
 
@@ -136,7 +136,7 @@ if(tag_dbConn) then {
 			if (_x select 0 == "spawnProb") then {
 				tag_spawnProbability = parseNumber(_x select 1);
 			} else {
-				tag_lootTypeRatio = tag_lootTypeRatio + [_x select 0, parseNumber(_x select 1)];
+				tag_lootTypeRatio = tag_lootTypeRatio + [_x select 0, parseNumber(_x select 1) / 100];
 			};
 
 		} forEach _result select 0;

@@ -39,18 +39,19 @@ waitUntil {
 
 	_size = _size - _shrink;
 
+	sleep 5; // Wait for value to be updated on every client
+
 	missionNamespace setVariable ["tag_playGroundSettings", [_pos, _size], true];
 
-	sleep 5; // Wait for value to be updated on every client
+	"tag_playArea" setMarkerSize [_size, _size];
 
 	// Only update if unit has death circle spawned
 	{   if(_x getVariable "tag_unitDeathCircle") then {
+			_x setVariable ["tag_unitDeathCircle", false, true];
 			_oid = (_x getVariable "tag_unitIdentity") select 3; // Owner id of player
 			_oid publicVariableClient "tag_updateCircle";
 		};
 	} forEach playableUnits;
-
-	"tag_playArea" setMarkerSize [_size, _size];
 
 	[["Shrinking circle: size: <%1>", _size]] call tiig_fnc_log;
 
