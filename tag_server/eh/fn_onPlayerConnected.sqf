@@ -22,10 +22,10 @@
 *
 */
 
-params ["_id", "_uid", "_name", "_jip", "_owner", ["_banned", 0], "_reason", "_unit"];
+params ["_id", "_uid", "_name", "_jip", "_owner", ["_banned", 0], "_reason"];
 
 // Do not run this code on server
-// if (_owner == 2) exitWith {};
+if (_owner == 2) exitWith {};
 
 // On player connect, add 15 seconds to waittimer if a game is about to start
 //if(tag_mCountReached && !tag_readyToPlay) then { waitTimer = waitTimer + 15; };
@@ -40,16 +40,10 @@ _result = [_query, 2, true] call tiis_fnc_aSync;
 
 tag_unitBanned = false;
 
-if (count _result > 0) then {
+if (count(_result select 0) > 0) then {
 	_data = _result select 0;
 	_banned = parseNumber(_data select 0);
 	_reason = _data select 1;
-
-	_longHS = parseNumber(_data select 2);
-	_longKill = parseNumber(_data select 3);
-
-	_longHSGun = _data select 4);
-	_longKillGun = _data select 5);
 };
 
 if (_banned == 1) then {
@@ -78,23 +72,6 @@ if (_banned == 1) then {
 	sleep 0.5;
 
 };
-
-// Get object from Owner id
-{   if((_x getVariable "tag_unitIdentity") select 3 == _owner) then {
-		_unit = (_x getVariable "tag_unitIdentity") select 0;
-	}
-} forEach playableUnits;
-
-// Set variables on unit
-_unit setVariable ["tag_unitLongHS", _longHS, true];
-_unit setVariable ["tag_unitLongHSGun", _longHSGun, true];
-_unit setVariable ["tag_unitLongKill", _longKill, true];
-_unit setVariable ["tag_unitLongKillGun", _longKillGun, true];
-
-[["LONGEST HS: %1", _longHS]] call tiig_fnc_log;
-[["LONGEST HS GUN: %1", _longHSGun]] call tiig_fnc_log;
-[["LONGEST KILL: %1", _longKill]] call tiig_fnc_log;
-[["LONGEST KILL GUN: %1", _longKillGun]] call tiig_fnc_log;
 
 _owner publicVariableClient "tag_unitBanned";
 

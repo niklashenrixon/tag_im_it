@@ -31,7 +31,8 @@
 	tag_timeLimitThirtyFired = FALSE;
 
 	tag_lootDrop = time + 120;
-	tag_dropped = false;
+	tag_dropped = FALSE;
+	tag_roundIsDraw = FALSE;
 
 	waitUntil {
 

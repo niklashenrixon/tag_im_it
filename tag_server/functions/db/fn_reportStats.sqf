@@ -27,7 +27,7 @@
 params [["_unit", objNull], ["_beganAsIT", 0]];
 if (isNull _unit) exitWith { ["tiis_fnc_reportStats: cannot be used without providing unit object"] call tiig_fnc_log; };
 
-sleep 5; // Let server recieve data before continuing
+sleep 10; // Let server recieve data before continuing
 
 _reported = _unit getVariable "tag_unitStatsReported";
 
@@ -48,7 +48,7 @@ if(!_reported) then {
 	_hits       = _unit getVariable "tag_unitShotsHit";
 	_taken      = _unit getVariable "tag_unitShotsTaken";
 	_longHS     = _unit getVariable "tag_unitLongHS";
-	_longHSGun   = _unit getVariable "tag_unitLongHSGun";
+	_longHSGun  = _unit getVariable "tag_unitLongHSGun";
 	_longKill   = _unit getVariable "tag_unitLongKill";
 	_longKillGun = _unit getVariable "tag_unitLongKillGun";
 	// Status level
@@ -78,10 +78,7 @@ if(!_reported) then {
 					tag_roundID, _uid, _kills, _win, _score, _hs, _fired, _hits, _taken, _death, _disco, _suicide, _lifespan, _lifespanIT, _beganAsIT, _killer, _killedbyhs, _gun, _dist];
 	[_query, 1, true] call tiis_fnc_aSync;
 
-	[["_name: <%1> | _score: <%2> | _taken: <%3> | _hits: <%4> | _fired: <%5>", _name, _score, _taken, _hits, _fired],"DEEPDEBUG"] call tiig_fnc_log;
-	[["_hs: <%6> | _dist: <%7> | _gun: <%8> | _killer: <%9> | _killedbyhs: <%10>", _hs, _dist, _gun, _killer, _killedbyhs],"DEEPDEBUG"] call tiig_fnc_log;
-	[["_suicide: <%11> | _disco: <%12> | _lifespan: <%13> | _lifespanIT: <%14> | _longHS: <%15>", _suicide, _disco, _lifespan, _lifespanIT, _longHS],"DEEPDEBUG"] call tiig_fnc_log;
-	[["_longKill: <%16> | _longHSGun: <%17> | _longKillGun: <%18> | _kills: <%19>", _longKill, _longHSGun, _longKillGun, _kills],"DEEPDEBUG"] call tiig_fnc_log;
+	[["_longHS: <%1> | _longHSGun: <%2> | _longKill: <%3> | _longKillGun: <%4>", _longHS, _longHSGun, _longKill, _longKillGun],"DEEPDEBUG"] call tiig_fnc_log;
 
 	// Set reported TRUE on unit
 	_unit setVariable ["tag_unitStatsReported", true, true];

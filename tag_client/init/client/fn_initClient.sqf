@@ -61,7 +61,7 @@ player setVariable ["tag_unitLongKillGun", "", true];       // How many times th
 player setVariable ["tag_unitHeadshots", 0, true];          // How many times the player has killed someone by headshot
 player setVariable ["tag_unitKilledDist", 0, true];         // Distance in meters from you to the one who killed you
 player setVariable ["tag_unitKilledWeapon", "", true];      // Weapon that was used to kill player
-player setVariable ["tag_unitKilledBy", "", true];          // Unit who killed player
+player setVariable ["tag_unitKilledBy", 0, true];           // Unit who killed player
 player setVariable ["tag_unitKilledByHS", 0, true];         // Unit was killed by headshot
 player setVariable ["tag_unitSuicide", 0, true];            // True if player died to suicide
 player setVariable ["tag_unitDisconnected", 0, true];       // True if player game crash or player disconnects
