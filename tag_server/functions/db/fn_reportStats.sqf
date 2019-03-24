@@ -69,13 +69,15 @@ if(!_reported) then {
 	_gun        = _unit getVariable "tag_unitKilledWeapon";
 	_dist       = _unit getVariable "tag_unitKilledDist";
 
+	_draw = _unit getVariable "tag_unitDraw";
 
-	_query = format ["UpdateProfileData:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15",
-					_kills, _death, _win, _score, _hs, _fired, _hits, _taken, _longHS, _longHSGun, _longKill, _longKillGun, _disco, _suicide, _uid];
+
+	_query = format ["UpdateProfileData:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16",
+					_kills, _death, _win, _score, _hs, _fired, _hits, _taken, _longHS, _longHSGun, _longKill, _longKillGun, _disco, _suicide, _draw, _uid];
 	[_query, 1, true] call tiis_fnc_aSync;
 
-	_query = format ["UpdateRoundStats:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17:%18:%19",
-					tag_roundID, _uid, _kills, _win, _score, _hs, _fired, _hits, _taken, _death, _disco, _suicide, _lifespan, _lifespanIT, _beganAsIT, _killer, _killedbyhs, _gun, _dist];
+	_query = format ["UpdateRoundStats:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17:%18:%19:%20",
+					tag_roundID, _uid, _kills, _win, _score, _hs, _fired, _hits, _taken, _death, _disco, _suicide, _lifespan, _lifespanIT, _beganAsIT, _killer, _killedbyhs, _gun, _dist, _draw];
 	[_query, 1, true] call tiis_fnc_aSync;
 
 	[["_longHS: <%1> | _longHSGun: <%2> | _longKill: <%3> | _longKillGun: <%4>", _longHS, _longHSGun, _longKill, _longKillGun],"DEEPDEBUG"] call tiig_fnc_log;

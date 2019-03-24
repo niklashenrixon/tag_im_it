@@ -215,6 +215,7 @@
 							// Unit cant be IT and is not playing anymore
 							_x setVariable ["tag_unitPlaying", false, true];
 							_x setVariable ["tag_unitIsIT", false, true];
+							_x setVariable ["tag_unitDraw", 1, true];
 
 							// Delete dead unit from player list
 							_pList = missionNamespace getVariable "tag_playerList";;

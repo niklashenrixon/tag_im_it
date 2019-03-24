@@ -64,6 +64,7 @@ player setVariable ["tag_unitKilledWeapon", "", true];      // Weapon that was u
 player setVariable ["tag_unitKilledBy", 0, true];           // Unit who killed player
 player setVariable ["tag_unitKilledByHS", 0, true];         // Unit was killed by headshot
 player setVariable ["tag_unitSuicide", 0, true];            // True if player died to suicide
+player setVariable ["tag_unitDraw", 0, true];               // True if round was a draw
 player setVariable ["tag_unitDisconnected", 0, true];       // True if player game crash or player disconnects
 player setVariable ["tag_unitLifespan", 0, true];           // How long the unit survived the round
 player setVariable ["tag_unitLifespanIT", 0, true];         // How long the unit survived the round as IT
