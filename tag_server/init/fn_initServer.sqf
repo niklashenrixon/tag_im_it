@@ -72,9 +72,6 @@ missionNamespace setVariable["tag_roundID", _rID, TRUE];
 // Start message system
 0 spawn tiis_fnc_messageSystem;
 
-// Load statistics module
-// call compile preprocessFileLineNumbers "\tag_server\scripts\tag_statistics.sqf";
-
 // Load the round
 execVM "\tag_server\scripts\tag_loadMatch.sqf";
 
