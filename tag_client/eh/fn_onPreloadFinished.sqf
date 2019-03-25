@@ -50,7 +50,7 @@ call tiig_fnc_mapTextures;
 call tiig_fnc_animations;
 
 // Display scoreboard while TAB is pressed
-call tiic_fnc_showScore;
+// call tiic_fnc_showScore; FIX THIS SHIT
 
 // Display welcome message
 call tiic_fnc_showWelcome;

@@ -57,7 +57,8 @@ waitUntil {
 
 sleep 4;
 
-["Start looting! Someone will be tagged as IT in 30 seconds.", 1, 0, 0.7, 8, 1337, "noCiv", nil, "mp"] call tiig_fnc_messanger;
+_msgLooting = format ["<t color='%1'>Start looting! Someone will be tagged as IT in 30 seconds</t>", TAG_COLOR_RED];
+[_msgLooting, 1, 0, 0.7, 8, 1337, "noCiv", nil, "mp"] call tiig_fnc_messanger;
 
 sleep 9;
 
@@ -77,8 +78,11 @@ missionNamespace setVariable ["tag_gameInProgress", true, true];
 [_theOne] joinSilent (createGroup east);
 _theOne setVariable ["tag_unitIsIT", true, true];
 
-["LET THE HUNT BEGIN!", 1.2, 0, 0.6, 5, 9027, "exclude", _theOne, "mp"] call tiig_fnc_messanger;
-["<t color='#fc374a'>YOU'RE IT!</t>", 1.2, 0, 0.6, 5, 9027, "specific", _theOne, "mp"] call tiig_fnc_messanger;
+_msgHunt = format ["<t color='%1'>LET THE HUNT BEGIN!</t>", TAG_COLOR_RED];
+[_msgHunt, 1.2, 0, 0.6, 5, 9027, "exclude", _theOne, "mp"] call tiig_fnc_messanger;
+
+_msgIT = format ["<t color='%1'>YOU'RE IT!</t>", TAG_COLOR_RED];
+[_msgIT, 1.2, 0, 0.6, 5, 9027, "specific", _theOne, "mp"] call tiig_fnc_messanger;
 
 // Load watchdog
 execVM "\tag_server\scripts\tag_watchDog.sqf";

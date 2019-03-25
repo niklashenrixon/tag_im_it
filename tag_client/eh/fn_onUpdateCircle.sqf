@@ -8,9 +8,13 @@
 *		none
 */
 
-{ deleteVehicle _x; } forEach tag_circleRetA;
-{ deleteVehicle _x; } forEach tag_circleRetB;
+if(player getVariable "tag_unitDeathCircle") then {
+	player setVariable ["tag_unitDeathCircle", false, true];
 
-0 spawn tiig_fnc_deathCircle;
+	{ deleteVehicle _x; } forEach tag_circleRetA;
+	{ deleteVehicle _x; } forEach tag_circleRetB;
 
-[">>>> EH TRIGGERED: onUpdateCircle <<<<","DEEPDEBUG"] call tiig_fnc_log;
+	0 spawn tiig_fnc_deathCircle;
+	
+	[">>>> EH TRIGGERED: onUpdateCircle <<<<","DEEPDEBUG"] call tiig_fnc_log;
+};

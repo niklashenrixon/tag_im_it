@@ -57,7 +57,7 @@ while {true} do {
 
 */
 
-_startingdate = [1988, 3, 9, 12, round random 59];
+_startingdate = [1988, 3, 9, 9 max round(random 16), round(random 59)];
 _startingweather = selectRandom ["CLEAR","CLOUDY","RAIN"];
 
 // Fuck off fog

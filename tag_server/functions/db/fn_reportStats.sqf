@@ -30,8 +30,10 @@ if (isNull _unit) exitWith { ["tiis_fnc_reportStats: cannot be used without prov
 sleep 10; // Let server recieve data before continuing
 
 _reported = _unit getVariable "tag_unitStatsReported";
+_game = missionNamespace getVariable "tag_game";
 
-if(!_reported) then {
+// Only register stats if unit is not already registered and if a round has begun
+if(!_reported && _game) then {
 
 	// Write stats to db on killed / disconnect / game crash
 

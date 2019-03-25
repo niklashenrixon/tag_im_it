@@ -36,7 +36,6 @@ _ehHANDLEHEAL   = player addEventHandler   ["HandleHeal",   { _this spawn tiic_f
 "tag_ejectVehicle" addPublicVariableEventHandler { call tiic_fnc_onEjectVehicle; };
 "tag_updateCircle" addPublicVariableEventHandler { 0 spawn tiic_fnc_onUpdateCircle; };
 addMissionEventHandler ["PreloadFinished", { 0 spawn tiic_fnc_onPreloadFinished; }];
-addMissionEventHandler ["Ended",{ _this call tiic_fnc_onEnded; }];
 
 // Give player neccessary variables
 player setVariable ["tag_unitIdentity", [player, getPlayerUID player, netId player, clientOwner, name player], true]; // Unit identity; usefull for server

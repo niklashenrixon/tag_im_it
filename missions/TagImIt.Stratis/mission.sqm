@@ -3590,8 +3590,8 @@ class Mission
 			name="tag_area2";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=1108;
 			atlOffset=-1.1342061;
 		};
@@ -3643,8 +3643,8 @@ class Mission
 			name="tag_area1";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=1106;
 			atlOffset=-6;
 		};

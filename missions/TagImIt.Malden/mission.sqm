@@ -3725,8 +3725,8 @@ class Mission
 			name="tag_area1";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=212;
 			atlOffset=-125.12;
 		};
@@ -3737,8 +3737,8 @@ class Mission
 			name="tag_area3";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=213;
 			atlOffset=-167.57001;
 		};
@@ -3790,8 +3790,8 @@ class Mission
 			name="tag_area4";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=215;
 			atlOffset=-28.889999;
 		};
@@ -3843,8 +3843,8 @@ class Mission
 			name="tag_area5";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=217;
 			atlOffset=0.00033760071;
 		};
@@ -3896,8 +3896,8 @@ class Mission
 			name="tag_area6";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=219;
 			atlOffset=-16.869804;
 		};
@@ -3949,8 +3949,8 @@ class Mission
 			name="tag_area2";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=221;
 			atlOffset=-71.867027;
 		};
@@ -5110,8 +5110,8 @@ class Mission
 			name="tag_area7";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=255;
 			atlOffset=-21.564999;
 		};

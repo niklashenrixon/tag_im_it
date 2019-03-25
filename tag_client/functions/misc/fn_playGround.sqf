@@ -59,7 +59,6 @@ while { tag_gameInProgress && player getVariable "tag_unitPlaying" } do {
 
 		if (!_outside) then {
 			['', 1, 0, 0.5, 0.5, 9025, 'any', nil, 'local'] call tiig_fnc_messanger;
-			//player setDamage 0;
 			'dynamicBlur' ppEffectEnable true;
 			'dynamicBlur' ppEffectAdjust [0];
 			'dynamicBlur' ppEffectCommit 1;
@@ -68,3 +67,10 @@ while { tag_gameInProgress && player getVariable "tag_unitPlaying" } do {
 	};
 	sleep 0.2;
 };
+
+// Remove warning if unit goes outside while loop
+['', 1, 0, 0.5, 0.5, 9025, 'any', nil, 'local'] call tiig_fnc_messanger;
+'dynamicBlur' ppEffectEnable true;
+'dynamicBlur' ppEffectAdjust [0];
+'dynamicBlur' ppEffectCommit 1;
+1 fadeSound 1;

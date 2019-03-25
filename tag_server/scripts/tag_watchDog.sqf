@@ -59,7 +59,10 @@
 				if(_HG != "") then { removeHeadgear tag_playerIt; };
 
 				sleep 6;
-				["5 minutes remaining", 0.6, 0, 0.9, 5, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
+
+				_msgFive = format ["<t color='%1'>5 minutes remaining</t>", TAG_COLOR_RED];
+
+				["", 0.6, 0, 0.9, 5, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
 				playSound3D ["tag_client\sounds\five.ogg", nil, false, tag_activeSiren, 4, 1, 2000];
 			};
 		};
@@ -103,7 +106,8 @@
 
 				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", owner _winner];
 
-				["And the winner is " + _winnerName, 1, 0, 0.5, 15, 1337, "CivExlusive", _winner, "mp"] call tiig_fnc_messanger;
+				_winMsg = format ["And the winner is <t color='%1'>%2</t>", TAG_COLOR_RED, _winnerName];
+				[_winMsg, 1, 0, 0.5, 15, 1337, "CivExlusive", _winner, "mp"] call tiig_fnc_messanger;
 				["Congratulations, you are the winner!", 1, 0, 0.7, 15, 1337, "specific", _winner, "mp"] call tiig_fnc_messanger;
 
 				_winner setVariable ["tag_unitLifespan", round(time - tag_timeRoundBegin), true];
@@ -163,7 +167,8 @@
 		if (tag_twoLeftFired && tag_playerCount == 2 && !tag_winnerFired) then {
 			if (time >= tag_timeLimit2 && !tag_timeLimitTwoFired) exitWith {
 				tag_timeLimitTwoFired = TRUE;
-				["2 minutes remaining", 0.6, 0, 0.9, 5, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
+				_msgTwo = format ["<t color='%1'>2 minutes remaining</t>", TAG_COLOR_RED];
+				[_msgTwo, 0.6, 0, 0.9, 5, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
 				playSound3D ["tag_client\sounds\two.ogg", nil, false, tag_activeSiren, 4, 1, 2000];
 			};
 		};
@@ -174,7 +179,8 @@
 		if (tag_twoLeftFired && tag_playerCount == 2 && !tag_winnerFired) then {
 			if (time >= tag_timeLimit1 && !tag_timeLimitOneFired) exitWith {
 				tag_timeLimitOneFired = TRUE;
-				["1 minute remaining", 0.6, 0, 0.9, 5, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
+				_msgOne = format ["<t color='%1'>1 minutes remaining</t>", TAG_COLOR_RED];
+				[_msgOne, 0.6, 0, 0.9, 5, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
 				playSound3D ["tag_client\sounds\one.ogg", nil, false, tag_activeSiren, 4, 1, 2000];
 			};
 		};
@@ -185,7 +191,8 @@
 		if (tag_twoLeftFired && tag_playerCount == 2 && !tag_winnerFired) then {
 			if (time >= tag_timeLimit30 && !tag_timeLimitThirtyFired) exitWith {
 				tag_timeLimitThirtyFired = TRUE;
-				["30 seconds remaining", 0.6, 0, 0.9, 5, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
+				_msgThirty = format ["<t color='%1'>30 seconds remaining</t>", TAG_COLOR_RED];
+				[_msgThirty, 0.6, 0, 0.9, 5, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
 				playSound3D ["tag_client\sounds\thirty.ogg", nil, false, tag_activeSiren, 4, 1, 2000];
 			};
 		};

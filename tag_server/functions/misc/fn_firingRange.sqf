@@ -54,3 +54,5 @@ waitUntil {
 
 	sleep 2;
 };
+
+terminate _thisScript;

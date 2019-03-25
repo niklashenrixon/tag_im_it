@@ -77,13 +77,10 @@ class CfgFunctions {
 			class onPreloadFinished;
 			class onUpdateCircle;
 			class onEjectVehicle;
-			class onDisconnected;
 			class onHandleDamage;
 			class onHandleHeal;
-			class onConnected;
 			class onRespawn;
 			class onKilled;
-			class onEnded;
 			class onFired;
 			class onHit;
 		};

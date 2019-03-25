@@ -1294,8 +1294,8 @@ class Mission
 			name="tag_area1";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=491;
 		};
 		class Item42
@@ -1305,8 +1305,8 @@ class Mission
 			name="tag_area2";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=492;
 			atlOffset=0.21635437;
 		};
@@ -1399,8 +1399,8 @@ class Mission
 			name="tag_area3";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=495;
 			atlOffset=4.2509995;
 		};
@@ -1452,8 +1452,8 @@ class Mission
 			name="tag_area4";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=497;
 			atlOffset=3.4307795;
 		};
@@ -1505,8 +1505,8 @@ class Mission
 			name="tag_area5";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=499;
 			atlOffset=27.458576;
 		};
@@ -1558,8 +1558,8 @@ class Mission
 			name="tag_area6";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=501;
 			atlOffset=0.020926476;
 		};
@@ -1611,8 +1611,8 @@ class Mission
 			name="tag_area7";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=503;
 			atlOffset=-5.6517839;
 		};
@@ -1664,8 +1664,8 @@ class Mission
 			name="tag_area8";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=505;
 			atlOffset=-7.1079717;
 		};
@@ -1717,8 +1717,8 @@ class Mission
 			name="tag_area9";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=507;
 		};
 		class Item58
@@ -1769,8 +1769,8 @@ class Mission
 			name="tag_area10";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=509;
 			atlOffset=-0.097774744;
 		};
@@ -1822,8 +1822,8 @@ class Mission
 			name="tag_area11";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=1000;
-			b=1000;
+			a=50;
+			b=50;
 			id=545;
 		};
 	};

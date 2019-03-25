@@ -40,6 +40,7 @@ addMissionEventHandler ["EachFrame", { tag_playerCount = {side _x != resistance 
 "tag_setBanned" addPublicVariableEventHandler {	(_this select 1) call tiis_fnc_onSetBanned; }; // Set unit to banned
 
 // Game states
+missionNamespace setVariable ["tag_game",          false, true]; // Set to true a game has been started on the server
 missionNamespace setVariable ["tag_gameReady",     false, true]; // True when server is ready to start a game. True until loading begins
 missionNamespace setVariable ["tag_gameLoading",   false, true]; // True during round setup
 missionNamespace setVariable ["tag_gameInProgress",false, true]; // True after loading is done (all players have been moved), true until game starts to unload
@@ -82,4 +83,4 @@ execVM "\tag_server\scripts\tag_loadMatch.sqf";
 //["tag_indexLoot", FALSE] call tag_fn_getLootPos;
 
 // Load firing range
-0 spawn tiis_fnc_firingRange;
+// 0 spawn tiis_fnc_firingRange;

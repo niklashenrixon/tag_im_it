@@ -31,6 +31,10 @@ tag_waitingForPlayers = 0 spawn {
 	
 	while{true} do {
 
+		["http://tagimit.eu/leaderboard", 1, 0, 0.7, 5, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
+
+		sleep 6;
+
 		_waitingPlayer  = format ["%1 player online right now. A minimum of %2 needed.", str(tag_playerCountAll), str(tag_minPlayersToStart)];
 		_waitingPlayers = format ["%1 players online right now. A minimum of %2 needed.", str(tag_playerCountAll), str(tag_minPlayersToStart)];
 
@@ -47,7 +51,7 @@ tag_waitingForPlayers = 0 spawn {
 			[str(waitTimer) + " seconds remaining until a round starts.", 0.6, 0, 0.9, 5, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
 		};
 
-		sleep 15;
+		sleep 9;
 	};
 };
 
@@ -67,6 +71,7 @@ waitUntil {
 	if (tag_playerCountAll >= tag_minPlayersToStart && waitTimer <= 0 && tag_mCountReached) exitWith {
 		terminate tag_waitingForPlayers;
 		missionNamespace setVariable ["tag_timeRoundBegin", round(time), true];
+		missionNamespace setVariable ["tag_game", true, true];
 		TRUE
 	};
 

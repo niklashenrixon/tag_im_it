@@ -6,7 +6,7 @@ class CfgPatches {
 		version = 1.0;
 		authors[] = {"NIXON"};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"A3_Characters_F","A3_Weapons_F"};
+		requiredAddons[] = {"A3_Characters_F", "A3_Weapons_F"};
 	};
 };
 

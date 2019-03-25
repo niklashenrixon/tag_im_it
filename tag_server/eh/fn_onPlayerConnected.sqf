@@ -28,7 +28,7 @@ params ["_id", "_uid", "_name", "_jip", "_owner", ["_banned", 0], "_reason"];
 if (_owner == 2) exitWith {};
 
 // On player connect, add 15 seconds to waittimer if a game is about to start
-//if(tag_mCountReached && !tag_readyToPlay) then { waitTimer = waitTimer + 15; };
+if(missionNamespace getVariable "tag_gameLoading") then { waitTimer = waitTimer + 15; };
 
 // Insert / Update player profileData
 _query = format["InsertProfileData:%1:%2", _uid, _name];

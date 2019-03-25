@@ -33,11 +33,10 @@ waitUntil {
 	// Current values of playarea
 	_pos = tag_playGroundSettings select 0;
 	_size = tag_playGroundSettings select 1;
+	_size = _size - _shrink;
 
 	if(!tag_gameInProgress) exitWith { TRUE }; // Stop updating when game ends
 	if(_size <= _smallest) exitWith { [["Shrinking circle: size: <%1>", _size]] call tiig_fnc_log; TRUE }; // Stop updating when we reach this size
-
-	_size = _size - _shrink;
 
 	sleep 5; // Wait for value to be updated on every client
 
@@ -45,13 +44,7 @@ waitUntil {
 
 	"tag_playArea" setMarkerSize [_size, _size];
 
-	// Only update if unit has death circle spawned
-	{   if(_x getVariable "tag_unitDeathCircle") then {
-			_x setVariable ["tag_unitDeathCircle", false, true];
-			_oid = (_x getVariable "tag_unitIdentity") select 3; // Owner id of player
-			_oid publicVariableClient "tag_updateCircle";
-		};
-	} forEach playableUnits;
+	publicVariable "tag_updateCircle";
 
 	[["Shrinking circle: size: <%1>", _size]] call tiig_fnc_log;
 
