@@ -5491,7 +5491,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="\tag_client\images\spawnwelcome.paa";
+							value="\tag_client\images\spawnwelcome2.paa";
 						};
 					};
 				};
