@@ -63,7 +63,8 @@ if(player == _killer && player != _unit) then {
 		missionNamespace setVariable ["tag_playerIt", player, true];
 		[player] joinSilent (createGroup east);
 
-		["<t color='#fc374a'>YOU'RE IT!</t>", 1.2, 0, 0.6, 5, 9027, 'any', nil, 'local'] call tiig_fnc_messanger;
+		_msgIT = format ["<t color='%1'>YOU'RE IT!</t>", TAG_COLOR_RED];
+		[_msgIT, 1.2, 0, 0.6, 5, 9027, 'any', nil, 'local'] call tiig_fnc_messanger;
 	};
 
 	// Update longest Kill / HS if it was longer
@@ -157,6 +158,13 @@ if(isServer || isDedicated) then {
 	_unit setVariable ["tag_unitIsIT", false, true];
 	_unit setVariable ["tag_unitDeath", 1, true];
 
+	/*
+	if(_newItTrigger) then {
+		_msgIT = format ["<t color='%1'>There's a new IT</t>", TAG_COLOR_RED];
+		[_msgIT, 1.2, 0, 0.6, 5, 9026, 'exclude', _killer, 'mp'] call tiig_fnc_messanger;
+	};
+	*/
+	
 	// Delete dead unit from player list
 	_pList = missionNamespace getVariable "tag_playerList";;
 	_pList deleteAt (_pList find _unit);

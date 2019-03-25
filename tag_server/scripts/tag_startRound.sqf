@@ -70,8 +70,6 @@ _timesM = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17"
 	sleep 1;
 } forEach _timesM;
 
-tag_ItTime = round(time); publicVariable "tag_ItTime";
-
 missionNamespace setVariable ["tag_gameLoading", false, true];
 missionNamespace setVariable ["tag_gameInProgress", true, true];
 
