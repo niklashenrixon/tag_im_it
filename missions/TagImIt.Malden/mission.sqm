@@ -130,7 +130,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="TAG I'M IT";
+		briefingName="TAG I'M IT <> MALDEN";
 		overviewText="Malden";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;

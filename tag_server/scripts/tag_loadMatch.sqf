@@ -31,7 +31,7 @@ tag_waitingForPlayers = 0 spawn {
 	
 	while{true} do {
 
-		["http://tagimit.eu/leaderboard", 1, 0, 0.7, 5, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
+		["http://tagimit.eu/leaderboard", 1, 0, 0.7, 5, 1327, "all", nil, "mp"] call tiig_fnc_messanger;
 
 		sleep 6;
 

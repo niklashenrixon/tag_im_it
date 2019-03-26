@@ -103,7 +103,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="TAG I'M IT";
+		briefingName="TAG I'M IT <> STRATIS";
 		overviewText="Stratis";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;

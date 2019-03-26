@@ -13,7 +13,7 @@
 *		Writes houseId, houseType, posX, posY, posZ and mapName to MySQL
 *
 *	Example(s):
-*		["markerName", TRUE] call tiis_fnc_getLootPos;
+*		["tag_lootIndex", TRUE] spawn tiis_fnc_getLootPos;
 *
 *	Parameter(s):
 *		0 ARRAY (Mandatory):
