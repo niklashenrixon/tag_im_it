@@ -21,11 +21,14 @@
 *		
 */ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-["OUTSIDE RANGE LOOT"] call tiig_fnc_log;
-
 // Make sure we have enough players on west
+
 waitUntil {
 	if (!isNil "tag_rangeLoot1") exitWith {
+
+		waitUntil { time > 10 };
+		waitUntil { isTouchingGround tag_rangeLoot1 };
+
 		// Weapon classname, amount of each weapon
 		_ammoList = [];
 
@@ -47,7 +50,6 @@ waitUntil {
 
 		[tag_rangeLoot3, _ammoList, "ammo"] call tiig_fnc_addToCargo;
 		[tag_rangeLoot4, tag_lootAttachmentQ, "item"] call tiig_fnc_addToCargo;
-		["INSIDE RANGE LOOT"] call tiig_fnc_log;
 		
 		TRUE
 	};

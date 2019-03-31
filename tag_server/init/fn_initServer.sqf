@@ -79,8 +79,5 @@ execVM "\tag_server\scripts\tag_loadMatch.sqf";
 // Start shrinking of circle
 [] spawn tiis_fnc_circleShrink;
 
-// Index loot location on loaded map
-//["tag_indexLoot", FALSE] call tag_fn_getLootPos;
-
 // Load firing range
-// 0 spawn tiis_fnc_firingRange;
+0 spawn tiis_fnc_firingRange;
