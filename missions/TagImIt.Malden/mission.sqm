@@ -5477,7 +5477,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				name="tag_rangeLoot1_3";
+				name="tag_rangeLoot4";
 			};
 			id=269;
 			type="B_CargoNet_01_ammo_F";

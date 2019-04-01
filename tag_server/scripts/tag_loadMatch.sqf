@@ -31,7 +31,17 @@ tag_waitingForPlayers = 0 spawn {
 	
 	while{true} do {
 
+		sleep 6;
+
 		["Visit http://tagimit.eu/leaderboard", 1, 0, 0.7, 5, 1327, "all", nil, "mp"] call tiig_fnc_messanger;
+
+		sleep 6;
+
+		["To change uniform, press ESC", 1, 0, 0.7, 5, 1329, "all", nil, "mp"] call tiig_fnc_messanger;
+
+		sleep 6;
+
+		["To use Enhanced Movement, bind user action 1", 1, 0, 0.7, 5, 1330, "all", nil, "mp"] call tiig_fnc_messanger;
 
 		sleep 6;
 
@@ -50,8 +60,6 @@ tag_waitingForPlayers = 0 spawn {
 			["Minimum player count reached, waiting for more players.", 1, 0, 0.7, 5, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
 			[str(waitTimer) + " seconds remaining until a round starts.", 0.6, 0, 0.9, 5, 3010, "all", nil, "mp"] call tiig_fnc_messanger;
 		};
-
-		sleep 9;
 	};
 };
 
@@ -79,8 +87,10 @@ waitUntil {
 };
 
 // Reset message layer
-["", 1, 0, 0.8, 60, 1327, "all", nil, "mp"] call tiig_fnc_messanger;
-["", 1, 0, 0.8, 60, 1338, "all", nil, "mp"] call tiig_fnc_messanger;
+["", 1, 0, 0.8, 1, 1327, "all", nil, "mp"] call tiig_fnc_messanger;
+["", 1, 0, 0.8, 1, 1329, "all", nil, "mp"] call tiig_fnc_messanger;
+["", 1, 0, 0.8, 1, 1330, "all", nil, "mp"] call tiig_fnc_messanger;
+["", 1, 0, 0.8, 1, 1338, "all", nil, "mp"] call tiig_fnc_messanger;
 
 // Load map
 _joinMessage = format ["Round starting with %1 players", tag_playerCountAll];

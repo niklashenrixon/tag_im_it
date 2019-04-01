@@ -46,7 +46,7 @@ allowFunctionsLog = 1;
 
 disableChannels[] = {{0, true, true},{1, true, true},{2, true, true},{3, false, true},{4, true, true},{5, true, true},{6, false, true}};
 enableItemsDropping = 0;
-enableDebugConsole = 1;
+enableDebugConsole = 0;
 onPauseScript = "";
 saving = 0;
 joinUnassigned = 1;
