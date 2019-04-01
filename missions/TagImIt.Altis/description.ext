@@ -28,7 +28,7 @@ class Header {
 
 // 0 = ERRORs only | 1 = ERROR+DEBUG | 2 = ERROR+DEBUG+DEEPDEBUG
 class Debug {
-	debugmode = 2;	
+	debugmode = 0;	
 };
 
 class Circle {

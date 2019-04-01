@@ -53,7 +53,7 @@ waitUntil {
 };
 
 // Remove "loading loot" message
-["", 1, 0, 0.8, 0.5, 1338, "noCiv", nil, "mp"] call tiig_fnc_messanger;
+["", 1, 0, 0.8, 0.5, 1328, "noCiv", nil, "mp"] call tiig_fnc_messanger;
 
 sleep 4;
 

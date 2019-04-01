@@ -26,8 +26,7 @@
 waitUntil {
 	if (!isNil "tag_rangeLoot1") exitWith {
 
-		waitUntil { time > 10 };
-		waitUntil { isTouchingGround tag_rangeLoot1 };
+		waitUntil { missionNamespace getVariable "tag_dataLoaded" };
 
 		// Weapon classname, amount of each weapon
 		_ammoList = [];

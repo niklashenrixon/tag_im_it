@@ -35,7 +35,7 @@
 		// BUTTON 4 (VIEW RULES)
 		_ctrlBtn4 = _display ctrlCreate ["TAG_U_ESC_BTN4", 8651];
 		_ctrlBtn4 buttonSetAction "(findDisplay 49) closeDisplay 1; call tiic_fnc_showHud;";
-		//_ctrlBtn4 ctrlEnable FALSE;
+		_ctrlBtn4 ctrlEnable FALSE;
 
 		// BUTTON 5 (ADMIN TOOLS)
 		_ctrlBtn5 = _display ctrlCreate ["TAG_U_ESC_BTN5", 8652];

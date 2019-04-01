@@ -141,6 +141,8 @@ if(tag_dbConn) then {
 
 		} forEach _result select 0;
 	};
+
+	missionNamespace setVariable ["tag_dataLoaded", true, true]; // Set to true since all data is loaded
 };
 
 terminate _thisScript;

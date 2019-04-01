@@ -31,7 +31,7 @@ tag_waitingForPlayers = 0 spawn {
 	
 	while{true} do {
 
-		["http://tagimit.eu/leaderboard", 1, 0, 0.7, 5, 1327, "all", nil, "mp"] call tiig_fnc_messanger;
+		["Visit http://tagimit.eu/leaderboard", 1, 0, 0.7, 5, 1327, "all", nil, "mp"] call tiig_fnc_messanger;
 
 		sleep 6;
 
@@ -78,12 +78,16 @@ waitUntil {
 	sleep 1;
 };
 
+// Reset message layer
+["", 1, 0, 0.8, 60, 1327, "all", nil, "mp"] call tiig_fnc_messanger;
+["", 1, 0, 0.8, 60, 1338, "all", nil, "mp"] call tiig_fnc_messanger;
+
 // Load map
 _joinMessage = format ["Round starting with %1 players", tag_playerCountAll];
 [_joinMessage, 1, 0, 0.7, 5, 1337, "all", nil, "mp"] call tiig_fnc_messanger;
 
 // Load loot message
-["Loading loot..", 1, 0, 0.8, 60, 1338, "all", nil, "mp"] call tiig_fnc_messanger;
+["Loading loot..", 1, 0, 0.8, 60, 1328, "all", nil, "mp"] call tiig_fnc_messanger;
 
 // Start setting up for a round
 0 execVM "\tag_server\scripts\tag_setupRound.sqf";

@@ -53,6 +53,7 @@ missionNamespace setVariable ["tag_playGroundSettings", [[0, 0, 0], 100], true];
 missionNamespace setVariable ["tag_playerList", [], true];                       // A list of all units that is currently playing a round
 missionNamespace setVariable ["tag_playerIt", objNull, true];                    // Contains the current unit tagged as IT
 missionNamespace setVariable ["tag_firstIt", objNull, true];                     // The first unit to get chosen as IT
+missionNamespace setVariable ["tag_dataLoaded",  false, true]; 					 // True mysql has loaded all init data
 
 // Time
 missionNamespace setVariable ["tag_timeStarted", round(time), true]; // Server start
