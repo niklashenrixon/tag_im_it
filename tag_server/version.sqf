@@ -14,7 +14,7 @@
 *
 */ ///////////////////////////////////////////////////////////////////////////////////////
 
-tag_serverVersion       = 100;     // 0.0.0 (FULL.BETA.ALPHA) [Alpha 2] = 0.0.2 [BETA 2] = 0.2.0
-tag_serverVersionString = "1.0.0"; // Version in string format
+tag_serverVersion       = 101;     // 0.0.0 (FULL.BETA.ALPHA) [Alpha 2] = 0.0.2 [BETA 2] = 0.2.0
+tag_serverVersionString = "1.0.1"; // Version in string format
 tag_serverRevision      = "a";     // Revision letter
-tag_serverBuildName	    = format["%1%2.dev", tag_serverVersionString, tag_serverRevision]; // Buildname
+tag_serverBuildName	    = format["%1%2.stable", tag_serverVersionString, tag_serverRevision]; // Buildname

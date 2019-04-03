@@ -1,11 +1,30 @@
-// TAG I'M IT SPECIFIC
-tag_c_debugmode = 0; // 0 = ERRORs only | 1 = ERROR+DEBUG | 2 = ERROR+DEBUG+DEEPDEBUG
+// ////////////////////////////
+// TAG I'M IT SPECIFIC SETTINGS
+// ////////////////////////////
+
+// General
+tag_c_debugmode = 0;         // 0 = ERRORs only | 1 = ERROR+DEBUG | 2 = ERROR+DEBUG+DEEPDEBUG
 tag_c_cmdPassword = "admin"; // This must match the admin password set on the server
+tag_c_sounddist = 50;        // How near the last 2 players have to be eachother for danger sound to start playing
 
 // Circle
 tag_c_interval = 60; // Frequency in seconds the circle should update
-tag_c_shrink = 10;  // Shrink the circle by this many meters everytime it updates
+tag_c_shrink = 10;   // Shrink the circle by this many meters everytime it updates
 tag_c_minSize = 30;  // Stop shrinking circle when it hits this radius
+
+// Score
+tag_c_base_score = 100;  // Base score for 1 kill
+tag_c_hs_score = 200;    // Headshot score per headshot
+tag_c_first_score = 500; // Score if players won and was the first IT
+tag_c_distbonus = 50;    // How many meters before giving distance bonus on kill
+
+// Game settings
+tag_c_minPlayers = 4;  // Minimum number of players to start a match
+tag_c_maxPlayers = 32; // Maximum number of players that can enter server
+
+// ///////////////////
+// BOHEMIA INTERACTIVE
+// ///////////////////
 
 skipLobby = 0;
 debriefing = 0;

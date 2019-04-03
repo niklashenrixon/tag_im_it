@@ -41,7 +41,7 @@ player setVariable ["BIS_noCoreConversations", true]; // YOU CAN NOT TALK.. GET 
 enableSaving [FALSE, FALSE]; // We don't want people to save
 
 // Move player to lobby area
-[player, "tag_lobby", 20] call tiig_fnc_moveToMarker;
+[player, "tag_lobby", 20] spawn tiig_fnc_moveToMarker;
 
 // Remove Satellite Image from Map
 call tiig_fnc_mapTextures;

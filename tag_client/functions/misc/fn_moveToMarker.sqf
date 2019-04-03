@@ -13,7 +13,7 @@
 *		Teleports player to map marker with given spacing
 *
 *	Example(s):
-*		[player, marker1, 50] call tiig_fnc_moveToMarker; (Move player to marker 1 with 50 meter spacing from center of marker)
+*		[player, marker1, 50] spawn tiig_fnc_moveToMarker; (Move player to marker 1 with 50 meter spacing from center of marker)
 *
 *	Parameter(s):
 *		0 UNIT (Mandatory):
@@ -33,9 +33,23 @@
 params ["_u","_m","_s", "_safePos", "_sP"];
 
 _mP = getMarkerPos _m;
-_sP = [_s, _s, _mP # 0, _mP # 1] call tiig_fnc_rand2d;
 
-_safePos = _sP findEmptyPosition [0, _s, "B_CargoNet_01_ammo_F"];
-if (count _safePos == 0) then { _safePos = _sP findEmptyPosition [0, TAG_CIRCLE_MIN, "B_CargoNet_01_ammo_F"]; };
-_u setPos _safePos;
-_sP
+waitUntil {
+	_sP = [_s, _s, _mP # 0, _mP # 1] call tiig_fnc_rand2d;
+	_safePos = _sP findEmptyPosition [0, _s, "B_CargoNet_01_ammo_F"];
+
+	if(count _safePos > 0) exitWith { TRUE };
+};
+
+waitUntil {
+	_u setPos _safePos;
+
+	_uPos = position _u;
+	_uDist = _uPos distance _safePos;
+
+	sleep 0.5;
+
+	if(_uDist <= 10) exitWith { TRUE };
+};
+
+terminate _thisScript;
