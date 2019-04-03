@@ -105,6 +105,7 @@
 				};
 
 				[0, 1.5, false, false] remoteExecCall ["BIS_fnc_cinemaBorder", owner _winner];
+				"winner1" remoteExecCall ["playSound", owner _winner];				
 
 				_winMsg = format ["And the winner is <t color='%1'>%2</t>", TAG_COLOR_RED, _winnerName];
 				[_winMsg, 1, 0, 0.5, 15, 1337, "CivExlusive", _winner, "mp"] call tiig_fnc_messanger;
