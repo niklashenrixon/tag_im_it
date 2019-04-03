@@ -35,7 +35,7 @@ waitUntil {
 			_object = _x;
 		 	_weapon = _object select 0;
 		 	_magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");
-			_magazineClass = _magazines call bis_fnc_selectRandom;
+			_magazineClass = selectRandom _magazines;
 
 			_ammoList pushBack [_magazineClass, 5];
 

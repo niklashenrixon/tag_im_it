@@ -1,10 +1,19 @@
+// TAG I'M IT SPECIFIC
+tag_c_debugmode = 0; // 0 = ERRORs only | 1 = ERROR+DEBUG | 2 = ERROR+DEBUG+DEEPDEBUG
+tag_c_cmdPassword = "admin"; // This must match the admin password set on the server
+
+// Circle
+tag_c_interval = 60; // Frequency in seconds the circle should update
+tag_c_shrink = 10;  // Shrink the circle by this many meters everytime it updates
+tag_c_minSize = 30;  // Stop shrinking circle when it hits this radius
+
 skipLobby = 0;
 debriefing = 0;
+
 respawn = "BASE";
 respawnDelay = 5;
 respawnDialog = 0;
 respawnButton = 0;
-
 
 onLoadName = "TAG I'M IT | STRATIS";
 onLoadMission = "Let the hunt begin!";
@@ -26,30 +35,19 @@ class Header {
 	maxPlayers = 32;
 };
 
-// 0 = ERRORs only | 1 = ERROR+DEBUG | 2 = ERROR+DEBUG+DEEPDEBUG
-class Debug {
-	debugmode = 0;	
-};
-
-class Circle {
-	interval = 60; // Frequency in seconds the circle should update
-	shrink = 10;  // Shrink the circle by this many meters everytime it updates
-	minSize = 30;  // Stop shrinking circle when it hits this radius
-};
-
 scriptedPlayer = 1;
 disabledAI = 1;
 
 allowFunctionsRecompile = 0;
 allowFunctionsLog = 1;
 
-
 disableChannels[] = {{0, true, true},{1, true, true},{2, true, true},{3, false, true},{4, true, true},{5, true, true},{6, false, true}};
 enableItemsDropping = 0;
-enableDebugConsole = 0;
+enableDebugConsole[] = {"76561198002908182"};
 onPauseScript = "";
 saving = 0;
 joinUnassigned = 1;
+
 corpseLimit = 100;
 corpseRemovalMinTime = 300;
 corpseRemovalMaxTime = 3600;

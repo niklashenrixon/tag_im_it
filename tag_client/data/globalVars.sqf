@@ -18,8 +18,8 @@
 tag_minPlayersToStart  = 4;         // Minimum number of players
 tag_maxPlayers 		   = 32;        // Maximum number of players
 tag_worldName 		   = worldName; // Name of loaded map
-tag_debugMode          = getNumber (missionConfigFile >> "Debug" >> "debugmode"); // Debugmode
-tag_cmdPass            = "H4cktheplanet!"; // Password
+tag_debugMode          = getMissionConfigValue ["tag_c_debugmode", 0]; // Debugmode 
+tag_cmdPass            = getMissionConfigValue ["tag_c_cmdPassword", "password"]; // Get password to use for servercommands
 
 // Score
 TAG_SCORE_BASE = 100;  // Base score for 1 kill
