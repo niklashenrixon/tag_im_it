@@ -33,7 +33,7 @@ TAG_DISTBONUS   = getMissionConfigValue ["tag_c_distbonus", 50];    // How many 
 TAG_DANGERSOUND = getMissionConfigValue ["tag_c_sounddist", 50];    // How near the last 2 players have to be eachother for danger sound to start playing | Default: <NUMBER> 50
 
 // Circle settings
-TAG_CIRCLE_MIN = 100;  // Minimum size of circle
+TAG_CIRCLE_MIN = 50;  // Minimum size of circle
 
 // Colors
 TAG_COLOR_RED = "#ff0000"; // Bright red

@@ -10,7 +10,7 @@ tag_c_sounddist = 50;        // How near the last 2 players have to be eachother
 // Circle
 tag_c_interval = 60; // Frequency in seconds the circle should update
 tag_c_shrink = 10;   // Shrink the circle by this many meters everytime it updates
-tag_c_minSize = 30;  // Stop shrinking circle when it hits this radius
+tag_c_minSize = 20;  // Stop shrinking circle when it hits this radius
 
 // Score
 tag_c_base_score = 100;  // Base score for 1 kill

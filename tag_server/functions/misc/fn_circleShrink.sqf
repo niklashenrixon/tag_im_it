@@ -26,7 +26,7 @@ _par = params [["_interval", 30], ["_shrink", 10], ["_smallest", 40], "_size"];
 if(!_par) then {
 	_interval = getMissionConfigValue ["tag_c_interval", 60];
 	_shrink = getMissionConfigValue ["tag_c_shrink", 10];
-	_smallest = getMissionConfigValue ["tag_c_minSize", 30];
+	_smallest = getMissionConfigValue ["tag_c_minSize", 20];
 };
 
 tag_updateCircle = true;
