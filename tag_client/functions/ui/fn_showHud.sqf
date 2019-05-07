@@ -14,7 +14,7 @@ _txtAMMO  = _disp displayCtrl 8632;
 _txtMODE  = _disp displayCtrl 8633;
 _txtRANGE = _disp displayCtrl 8640;
 
-while {!isNull _disp} do {
+_id = addMissionEventHandler ["EachFrame", {
 
 	_mags = { _x in getArray (configFile >> "CFGWeapons" >> (currentWeapon player) >> "magazines") } count (magazines player);
 
@@ -43,4 +43,9 @@ while {!isNull _disp} do {
 	_txtIT ctrlSetText format ["%1", itText];
 	_txtHP ctrlSetText format ["HEALTH: %1%2", round((1 - (damage player)) * 100), "%"];
 	_txtUL ctrlSetText format ["PLAYERS LEFT: %1", count playableUnits];
+
+}];
+
+if(isNull _disp) then {
+	removeMissionEventHandler ["EachFrame", _id]; //Remove the third index under type "EachFrame"
 };
