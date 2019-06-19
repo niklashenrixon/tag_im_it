@@ -3,9 +3,9 @@
 // ////////////////////////////
 
 // General
-tag_c_debugmode = 0;         // 0 = ERRORs only | 1 = ERROR+DEBUG | 2 = ERROR+DEBUG+DEEPDEBUG
-tag_c_cmdPassword = "admin"; // This must match the admin password set on the server
-tag_c_sounddist = 50;        // How near the last 2 players have to be eachother for danger sound to start playing
+tag_c_debugmode = 0;            // 0 = ERRORs only | 1 = ERROR+DEBUG | 2 = ERROR+DEBUG+DEEPDEBUG
+tag_c_cmdPassword = "password"; // This must match the admin password set on the server
+tag_c_sounddist = 50;           // How near the last 2 players have to be eachother for danger sound to start playing
 
 // Circle
 tag_c_interval = 60; // Frequency in seconds the circle should update
